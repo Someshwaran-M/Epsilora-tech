@@ -13,14 +13,15 @@ import Contact from "./pages/Contact";
 ========================================================= */
 
 import Datastorage from "./technology/hardware/Datastorage";
-import PcServer from "./technology/hardware/Pc&Server";
-import ServerServer from "./technology/hardware/Server&Server";
+import PcServer from "./technology/hardware/PcServer";
+import ServerServer from "./technology/hardware/ServerServer";
 
 /* =========================================================
    SERVICES PAGES
 ========================================================= */
 
-import ConsultingProfessional from "./technology/services/Consulting&Professional";
+import ConsultingProfessional from "./technology/services/ConsultingProfessional";
+
 /* =========================================================
    SOLUTIONS PAGES
 ========================================================= */
@@ -28,7 +29,7 @@ import ConsultingProfessional from "./technology/services/Consulting&Professiona
 import Cloud from "./technology/solutions/Cloud";
 import DataCenter from "./technology/solutions/DataCenter";
 import Emerging from "./technology/solutions/Emerging";
-import InformationCyber from "./technology/solutions/Information&Cyber";
+import InformationCyber from "./technology/solutions/InformationCyber";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -41,7 +42,6 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-
   /* =========================================================
      LOADER
   ========================================================= */
@@ -50,7 +50,6 @@ function App() {
     return <Loader />;
   }
 
-
   return (
     <>
       {/* =====================================================
@@ -58,7 +57,6 @@ function App() {
       ===================================================== */}
 
       <Navbar />
-
 
       {/* =====================================================
           ROUTES
@@ -75,7 +73,6 @@ function App() {
           element={<Home />}
         />
 
-
         {/* ===================================================
             CONTACT
         =================================================== */}
@@ -84,7 +81,6 @@ function App() {
           path="/contact"
           element={<Contact />}
         />
-
 
         {/* ===================================================
             HARDWARE
@@ -96,20 +92,17 @@ function App() {
           element={<Datastorage />}
         />
 
-
         {/* PC & Server */}
         <Route
           path="/technology/hardware/pc-server"
           element={<PcServer />}
         />
 
-
         {/* Server & Server Management */}
         <Route
           path="/technology/hardware/server-server-management"
           element={<ServerServer />}
         />
-
 
         {/* ===================================================
             SERVICES
@@ -120,32 +113,36 @@ function App() {
           path="/technology/services/consulting-professional"
           element={<ConsultingProfessional />}
         />
+
         {/* ===================================================
-    SOLUTIONS
-=================================================== */}
+            SOLUTIONS
+        =================================================== */}
 
-<Route
-  path="/technology/solutions/cloud"
-  element={<Cloud />}
-/>
+        {/* Cloud */}
+        <Route
+          path="/technology/solutions/cloud"
+          element={<Cloud />}
+        />
 
-<Route
-  path="/technology/solutions/datacenter"
-  element={<DataCenter />}
-/>
+        {/* Data Center */}
+        <Route
+          path="/technology/solutions/datacenter"
+          element={<DataCenter />}
+        />
 
-<Route
-  path="/technology/solutions/emerging"
-  element={<Emerging />}
-/>
+        {/* Emerging Solutions */}
+        <Route
+          path="/technology/solutions/emerging"
+          element={<Emerging />}
+        />
 
-<Route
-  path="/technology/solutions/information-cyber"
-  element={<InformationCyber />}
-/>
+        {/* Information & Cyber Security */}
+        <Route
+          path="/technology/solutions/information-cyber"
+          element={<InformationCyber />}
+        />
 
       </Routes>
-
 
       {/* =====================================================
           FOOTER
