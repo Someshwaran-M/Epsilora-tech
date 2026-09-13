@@ -12,6 +12,8 @@ import {
 import About from "./About";
 import { motion } from "framer-motion";
 import Service from "./Service";
+import Products from "./Products";
+import Process from "./Process";
 import Testimonials from "./Testimonials";
 import Faq from "./Faq";
 
@@ -237,6 +239,12 @@ const Home = () => {
 
       {/* SERVICE */}
       <Service />
+
+      {/* PRODUCTS & SOLUTIONS */}
+      <Products />
+
+      {/* OUR PROCESS */}
+      <Process />
 
       {/* TESTIMONIALS */}
       <Testimonials
