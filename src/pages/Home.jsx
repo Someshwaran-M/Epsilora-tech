@@ -16,6 +16,7 @@ import Products from "./Products";
 import Process from "./Process";
 import Testimonials from "./Testimonials";
 import Faq from "./Faq";
+import Innovation from "./Innovation";
 
 const Home = () => {
   const [showFaq, setShowFaq] = useState(false);
@@ -236,6 +237,8 @@ const Home = () => {
 
       {/* ABOUT */}
       <About />
+
+<Innovation />
 
       {/* SERVICE */}
       <Service />
