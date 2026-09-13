@@ -7,6 +7,7 @@ import {
   FiCpu,
   FiCheck,
 } from "react-icons/fi";
+import WhyEpsilora from "./WhyEpsilora";
 
 const About = () => {
   const capabilities = [
@@ -144,110 +145,7 @@ const About = () => {
       </section>
 
 
-
-
-      {/* =====================================================
-          WHY EPSILORA
-      ===================================================== */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-
-            {/* Left */}
-            <div>
-
-              <p className="text-[#9B5B35] font-semibold uppercase tracking-[0.2em] text-xs sm:text-sm mb-4">
-                Why EPSILORA
-              </p>
-
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-                A Technology Partner
-                <br />
-                <span className="text-[#062B49]">
-                  You Can Rely On
-                </span>
-              </h2>
-
-              <p className="mt-6 text-gray-600 leading-7 sm:leading-8 max-w-xl">
-                Our focus is simple — understand your technology
-                requirements, provide the right solutions and support
-                your organization throughout its technology journey.
-              </p>
-
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-3 mt-7 sm:mt-9 bg-[#062B49] text-white px-6 sm:px-7 py-3.5 sm:py-4 font-semibold hover:bg-[#9B5B35] transition-all duration-300"
-              >
-                Talk to Our Team
-                <FiArrowRight />
-              </a>
-
-            </div>
-
-
-            {/* Right */}
-            <div className="border-l-2 border-[#9B5B35] pl-6 sm:pl-8 lg:pl-10">
-
-              <div className="space-y-7 sm:space-y-9">
-
-                <div>
-                  <p className="text-4xl sm:text-5xl font-bold text-[#062B49]">
-                    01
-                  </p>
-
-                  <h3 className="mt-2 text-lg sm:text-xl font-bold">
-                    Understand
-                  </h3>
-
-                  <p className="mt-2 text-sm text-gray-500 leading-6">
-                    We understand your business and technology
-                    requirements before recommending a solution.
-                  </p>
-                </div>
-
-
-                <div>
-                  <p className="text-4xl sm:text-5xl font-bold text-[#062B49]">
-                    02
-                  </p>
-
-                  <h3 className="mt-2 text-lg sm:text-xl font-bold">
-                    Implement
-                  </h3>
-
-                  <p className="mt-2 text-sm text-gray-500 leading-6">
-                    We help deploy and integrate technology with
-                    reliability and efficiency.
-                  </p>
-                </div>
-
-
-                <div>
-                  <p className="text-4xl sm:text-5xl font-bold text-[#062B49]">
-                    03
-                  </p>
-
-                  <h3 className="mt-2 text-lg sm:text-xl font-bold">
-                    Support
-                  </h3>
-
-                  <p className="mt-2 text-sm text-gray-500 leading-6">
-                    We remain focused on long-term support,
-                    maintenance and technology success.
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
+<WhyEpsilora />
 
 
 
