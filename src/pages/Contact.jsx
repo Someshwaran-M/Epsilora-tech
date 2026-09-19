@@ -33,8 +33,8 @@ const Contact = () => {
     {
       icon: <FiMapPin />,
       title: "Our Office",
-      value: "India",
-      description: "Connect with our team",
+      value: "Chennai",
+      description: "Surapet, Chennai - 600066",
       link: "#location",
     },
     {
@@ -70,49 +70,90 @@ const Contact = () => {
       {/* =========================================================
           HERO SECTION
       ========================================================= */}
+
       <section className="relative overflow-hidden bg-[#062B49]">
 
         {/* Background Decorations */}
+
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#9B5B35]/20 blur-3xl" />
+
         <div className="absolute -bottom-40 -left-32 w-96 h-96 rounded-full bg-[#9B5B35]/10 blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-24 lg:py-28">
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.025]
+            bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)]
+            bg-[size:45px_45px]
+          "
+        />
+
+        <div
+          className="
+            relative
+            max-w-7xl
+            mx-auto
+            px-5
+            sm:px-8
+            lg:px-12
+            py-20
+            sm:py-24
+            lg:py-28
+          "
+        >
 
           <div className="max-w-3xl">
 
             <div className="flex items-center gap-3 mb-6">
+
               <span className="w-10 h-[2px] bg-[#9B5B35]" />
 
-              <span className="text-[#D8A47F] text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
+              <span
+                className="
+                  text-[#D8A47F]
+                  text-xs
+                  sm:text-sm
+                  font-semibold
+                  uppercase
+                  tracking-[0.2em]
+                "
+              >
                 Get In Touch
               </span>
+
             </div>
 
-            <h1 className="
-              text-4xl
-              sm:text-5xl
-              lg:text-6xl
-              font-bold
-              leading-tight
-              text-white
-            ">
+            <h1
+              className="
+                text-4xl
+                sm:text-5xl
+                lg:text-6xl
+                font-bold
+                leading-tight
+                text-white
+              "
+            >
               Let's Build Something
+
               <span className="block text-[#C9875D]">
                 Great Together.
               </span>
             </h1>
 
-            <p className="
-              mt-6
-              max-w-2xl
-              text-base
-              sm:text-lg
-              leading-8
-              text-white/70
-            ">
-              Have a technology requirement, project idea, or business
-              challenge? Connect with Epsilora Technology and let our
-              experts help you find the right solution.
+            <p
+              className="
+                mt-6
+                max-w-2xl
+                text-base
+                sm:text-lg
+                leading-8
+                text-white/70
+              "
+            >
+              Have a technology requirement, project idea, or
+              business challenge? Connect with Epsilora Technology
+              and let our experts help you find the right solution.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -168,26 +209,30 @@ const Contact = () => {
           </div>
 
         </div>
+
       </section>
 
 
       {/* =========================================================
           CONTACT CARDS
       ========================================================= */}
+
       <section className="relative -mt-8 sm:-mt-10 z-10 px-4 sm:px-6">
 
-        <div className="
-          max-w-7xl
-          mx-auto
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          lg:grid-cols-4
-          bg-white
-          shadow-xl
-          border
-          border-gray-100
-        ">
+        <div
+          className="
+            max-w-7xl
+            mx-auto
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+            bg-white
+            shadow-xl
+            border
+            border-gray-100
+          "
+        >
 
           {contactDetails.map((item, index) => (
             <a
@@ -212,40 +257,46 @@ const Contact = () => {
               `}
             >
 
-              <div className="
-                flex
-                shrink-0
-                items-center
-                justify-center
-                w-11
-                h-11
-                bg-[#062B49]
-                text-white
-                group-hover:bg-[#9B5B35]
-                transition-all
-                duration-300
-              ">
+              <div
+                className="
+                  flex
+                  shrink-0
+                  items-center
+                  justify-center
+                  w-11
+                  h-11
+                  bg-[#062B49]
+                  text-white
+                  group-hover:bg-[#9B5B35]
+                  transition-all
+                  duration-300
+                "
+              >
                 {item.icon}
               </div>
 
               <div>
+
                 <p className="text-xs uppercase tracking-wider text-gray-500">
                   {item.title}
                 </p>
 
-                <h3 className="
-                  mt-1
-                  text-sm
-                  sm:text-base
-                  font-bold
-                  text-[#062B49]
-                ">
+                <h3
+                  className="
+                    mt-1
+                    text-sm
+                    sm:text-base
+                    font-bold
+                    text-[#062B49]
+                  "
+                >
                   {item.value}
                 </h3>
 
                 <p className="mt-1 text-xs text-gray-500">
                   {item.description}
                 </p>
+
               </div>
 
             </a>
@@ -259,66 +310,90 @@ const Contact = () => {
       {/* =========================================================
           CONTACT FORM + INTRO
       ========================================================= */}
+
       <section
         id="contact-form"
-        className="px-5 sm:px-8 lg:px-12 py-20 sm:py-24 lg:py-28"
+        className="
+          px-5
+          sm:px-8
+          lg:px-12
+          py-20
+          sm:py-24
+          lg:py-28
+        "
       >
 
-        <div className="
-          max-w-7xl
-          mx-auto
-          grid
-          grid-cols-1
-          lg:grid-cols-2
-          gap-12
-          lg:gap-20
-          items-start
-        ">
+        <div
+          className="
+            max-w-7xl
+            mx-auto
+            grid
+            grid-cols-1
+            lg:grid-cols-2
+            gap-12
+            lg:gap-20
+            items-start
+          "
+        >
 
-          {/* LEFT CONTENT */}
+          {/* =====================================================
+              LEFT CONTENT
+          ===================================================== */}
+
           <div>
 
             <div className="flex items-center gap-3 mb-5">
+
               <span className="w-9 h-[2px] bg-[#9B5B35]" />
 
-              <span className="
-                text-[#9B5B35]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.18em]
-              ">
+              <span
+                className="
+                  text-[#9B5B35]
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                "
+              >
                 Start A Conversation
               </span>
+
             </div>
 
-            <h2 className="
-              text-3xl
-              sm:text-4xl
-              lg:text-5xl
-              font-bold
-              leading-tight
-              text-[#062B49]
-            ">
+            <h2
+              className="
+                text-3xl
+                sm:text-4xl
+                lg:text-5xl
+                font-bold
+                leading-tight
+                text-[#062B49]
+              "
+            >
               Tell Us What
+
               <span className="block text-[#9B5B35]">
                 You Need.
               </span>
             </h2>
 
-            <p className="
-              mt-6
-              text-gray-600
-              leading-7
-              max-w-xl
-            ">
+            <p
+              className="
+                mt-6
+                text-gray-600
+                leading-7
+                max-w-xl
+              "
+            >
               Whether you are planning a new IT infrastructure,
               strengthening cybersecurity, moving to the cloud, or
               looking for reliable technology products, our team is
               ready to understand your requirements.
             </p>
 
-            {/* Benefits */}
+
+            {/* BENEFITS */}
+
             <div className="mt-8 space-y-4">
 
               {[
@@ -331,6 +406,7 @@ const Contact = () => {
                   key={text}
                   className="flex items-center gap-3"
                 >
+
                   <FiCheckCircle
                     className="text-[#9B5B35] shrink-0"
                     size={19}
@@ -339,38 +415,46 @@ const Contact = () => {
                   <span className="text-sm text-gray-700">
                     {text}
                   </span>
+
                 </div>
               ))}
 
             </div>
 
-            {/* Direct Contact */}
-            <div className="
-              mt-10
-              p-5
-              sm:p-6
-              bg-[#062B49]
-              flex
-              flex-col
-              sm:flex-row
-              sm:items-center
-              gap-4
-            ">
 
-              <div className="
-                w-12
-                h-12
-                shrink-0
+            {/* DIRECT CONTACT */}
+
+            <div
+              className="
+                mt-10
+                p-5
+                sm:p-6
+                bg-[#062B49]
                 flex
-                items-center
-                justify-center
-                bg-[#9B5B35]
-                text-white
-              ">
+                flex-col
+                sm:flex-row
+                sm:items-center
+                gap-4
+              "
+            >
+
+              <div
+                className="
+                  w-12
+                  h-12
+                  shrink-0
+                  flex
+                  items-center
+                  justify-center
+                  bg-[#9B5B35]
+                  text-white
+                "
+              >
                 <FiHeadphones size={21} />
               </div>
 
               <div>
+
                 <p className="text-xs text-white/60 uppercase tracking-wider">
                   Need immediate assistance?
                 </p>
@@ -388,6 +472,7 @@ const Contact = () => {
                 >
                   +91 00000 00000
                 </a>
+
               </div>
 
             </div>
@@ -398,36 +483,43 @@ const Contact = () => {
           {/* =====================================================
               FORM
           ===================================================== */}
-          <div className="
-            bg-white
-            border
-            border-gray-200
-            shadow-lg
-            p-6
-            sm:p-8
-            lg:p-10
-          ">
+
+          <div
+            className="
+              bg-white
+              border
+              border-gray-200
+              shadow-lg
+              p-6
+              sm:p-8
+              lg:p-10
+            "
+          >
 
             <div className="mb-7">
 
-              <div className="
-                w-12
-                h-12
-                flex
-                items-center
-                justify-center
-                bg-[#062B49]
-                text-white
-                mb-5
-              ">
+              <div
+                className="
+                  w-12
+                  h-12
+                  flex
+                  items-center
+                  justify-center
+                  bg-[#062B49]
+                  text-white
+                  mb-5
+                "
+              >
                 <FiMessageSquare size={21} />
               </div>
 
-              <h3 className="
-                text-2xl
-                font-bold
-                text-[#062B49]
-              ">
+              <h3
+                className="
+                  text-2xl
+                  font-bold
+                  text-[#062B49]
+                "
+              >
                 Send Us An Enquiry
               </h3>
 
@@ -441,16 +533,20 @@ const Contact = () => {
             <form className="space-y-5">
 
               {/* NAME */}
+
               <div>
-                <label className="
-                  block
-                  mb-2
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-wider
-                  text-[#062B49]
-                ">
+
+                <label
+                  className="
+                    block
+                    mb-2
+                    text-xs
+                    font-semibold
+                    uppercase
+                    tracking-wider
+                    text-[#062B49]
+                  "
+                >
                   Full Name
                 </label>
 
@@ -471,22 +567,27 @@ const Contact = () => {
                     transition
                   "
                 />
+
               </div>
 
 
               {/* EMAIL + PHONE */}
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                 <div>
-                  <label className="
-                    block
-                    mb-2
-                    text-xs
-                    font-semibold
-                    uppercase
-                    tracking-wider
-                    text-[#062B49]
-                  ">
+
+                  <label
+                    className="
+                      block
+                      mb-2
+                      text-xs
+                      font-semibold
+                      uppercase
+                      tracking-wider
+                      text-[#062B49]
+                    "
+                  >
                     Email
                   </label>
 
@@ -506,18 +607,22 @@ const Contact = () => {
                       transition
                     "
                   />
+
                 </div>
 
                 <div>
-                  <label className="
-                    block
-                    mb-2
-                    text-xs
-                    font-semibold
-                    uppercase
-                    tracking-wider
-                    text-[#062B49]
-                  ">
+
+                  <label
+                    className="
+                      block
+                      mb-2
+                      text-xs
+                      font-semibold
+                      uppercase
+                      tracking-wider
+                      text-[#062B49]
+                    "
+                  >
                     Phone
                   </label>
 
@@ -537,22 +642,27 @@ const Contact = () => {
                       transition
                     "
                   />
+
                 </div>
 
               </div>
 
 
               {/* COMPANY */}
+
               <div>
-                <label className="
-                  block
-                  mb-2
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-wider
-                  text-[#062B49]
-                ">
+
+                <label
+                  className="
+                    block
+                    mb-2
+                    text-xs
+                    font-semibold
+                    uppercase
+                    tracking-wider
+                    text-[#062B49]
+                  "
+                >
                   Company
                 </label>
 
@@ -572,20 +682,25 @@ const Contact = () => {
                     transition
                   "
                 />
+
               </div>
 
 
               {/* SERVICE */}
+
               <div>
-                <label className="
-                  block
-                  mb-2
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-wider
-                  text-[#062B49]
-                ">
+
+                <label
+                  className="
+                    block
+                    mb-2
+                    text-xs
+                    font-semibold
+                    uppercase
+                    tracking-wider
+                    text-[#062B49]
+                  "
+                >
                   Requirement
                 </label>
 
@@ -605,6 +720,7 @@ const Contact = () => {
                   "
                   defaultValue=""
                 >
+
                   <option value="" disabled>
                     Select your requirement
                   </option>
@@ -616,21 +732,27 @@ const Contact = () => {
                   <option>Emerging Technology</option>
                   <option>Professional Services</option>
                   <option>Other</option>
+
                 </select>
+
               </div>
 
 
               {/* MESSAGE */}
+
               <div>
-                <label className="
-                  block
-                  mb-2
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-wider
-                  text-[#062B49]
-                ">
+
+                <label
+                  className="
+                    block
+                    mb-2
+                    text-xs
+                    font-semibold
+                    uppercase
+                    tracking-wider
+                    text-[#062B49]
+                  "
+                >
                   Message
                 </label>
 
@@ -651,10 +773,12 @@ const Contact = () => {
                     transition
                   "
                 />
+
               </div>
 
 
               {/* BUTTON */}
+
               <button
                 type="submit"
                 className="
@@ -691,33 +815,50 @@ const Contact = () => {
       {/* =========================================================
           SERVICES SECTION
       ========================================================= */}
-      <section className="bg-[#f8f6f4] px-5 sm:px-8 lg:px-12 py-20 sm:py-24">
+
+      <section
+        className="
+          bg-[#f8f6f4]
+          px-5
+          sm:px-8
+          lg:px-12
+          py-20
+          sm:py-24
+        "
+      >
 
         <div className="max-w-7xl mx-auto">
 
           <div className="max-w-2xl mb-12">
 
             <div className="flex items-center gap-3 mb-5">
+
               <span className="w-9 h-[2px] bg-[#9B5B35]" />
 
-              <span className="
-                text-[#9B5B35]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.18em]
-              ">
+              <span
+                className="
+                  text-[#9B5B35]
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                "
+              >
                 Our Expertise
               </span>
+
             </div>
 
-            <h2 className="
-              text-3xl
-              sm:text-4xl
-              font-bold
-              text-[#062B49]
-            ">
+            <h2
+              className="
+                text-3xl
+                sm:text-4xl
+                font-bold
+                text-[#062B49]
+              "
+            >
               How Can We
+
               <span className="text-[#9B5B35]">
                 {" "}Help You?
               </span>
@@ -731,12 +872,14 @@ const Contact = () => {
           </div>
 
 
-          <div className="
-            grid
-            grid-cols-1
-            md:grid-cols-3
-            gap-5
-          ">
+          <div
+            className="
+              grid
+              grid-cols-1
+              md:grid-cols-3
+              gap-5
+            "
+          >
 
             {services.map((service) => (
               <div
@@ -755,36 +898,42 @@ const Contact = () => {
                 "
               >
 
-                <div className="
-                  w-12
-                  h-12
-                  flex
-                  items-center
-                  justify-center
-                  bg-[#062B49]
-                  text-white
-                  group-hover:bg-[#9B5B35]
-                  transition-all
-                  duration-300
-                ">
+                <div
+                  className="
+                    w-12
+                    h-12
+                    flex
+                    items-center
+                    justify-center
+                    bg-[#062B49]
+                    text-white
+                    group-hover:bg-[#9B5B35]
+                    transition-all
+                    duration-300
+                  "
+                >
                   {service.icon}
                 </div>
 
-                <h3 className="
-                  mt-6
-                  text-lg
-                  font-bold
-                  text-[#062B49]
-                ">
+                <h3
+                  className="
+                    mt-6
+                    text-lg
+                    font-bold
+                    text-[#062B49]
+                  "
+                >
                   {service.title}
                 </h3>
 
-                <p className="
-                  mt-3
-                  text-sm
-                  leading-6
-                  text-gray-600
-                ">
+                <p
+                  className="
+                    mt-3
+                    text-sm
+                    leading-6
+                    text-gray-600
+                  "
+                >
                   {service.text}
                 </p>
 
@@ -819,92 +968,148 @@ const Contact = () => {
       {/* =========================================================
           LOCATION SECTION
       ========================================================= */}
+
       <section
         id="location"
-        className="px-5 sm:px-8 lg:px-12 py-20 sm:py-24"
+        className="
+          px-5
+          sm:px-8
+          lg:px-12
+          py-20
+          sm:py-24
+        "
       >
 
-        <div className="
-          max-w-7xl
-          mx-auto
-          grid
-          grid-cols-1
-          lg:grid-cols-2
-          gap-10
-          lg:gap-16
-          items-center
-        ">
+        <div
+          className="
+            max-w-7xl
+            mx-auto
+            grid
+            grid-cols-1
+            lg:grid-cols-2
+            gap-10
+            lg:gap-16
+            items-center
+          "
+        >
 
-          {/* LOCATION INFO */}
+          {/* =====================================================
+              LOCATION INFO
+          ===================================================== */}
+
           <div>
 
             <div className="flex items-center gap-3 mb-5">
+
               <span className="w-9 h-[2px] bg-[#9B5B35]" />
 
-              <span className="
-                text-[#9B5B35]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.18em]
-              ">
+              <span
+                className="
+                  text-[#9B5B35]
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                "
+              >
                 Find Us
               </span>
+
             </div>
 
-            <h2 className="
-              text-3xl
-              sm:text-4xl
-              font-bold
-              text-[#062B49]
-            ">
+            <h2
+              className="
+                text-3xl
+                sm:text-4xl
+                font-bold
+                text-[#062B49]
+              "
+            >
               Connect With
+
               <span className="block text-[#9B5B35]">
                 Epsilora Technology
               </span>
             </h2>
 
-            <p className="
-              mt-5
-              text-gray-600
-              leading-7
-              max-w-xl
-            ">
+            <p
+              className="
+                mt-5
+                text-gray-600
+                leading-7
+                max-w-xl
+              "
+            >
               Our team is available to discuss your technology
               requirements and help you identify the right
               solutions for your organization.
             </p>
 
+
+            {/* ADDRESS */}
+
             <div className="mt-8 flex gap-4">
 
-              <div className="
-                w-12
-                h-12
-                shrink-0
-                flex
-                items-center
-                justify-center
-                bg-[#9B5B35]
-                text-white
-              ">
+              <div
+                className="
+                  w-12
+                  h-12
+                  shrink-0
+                  flex
+                  items-center
+                  justify-center
+                  bg-[#9B5B35]
+                  text-white
+                "
+              >
                 <FiMapPin />
               </div>
 
               <div>
+
                 <h3 className="font-bold text-[#062B49]">
                   Epsilora Technology
                 </h3>
 
-                <p className="
-                  mt-1
-                  text-sm
-                  text-gray-600
-                  leading-6
-                ">
-                  India
+                <p
+                  className="
+                    mt-2
+                    text-sm
+                    text-gray-600
+                    leading-6
+                  "
+                >
+                  No. 378, Sudhiksha Apartment,
                   <br />
-                  Contact our team for office and business enquiries.
+                  Second Floor, S1,
+                  <br />
+                  Sivaprakasam Nagar 2nd Main Road,
+                  <br />
+                  Surapet,
+                  <br />
+                  Chennai – 600066
                 </p>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=No.+378,+Sudhiksha+Apartment,+Second+Floor,+S1,+Sivaprakasam+Nagar+2nd+Main+Road,+Surapet,+Chennai+-+600066"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    mt-5
+                    inline-flex
+                    items-center
+                    gap-2
+                    text-sm
+                    font-semibold
+                    text-[#9B5B35]
+                    hover:text-[#062B49]
+                    transition
+                  "
+                >
+                  Open In Google Maps
+                  <FiArrowRight size={15} />
+                </a>
+
               </div>
 
             </div>
@@ -912,152 +1117,128 @@ const Contact = () => {
           </div>
 
 
-          {/* MAP PLACEHOLDER */}
-          <div className="
-            min-h-[320px]
-            sm:min-h-[380px]
-            bg-[#062B49]
-            relative
-            overflow-hidden
-            flex
-            items-center
-            justify-center
-          ">
+          {/* =====================================================
+              GOOGLE MAP
+          ===================================================== */}
 
-            {/* Grid */}
-            <div className="
-              absolute
-              inset-0
-              opacity-10
-              bg-[linear-gradient(#ffffff_1px,transparent_1px),linear-gradient(90deg,#ffffff_1px,transparent_1px)]
-              bg-[size:40px_40px]
-            " />
-
-            <div className="relative text-center px-6">
-
-              <div className="
-                mx-auto
-                w-16
-                h-16
-                flex
-                items-center
-                justify-center
-                bg-[#9B5B35]
-                text-white
-              ">
-                <FiMapPin size={27} />
-              </div>
-
-              <h3 className="
-                mt-5
-                text-xl
-                font-bold
-                text-white
-              ">
-                Epsilora Technology
-              </h3>
-
-              <p className="
-                mt-2
-                text-sm
-                text-white/60
-              ">
-                India
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          FINAL CTA
-      ========================================================= */}
-      <section className="px-5 sm:px-8 lg:px-12 pb-20 sm:pb-24">
-
-        <div className="
-          max-w-7xl
-          mx-auto
-          bg-[#062B49]
-          px-6
-          sm:px-10
-          lg:px-16
-          py-12
-          sm:py-14
-          lg:py-16
-          flex
-          flex-col
-          lg:flex-row
-          lg:items-center
-          lg:justify-between
-          gap-8
-        ">
-
-          <div>
-
-            <p className="
-              text-[#D8A47F]
-              text-xs
-              font-semibold
-              uppercase
-              tracking-[0.18em]
-            ">
-              Let's Work Together
-            </p>
-
-            <h2 className="
-              mt-3
-              text-2xl
-              sm:text-3xl
-              lg:text-4xl
-              font-bold
-              text-white
-            ">
-              Ready to transform your
-              <span className="text-[#C9875D]">
-                {" "}technology?
-              </span>
-            </h2>
-
-            <p className="
-              mt-3
-              max-w-xl
-              text-sm
-              sm:text-base
-              text-white/60
-            ">
-              Tell us about your requirement and our experts
-              will help you take the next step.
-            </p>
-
-          </div>
-
-          <a
-            href="#contact-form"
+          <div
             className="
-              shrink-0
-              inline-flex
-              items-center
-              justify-center
-              gap-3
-              px-7
-              py-4
-              bg-[#9B5B35]
-              hover:bg-[#844A2A]
-              text-white
-              font-semibold
-              text-sm
-              transition-all
-              duration-300
+              relative
+              min-h-[320px]
+              sm:min-h-[380px]
+              lg:min-h-[450px]
+              overflow-hidden
+              border
+              border-gray-200
+              shadow-xl
+              bg-gray-100
             "
           >
-            Contact Our Team
-            <FiArrowRight />
-          </a>
+
+            <iframe
+              title="Epsilora Technology Location"
+              src="https://www.google.com/maps?q=No.+378,+Sudhiksha+Apartment,+Second+Floor,+S1,+Sivaprakasam+Nagar+2nd+Main+Road,+Surapet,+Chennai+-+600066&output=embed"
+              className="
+                absolute
+                inset-0
+                w-full
+                h-full
+                border-0
+              "
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+
+
+            {/* MAP ADDRESS OVERLAY */}
+
+            <div
+              className="
+                absolute
+                left-4
+                right-4
+                bottom-4
+                sm:left-5
+                sm:right-auto
+                sm:max-w-sm
+                bg-[#062B49]/95
+                backdrop-blur-md
+                border
+                border-white/10
+                p-4
+                sm:p-5
+                shadow-2xl
+              "
+            >
+
+              <div className="flex items-start gap-3">
+
+                <div
+                  className="
+                    shrink-0
+                    w-10
+                    h-10
+                    flex
+                    items-center
+                    justify-center
+                    bg-[#9B5B35]
+                    text-white
+                  "
+                >
+                  <FiMapPin size={19} />
+                </div>
+
+                <div>
+
+                  <p
+                    className="
+                      text-[10px]
+                      uppercase
+                      tracking-[0.15em]
+                      text-[#D8A47F]
+                      font-semibold
+                    "
+                  >
+                    Our Location
+                  </p>
+
+                  <h3
+                    className="
+                      mt-1
+                      text-sm
+                      font-bold
+                      text-white
+                    "
+                  >
+                    Epsilora Technology
+                  </h3>
+
+                  <p
+                    className="
+                      mt-1
+                      text-xs
+                      sm:text-sm
+                      leading-5
+                      text-white/65
+                    "
+                  >
+                    No. 378, Sudhiksha Apartment,
+                    <br />
+                    Second Floor, S1,
+                    <br />
+                    Sivaprakasam Nagar 2nd Main Road,
+                    <br />
+                    Surapet, Chennai – 600066
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 

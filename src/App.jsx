@@ -31,6 +31,13 @@ import DataCenter from "./technology/solutions/DataCenter";
 import Emerging from "./technology/solutions/Emerging";
 import InformationCyber from "./technology/solutions/InformationCyber";
 
+/* =========================================================
+   PARTNERS PAGE
+========================================================= */
+
+import Partners from "./technology/partners/Partners";
+
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -58,6 +65,7 @@ function App() {
 
       <Navbar />
 
+
       {/* =====================================================
           ROUTES
       ===================================================== */}
@@ -73,6 +81,7 @@ function App() {
           element={<Home />}
         />
 
+
         {/* ===================================================
             CONTACT
         =================================================== */}
@@ -82,67 +91,94 @@ function App() {
           element={<Contact />}
         />
 
+
         {/* ===================================================
             HARDWARE
         =================================================== */}
 
         {/* Data Storage */}
+
         <Route
           path="/technology/hardware/datastorage"
           element={<Datastorage />}
         />
 
+
         {/* PC & Server */}
+
         <Route
           path="/technology/hardware/pc-server"
           element={<PcServer />}
         />
 
+
         {/* Server & Server Management */}
+
         <Route
           path="/technology/hardware/server-server-management"
           element={<ServerServer />}
         />
+
 
         {/* ===================================================
             SERVICES
         =================================================== */}
 
         {/* Consulting & Professional Services */}
+
         <Route
           path="/technology/services/consulting-professional"
           element={<ConsultingProfessional />}
         />
+
 
         {/* ===================================================
             SOLUTIONS
         =================================================== */}
 
         {/* Cloud */}
+
         <Route
           path="/technology/solutions/cloud"
           element={<Cloud />}
         />
 
+
         {/* Data Center */}
+
         <Route
           path="/technology/solutions/datacenter"
           element={<DataCenter />}
         />
 
-        {/* Emerging Solutions */}
+
+        {/* Emerging Technology */}
+
         <Route
           path="/technology/solutions/emerging"
           element={<Emerging />}
         />
 
+
         {/* Information & Cyber Security */}
+
         <Route
           path="/technology/solutions/information-cyber"
           element={<InformationCyber />}
         />
 
+
+        {/* ===================================================
+            BRAND PARTNERS
+        =================================================== */}
+
+        <Route
+          path="/technology/partners"
+          element={<Partners />}
+        />
+
       </Routes>
+
 
       {/* =====================================================
           FOOTER
