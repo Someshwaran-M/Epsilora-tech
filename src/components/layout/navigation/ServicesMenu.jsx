@@ -6,6 +6,7 @@ const ServicesMenu = ({
   openMenu,
   handleMenu,
   setOpenMenu,
+  closeMobileNavigation,
 }) => {
   const categories = [
     {
@@ -16,12 +17,31 @@ const ServicesMenu = ({
     },
   ];
 
+  /* =====================================================
+     SERVICES BUTTON
+  ====================================================== */
+
   const handleServicesClick = () => {
     handleMenu("services");
   };
 
+  /* =====================================================
+     CLOSE AFTER SUBMENU SELECTION
+     
+     Mobile:
+     - Close submenu
+     - Close complete hamburger navigation
+     
+     Desktop:
+     - Close dropdown
+  ====================================================== */
+
   const handleClose = () => {
-    setOpenMenu(null);
+    if (closeMobileNavigation) {
+      closeMobileNavigation();
+    } else {
+      setOpenMenu(null);
+    }
   };
 
   return (
@@ -29,7 +49,7 @@ const ServicesMenu = ({
 
       {/* =====================================================
           SERVICES BUTTON
-      ===================================================== */}
+      ====================================================== */}
 
       <button
         type="button"
@@ -110,7 +130,9 @@ const ServicesMenu = ({
           "
         >
 
-          {/* HEADER */}
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div
             className="
@@ -163,7 +185,9 @@ const ServicesMenu = ({
           </div>
 
 
-          {/* ONLY SERVICE CATEGORY */}
+          {/* =================================================
+              SERVICE CATEGORY
+          ================================================= */}
 
           <div className="p-3 sm:p-4">
 
@@ -275,7 +299,9 @@ const ServicesMenu = ({
           "
         >
 
-          {/* HEADER */}
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div
             className="
@@ -321,7 +347,9 @@ const ServicesMenu = ({
           </div>
 
 
-          {/* ONLY SERVICE CATEGORY */}
+          {/* =================================================
+              SERVICE CATEGORY
+          ================================================= */}
 
           <div className="p-3">
 

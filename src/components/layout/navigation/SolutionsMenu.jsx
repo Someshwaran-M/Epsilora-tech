@@ -6,6 +6,7 @@ const SolutionsMenu = ({
   openMenu,
   handleMenu,
   setOpenMenu,
+  closeMobileNavigation,
 }) => {
   const categories = [
     {
@@ -34,12 +35,31 @@ const SolutionsMenu = ({
     },
   ];
 
+  /* =====================================================
+     SOLUTIONS BUTTON
+  ====================================================== */
+
   const handleSolutionsClick = () => {
     handleMenu("solutions");
   };
 
+  /* =====================================================
+     CLOSE AFTER SUBMENU SELECTION
+     
+     Mobile:
+     - Close submenu
+     - Close complete hamburger navigation
+     
+     Desktop:
+     - Close dropdown
+  ====================================================== */
+
   const handleClose = () => {
-    setOpenMenu(null);
+    if (closeMobileNavigation) {
+      closeMobileNavigation();
+    } else {
+      setOpenMenu(null);
+    }
   };
 
   return (
@@ -47,7 +67,7 @@ const SolutionsMenu = ({
 
       {/* =====================================================
           SOLUTIONS BUTTON
-      ===================================================== */}
+      ====================================================== */}
 
       <button
         type="button"
@@ -92,7 +112,7 @@ const SolutionsMenu = ({
 
       {/* =====================================================
           MOBILE + TABLET
-      ===================================================== */}
+      ====================================================== */}
 
       {openMenu === "solutions" && (
         <div
@@ -128,7 +148,9 @@ const SolutionsMenu = ({
           "
         >
 
-          {/* HEADER */}
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div
             className="
@@ -181,7 +203,9 @@ const SolutionsMenu = ({
           </div>
 
 
-          {/* CATEGORY LIST */}
+          {/* =================================================
+              CATEGORY LIST
+          ================================================= */}
 
           <div className="p-3 sm:p-4">
 
@@ -265,7 +289,7 @@ const SolutionsMenu = ({
 
       {/* =====================================================
           DESKTOP
-      ===================================================== */}
+      ====================================================== */}
 
       {openMenu === "solutions" && (
         <div
@@ -294,7 +318,9 @@ const SolutionsMenu = ({
           "
         >
 
-          {/* HEADER */}
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div
             className="
@@ -342,7 +368,9 @@ const SolutionsMenu = ({
           </div>
 
 
-          {/* CATEGORY LIST */}
+          {/* =================================================
+              CATEGORY LIST
+          ================================================= */}
 
           <div className="p-3">
 

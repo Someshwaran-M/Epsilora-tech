@@ -1,10 +1,12 @@
 import React from "react";
 import { FiChevronDown, FiArrowRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const BrandPartnersMenu = ({
   openMenu,
   handleMenu,
   setOpenMenu,
+  closeMobileNavigation,
 }) => {
   const partners = [
     ["AWS", "/assets/partners/aws.png"],
@@ -27,9 +29,45 @@ const BrandPartnersMenu = ({
     ["ManageEngine", "/assets/partners/manageengine.png"],
   ];
 
+  /* =====================================================
+     OPEN PARTNERS PAGE
+  ====================================================== */
+
   const openPartnersPage = () => {
-    setOpenMenu(null);
+    if (closeMobileNavigation) {
+      closeMobileNavigation();
+    } else {
+      setOpenMenu(null);
+    }
+
     window.location.href = "/technology/partners";
+  };
+
+  /* =====================================================
+     PARTNERS BUTTON
+  ====================================================== */
+
+  const handlePartnersClick = () => {
+    handleMenu("partners");
+  };
+
+  /* =====================================================
+     CLOSE AFTER PARTNER SELECTION
+     
+     Mobile:
+     - Close complete hamburger navigation
+     - Close dropdown
+     
+     Desktop:
+     - Close dropdown
+  ====================================================== */
+
+  const handleClose = () => {
+    if (closeMobileNavigation) {
+      closeMobileNavigation();
+    } else {
+      setOpenMenu(null);
+    }
   };
 
   return (
@@ -37,39 +75,48 @@ const BrandPartnersMenu = ({
 
       {/* =====================================================
           BRAND PARTNERS BUTTON
-      ===================================================== */}
+      ====================================================== */}
 
       <button
         type="button"
-        onClick={() => handleMenu("Partners")}
+        onClick={handlePartnersClick}
         className="
           w-full
           lg:w-auto
+
           flex
           items-center
           justify-center
           gap-2
+
           px-5
           xl:px-6
+
           py-3.5
           lg:py-4
+
           text-white
           text-sm
           font-semibold
+
           hover:bg-[#9B5B35]
+
           transition-all
           duration-300
         "
       >
-        <span>Brand Partners</span>
+        <span>
+          Brand Partners
+        </span>
 
         <FiChevronDown
           size={14}
           className={`
             transition-transform
             duration-300
+
             ${
-              openMenu === "Partners"
+              openMenu === "partners"
                 ? "rotate-180"
                 : ""
             }
@@ -79,24 +126,29 @@ const BrandPartnersMenu = ({
 
 
       {/* =====================================================
-          DROPDOWN
-      ===================================================== */}
+          PARTNERS DROPDOWN
+      ====================================================== */}
 
-      {openMenu === "Partners" && (
+      {openMenu === "partners" && (
         <div
           className="
             fixed
+
             left-3
             right-3
             top-[72px]
+
             z-[9999]
 
             max-h-[calc(100vh-88px)]
+
             overflow-y-auto
 
             bg-white
+
             border
             border-gray-200
+
             border-t-4
             border-t-[#9B5B35]
 
@@ -118,10 +170,13 @@ const BrandPartnersMenu = ({
             lg:left-auto
             lg:right-0
             lg:top-full
+
             lg:w-[720px]
             lg:max-w-[720px]
+
             lg:max-h-[78vh]
             lg:overflow-y-auto
+
             lg:p-5
           "
         >
@@ -137,6 +192,7 @@ const BrandPartnersMenu = ({
               sm:flex-row
               sm:items-end
               sm:justify-between
+
               gap-4
               mb-5
             "
@@ -148,9 +204,12 @@ const BrandPartnersMenu = ({
                 className="
                   text-[10px]
                   sm:text-[11px]
+
                   uppercase
                   tracking-[0.18em]
+
                   text-[#9B5B35]
+
                   font-bold
                 "
               >
@@ -160,9 +219,12 @@ const BrandPartnersMenu = ({
               <h3
                 className="
                   mt-1
+
                   text-xl
                   sm:text-2xl
+
                   font-bold
+
                   text-[#062B49]
                 "
               >
@@ -172,10 +234,14 @@ const BrandPartnersMenu = ({
               <p
                 className="
                   mt-1
+
                   max-w-md
+
                   text-xs
                   sm:text-sm
+
                   text-gray-500
+
                   leading-5
                 "
               >
@@ -186,7 +252,9 @@ const BrandPartnersMenu = ({
             </div>
 
 
-            {/* VIEW ALL */}
+            {/* =================================================
+                VIEW ALL
+            ================================================= */}
 
             <button
               type="button"
@@ -195,16 +263,22 @@ const BrandPartnersMenu = ({
                 inline-flex
                 items-center
                 gap-2
+
                 self-start
                 sm:self-auto
+
                 text-xs
                 font-semibold
+
                 text-[#062B49]
+
                 hover:text-[#9B5B35]
+
                 transition-colors
               "
             >
               View All Partners
+
               <FiArrowRight size={13} />
             </button>
 
@@ -218,6 +292,7 @@ const BrandPartnersMenu = ({
           <div
             className="
               grid
+
               grid-cols-2
               sm:grid-cols-3
               md:grid-cols-4
@@ -225,18 +300,20 @@ const BrandPartnersMenu = ({
               gap-px
 
               bg-gray-200
+
               border
               border-gray-200
             "
           >
 
             {partners.map(([name, image]) => (
-              <a
+              <Link
                 key={name}
-                href="/technology/partners"
-                onClick={() => setOpenMenu(null)}
+                to="/technology/partners"
+                onClick={handleClose}
                 className="
                   group
+
                   relative
 
                   min-h-[82px]
@@ -262,30 +339,39 @@ const BrandPartnersMenu = ({
                 "
               >
 
-                {/* TOP ACCENT */}
+                {/* =================================================
+                    TOP ACCENT
+                ================================================= */}
 
                 <span
                   className="
                     absolute
                     top-0
                     left-0
+
                     w-0
                     h-[2px]
+
                     bg-[#9B5B35]
+
                     group-hover:w-full
+
                     transition-all
                     duration-500
                   "
                 />
 
 
-                {/* LOGO */}
+                {/* =================================================
+                    LOGO
+                ================================================= */}
 
                 <div
                   className="
                     h-9
                     sm:h-10
                     md:h-11
+
                     w-full
 
                     flex
@@ -324,17 +410,25 @@ const BrandPartnersMenu = ({
                 </div>
 
 
-                {/* NAME */}
+                {/* =================================================
+                    NAME
+                ================================================= */}
 
                 <span
                   className="
                     mt-2
+
                     text-[9px]
                     sm:text-[10px]
+
                     text-center
+
                     text-gray-500
+
                     group-hover:text-[#062B49]
+
                     font-medium
+
                     transition-colors
                     duration-300
                   "
@@ -342,7 +436,7 @@ const BrandPartnersMenu = ({
                   {name}
                 </span>
 
-              </a>
+              </Link>
             ))}
 
           </div>
@@ -356,6 +450,7 @@ const BrandPartnersMenu = ({
             className="
               mt-5
               pt-4
+
               border-t
               border-gray-100
 
@@ -364,6 +459,7 @@ const BrandPartnersMenu = ({
               sm:flex-row
               sm:items-center
               sm:justify-between
+
               gap-3
             "
           >
@@ -383,8 +479,10 @@ const BrandPartnersMenu = ({
               <p
                 className="
                   mt-1
+
                   text-[10px]
                   sm:text-xs
+
                   text-gray-500
                 "
               >
@@ -393,6 +491,10 @@ const BrandPartnersMenu = ({
 
             </div>
 
+
+            {/* =================================================
+                EXPLORE PARTNERS
+            ================================================= */}
 
             <button
               type="button"
@@ -421,6 +523,7 @@ const BrandPartnersMenu = ({
               "
             >
               Explore Partner Ecosystem
+
               <FiArrowRight size={13} />
             </button>
 

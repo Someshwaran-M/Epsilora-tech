@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FiCloud,
   FiShield,
@@ -35,6 +35,29 @@ const Cloud = () => {
     },
   ];
 
+  const [activeFoundation, setActiveFoundation] = useState(0);
+
+  const foundations = [
+    {
+      number: "01",
+      title: "Infrastructure",
+      description:
+        "Build a flexible and scalable cloud infrastructure designed to support modern applications, workloads and business operations with reliable performance.",
+    },
+    {
+      number: "02",
+      title: "Migration",
+      description:
+        "Move applications, workloads and business data to cloud environments through a structured migration approach designed to reduce disruption and support long-term scalability.",
+    },
+    {
+      number: "03",
+      title: "Security",
+      description:
+        "Protect cloud workloads, applications and critical business information with security-focused architecture, access controls and operational practices.",
+    },
+  ];
+
   const capabilities = [
     {
       icon: <FiServer />,
@@ -68,1260 +91,537 @@ const Cloud = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F7F8FA] text-[#062B49] overflow-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#F7F8FA] text-[#062B49]">
 
-      {/* =========================================================
+      {/* =====================================================
           HERO
-      ========================================================= */}
+      ===================================================== */}
 
-      <section className="relative min-h-[720px] lg:min-h-[760px] bg-[#062B49] overflow-hidden">
-
-        {/* Background Glow */}
-
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[#9B5B35]/20 blur-[120px]" />
-
-        <div className="absolute -bottom-40 -left-40 w-[450px] h-[450px] rounded-full bg-blue-400/10 blur-[120px]" />
-
-        {/* Grid */}
-
+      <section className="relative h-[220px] w-full overflow-hidden sm:h-[270px] md:h-[310px] lg:h-[340px]">
         <div
-          className="absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px)",
-            backgroundSize: "55px 55px",
-          }}
+          className="
+            cloud-hero-background
+            absolute
+            inset-0
+            bg-[url('/cloud.png')]
+            bg-cover
+            bg-center
+            bg-no-repeat
+          "
         />
-
-        {/* Hero Content */}
-
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-24 sm:pt-28 lg:pt-32 pb-20">
-
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-            {/* LEFT */}
-
-            <div>
-
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/15 bg-white/[0.05] backdrop-blur-md">
-
-                <span className="w-2 h-2 rounded-full bg-[#C9875D] animate-pulse" />
-
-                <span className="text-[#D89A72] text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em]">
-                  Technology Solutions
-                </span>
-
-              </div>
-
-              <h1 className="
-                mt-7
-                text-[3rem]
-                sm:text-5xl
-                lg:text-7xl
-                leading-[1.02]
-                font-bold
-                tracking-tight
-                text-white
-              ">
-                Cloud
-                <span className="block text-[#C9875D]">
-                  Solutions
-                </span>
-              </h1>
-
-              <p className="
-                mt-7
-                max-w-xl
-                text-sm
-                sm:text-base
-                lg:text-lg
-                leading-7
-                sm:leading-8
-                text-white/65
-              ">
-                Build a flexible digital foundation with scalable cloud
-                infrastructure, secure workloads and modern migration
-                solutions designed for evolving businesses.
-              </p>
-
-              <div className="
-                mt-9
-                flex
-                flex-col
-                sm:flex-row
-                gap-3
-              ">
-
-                <a
-                  href="/contact"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    gap-2
-                    w-full
-                    sm:w-auto
-                    px-7
-                    py-3.5
-                    rounded-lg
-                    bg-[#9B5B35]
-                    hover:bg-[#844A2A]
-                    text-white
-                    text-sm
-                    font-semibold
-                    transition-all
-                    duration-300
-                    shadow-xl
-                    shadow-[#9B5B35]/20
-                  "
-                >
-                  Explore Cloud Solutions
-                  <FiArrowRight />
-                </a>
-
-                <a
-                  href="#cloud-capabilities"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    w-full
-                    sm:w-auto
-                    px-7
-                    py-3.5
-                    rounded-lg
-                    border
-                    border-white/15
-                    bg-white/[0.04]
-                    hover:bg-white/[0.08]
-                    text-white
-                    text-sm
-                    font-semibold
-                    transition-all
-                  "
-                >
-                  View Capabilities
-                </a>
-
-              </div>
-
-            </div>
-
-
-            {/* RIGHT — CLOUD VISUAL */}
-
-            <div className="relative min-h-[400px] sm:min-h-[470px] flex items-center justify-center">
-
-              {/* Outer Rings */}
-
-              <div className="
-                absolute
-                w-[280px]
-                h-[280px]
-                sm:w-[380px]
-                sm:h-[380px]
-                lg:w-[440px]
-                lg:h-[440px]
-                rounded-full
-                border
-                border-white/10
-              " />
-
-              <div className="
-                absolute
-                w-[210px]
-                h-[210px]
-                sm:w-[290px]
-                sm:h-[290px]
-                lg:w-[340px]
-                lg:h-[340px]
-                rounded-full
-                border
-                border-[#9B5B35]/30
-              " />
-
-              {/* Main Cloud */}
-
-              <div className="
-                relative
-                z-10
-                w-44
-                h-44
-                sm:w-56
-                sm:h-56
-                lg:w-64
-                lg:h-64
-                rounded-[35%]
-                bg-gradient-to-br
-                from-white/[0.12]
-                to-white/[0.03]
-                border
-                border-white/15
-                backdrop-blur-xl
-                flex
-                items-center
-                justify-center
-                shadow-2xl
-                shadow-black/20
-              ">
-
-                <div className="
-                  w-24
-                  h-24
-                  sm:w-28
-                  sm:h-28
-                  lg:w-32
-                  lg:h-32
-                  rounded-full
-                  bg-[#9B5B35]/20
-                  border
-                  border-[#C9875D]/40
-                  flex
-                  items-center
-                  justify-center
-                  text-[#D89A72]
-                ">
-
-                  <FiCloud
-                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
-                  />
-
-                </div>
-
-              </div>
-
-
-              {/* Floating Card 1 */}
-
-              <div className="
-                absolute
-                top-5
-                right-0
-                sm:right-2
-                lg:right-4
-                z-20
-                px-4
-                py-3
-                rounded-xl
-                border
-                border-white/10
-                bg-white/[0.08]
-                backdrop-blur-xl
-                shadow-xl
-              ">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="
-                    w-9
-                    h-9
-                    rounded-lg
-                    bg-[#9B5B35]/20
-                    flex
-                    items-center
-                    justify-center
-                    text-[#D89A72]
-                  ">
-                    <FiShield />
-                  </div>
-
-                  <div>
-                    <p className="text-white text-xs font-semibold">
-                      Cloud Security
-                    </p>
-
-                    <p className="text-white/40 text-[10px] mt-1">
-                      Protected
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* Floating Card 2 */}
-
-              <div className="
-                absolute
-                bottom-6
-                left-0
-                sm:left-2
-                lg:left-0
-                z-20
-                px-4
-                py-3
-                rounded-xl
-                border
-                border-white/10
-                bg-white/[0.08]
-                backdrop-blur-xl
-                shadow-xl
-              ">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="
-                    w-9
-                    h-9
-                    rounded-lg
-                    bg-blue-400/10
-                    flex
-                    items-center
-                    justify-center
-                    text-blue-300
-                  ">
-                    <FiActivity />
-                  </div>
-
-                  <div>
-                    <p className="text-white text-xs font-semibold">
-                      Infrastructure
-                    </p>
-
-                    <p className="text-white/40 text-[10px] mt-1">
-                      Always scalable
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* Floating Nodes */}
-
-              <div className="
-                absolute
-                top-1/2
-                left-1
-                sm:left-4
-                w-3
-                h-3
-                rounded-full
-                bg-[#C9875D]
-                shadow-[0_0_20px_#C9875D]
-              " />
-
-              <div className="
-                absolute
-                top-16
-                left-1/3
-                w-2
-                h-2
-                rounded-full
-                bg-white/60
-              " />
-
-              <div className="
-                absolute
-                bottom-20
-                right-1/4
-                w-2
-                h-2
-                rounded-full
-                bg-[#C9875D]
-              " />
-
-            </div>
-
-          </div>
-
-        </div>
-
       </section>
 
+      {/* =====================================================
+          CLOUD FOUNDATION
+      ===================================================== */}
 
-      {/* =========================================================
-          STATS
-      ========================================================= */}
+      <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-28">
+        <div className="mx-auto max-w-7xl">
 
-      <section className="relative bg-white border-b border-gray-100">
+          {/* HEADER */}
 
-        <div className="
-          max-w-7xl
-          mx-auto
-          px-5
-          sm:px-8
-          lg:px-12
-          py-10
-          sm:py-12
-        ">
-
-          <div className="
-            grid
-            grid-cols-2
-            lg:grid-cols-4
-            gap-y-8
-            gap-x-5
-          ">
-
-            <div className="text-center lg:text-left">
-
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                24/7
-              </p>
-
-              <p className="mt-1 text-xs sm:text-sm text-gray-500">
-                Cloud Availability
-              </p>
-
-            </div>
-
-            <div className="text-center lg:text-left">
-
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                99.9%
-              </p>
-
-              <p className="mt-1 text-xs sm:text-sm text-gray-500">
-                Reliability Focus
-              </p>
-
-            </div>
-
-            <div className="text-center lg:text-left">
-
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                Multi
-              </p>
-
-              <p className="mt-1 text-xs sm:text-sm text-gray-500">
-                Cloud Environments
-              </p>
-
-            </div>
-
-            <div className="text-center lg:text-left">
-
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                Secure
-              </p>
-
-              <p className="mt-1 text-xs sm:text-sm text-gray-500">
-                Infrastructure Approach
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          INTRO
-      ========================================================= */}
-
-      <section className="bg-[#F7F8FA] py-20 sm:py-24 lg:py-28">
-
-        <div className="
-          max-w-7xl
-          mx-auto
-          px-5
-          sm:px-8
-          lg:px-12
-        ">
-
-          <div className="
-            grid
-            lg:grid-cols-[0.85fr_1.15fr]
-            gap-10
-            lg:gap-20
-            items-start
-          ">
+          <div className="mb-10 ml-0 flex flex-col gap-6 sm:mb-14 md:mb-16 lg:mb-20 lg:ml-8 lg:flex-row lg:items-end lg:justify-between">
 
             <div>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="h-[2px] w-8 bg-[#9B5B35] sm:w-10" />
 
-              <p className="
-                text-[#9B5B35]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.2em]
-              ">
-                Cloud Foundation
-              </p>
+                <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.35em]">
+                  Cloud Foundation
+                </span>
+              </div>
 
-              <h2 className="
-                mt-4
-                text-3xl
-                sm:text-4xl
-                lg:text-5xl
-                font-bold
-                leading-tight
-                text-[#062B49]
-              ">
+              <h2 className="mt-5 max-w-3xl text-[40px] font-bold leading-[0.96] tracking-[-0.05em] text-[#062B49] sm:text-[48px] md:text-[56px] lg:mt-7 lg:text-[60px] lg:leading-[0.95]">
                 A smarter foundation
                 <span className="block text-[#9B5B35]">
                   for digital growth.
                 </span>
               </h2>
-
             </div>
 
-            <div>
+            <div className="ml-0 text-left sm:text-right lg:ml-8 lg:pb-2">
+              <span className="text-[8px] font-bold uppercase tracking-[0.28em] text-gray-400 sm:text-[9px] sm:tracking-[0.3em]">
+                EPS / CLOUD
+              </span>
 
-              <p className="
-                text-sm
-                sm:text-base
-                lg:text-lg
-                leading-7
-                lg:leading-8
-                text-gray-600
-              ">
-                Cloud technology gives businesses the flexibility to
-                modernize infrastructure, support changing workloads
-                and create more adaptable technology environments.
-              </p>
-
-              <p className="
-                mt-5
-                text-sm
-                sm:text-base
-                leading-7
-                text-gray-500
-              ">
-                Our approach combines infrastructure, migration,
-                security and operational considerations to create
-                cloud environments aligned with business requirements.
-              </p>
-
+              <div className="mt-3 h-px w-12 bg-[#9B5B35] sm:ml-auto sm:w-16" />
             </div>
-
           </div>
 
-        </div>
+          {/* MAIN EXPERIENCE */}
 
-      </section>
+          <div className="ml-0 grid grid-cols-1 gap-8 sm:gap-10 md:gap-12 lg:ml-8 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
 
+            {/* LEFT NAVIGATION */}
 
-      {/* =========================================================
-          FEATURE CARDS
-      ========================================================= */}
+            <div className="border-b border-[#062B49]/10 pb-6 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-14">
 
-      <section
-        id="cloud-capabilities"
-        className="bg-white py-20 sm:py-24"
-      >
+              <p className="mb-5 text-[8px] font-bold uppercase tracking-[0.3em] text-gray-400 sm:mb-8 sm:text-[9px]">
+                Explore the foundation
+              </p>
 
-        <div className="
-          max-w-7xl
-          mx-auto
-          px-5
-          sm:px-8
-          lg:px-12
-        ">
+              <div>
+                {foundations.map((item, index) => {
+                  const isActive = activeFoundation === index;
 
-          <div className="max-w-2xl">
+                  return (
+                    <button
+                      key={item.number}
+                      type="button"
+                      onClick={() => setActiveFoundation(index)}
+                      className="group block w-full text-left"
+                    >
+                      <div
+                        className={`
+                          relative
+                          flex
+                          items-center
+                          gap-4
+                          border-b
+                          py-5
+                          transition-all
+                          duration-500
+                          sm:gap-6
+                          sm:py-6
+                          lg:gap-7
+                          lg:py-7
+                          ${
+                            isActive
+                              ? "border-[#9B5B35]"
+                              : "border-[#062B49]/10"
+                          }
+                        `}
+                      >
 
-            <p className="
-              text-[#9B5B35]
-              text-xs
-              font-bold
-              uppercase
-              tracking-[0.2em]
-            ">
-              Core Solutions
-            </p>
+                        {/* ACTIVE LINE */}
 
-            <h2 className="
-              mt-3
-              text-3xl
-              sm:text-4xl
-              font-bold
-              text-[#062B49]
-            ">
-              Cloud capabilities built around your business
-            </h2>
+                        <span
+                          className={`
+                            absolute
+                            bottom-0
+                            left-0
+                            h-[3px]
+                            w-full
+                            bg-[#9B5B35]
+                            transition-all
+                            duration-500
+                            lg:bottom-0
+                            lg:left-[-57px]
+                            lg:top-0
+                            lg:h-full
+                            lg:w-[3px]
+                            ${
+                              isActive
+                                ? "opacity-100"
+                                : "opacity-0"
+                            }
+                          `}
+                        />
 
-          </div>
+                        {/* NUMBER */}
 
+                        <span
+                          className={`
+                            text-[28px]
+                            font-light
+                            tracking-[-0.05em]
+                            transition-all
+                            duration-500
+                            sm:text-[32px]
+                            lg:text-[34px]
+                            ${
+                              isActive
+                                ? "text-[#9B5B35]"
+                                : "text-gray-300 group-hover:text-[#062B49]"
+                            }
+                          `}
+                        >
+                          {item.number}
+                        </span>
 
-          <div className="
-            mt-12
-            grid
-            grid-cols-1
-            md:grid-cols-3
-            gap-5
-          ">
+                        {/* TITLE */}
 
-            {features.map((item) => (
+                        <div className="min-w-0 flex-1">
+                          <span
+                            className={`
+                              text-[9px]
+                              font-bold
+                              uppercase
+                              tracking-[0.16em]
+                              transition-colors
+                              duration-300
+                              sm:text-[10px]
+                              sm:tracking-[0.2em]
+                              ${
+                                isActive
+                                  ? "text-[#062B49]"
+                                  : "text-gray-400 group-hover:text-[#062B49]"
+                              }
+                            `}
+                          >
+                            {item.title}
+                          </span>
+                        </div>
 
-              <div
-                key={item.title}
-                className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-2xl
-                  border
-                  border-gray-200
-                  bg-white
-                  p-6
-                  sm:p-8
-                  hover:border-[#9B5B35]/40
-                  hover:shadow-[0_20px_60px_rgba(6,43,73,0.10)]
-                  transition-all
-                  duration-500
-                "
-              >
+                        {/* ARROW */}
 
-                {/* Number */}
-
-                <span className="
-                  absolute
-                  top-6
-                  right-7
-                  text-5xl
-                  font-black
-                  text-gray-100
-                  group-hover:text-[#9B5B35]/10
-                  transition-colors
-                ">
-                  {item.number}
-                </span>
-
-
-                {/* Icon */}
-
-                <div className="
-                  relative
-                  w-14
-                  h-14
-                  rounded-xl
-                  bg-[#062B49]
-                  text-white
-                  flex
-                  items-center
-                  justify-center
-                  text-xl
-                  group-hover:bg-[#9B5B35]
-                  transition-all
-                  duration-300
-                ">
-                  {item.icon}
-                </div>
-
-
-                <h3 className="
-                  mt-7
-                  text-xl
-                  font-bold
-                  text-[#062B49]
-                ">
-                  {item.title}
-                </h3>
-
-                <p className="
-                  mt-3
-                  text-sm
-                  leading-7
-                  text-gray-500
-                ">
-                  {item.text}
-                </p>
-
-
-                <div className="
-                  mt-7
-                  flex
-                  items-center
-                  gap-2
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-wider
-                  text-[#9B5B35]
-                ">
-                  Explore solution
-                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </div>
-
+                        <span
+                          className={`
+                            shrink-0
+                            text-base
+                            transition-all
+                            duration-500
+                            sm:text-lg
+                            ${
+                              isActive
+                                ? "translate-x-1 text-[#9B5B35]"
+                                : "text-gray-300"
+                            }
+                          `}
+                        >
+                          →
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          CAPABILITIES
-      ========================================================= */}
-
-      <section className="bg-[#F7F8FA] py-20 sm:py-24">
-
-        <div className="
-          max-w-7xl
-          mx-auto
-          px-5
-          sm:px-8
-          lg:px-12
-        ">
-
-          <div className="
-            flex
-            flex-col
-            lg:flex-row
-            lg:items-end
-            lg:justify-between
-            gap-6
-          ">
-
-            <div>
-
-              <p className="
-                text-[#9B5B35]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.2em]
-              ">
-                Infrastructure Capabilities
-              </p>
-
-              <h2 className="
-                mt-3
-                text-3xl
-                sm:text-4xl
-                font-bold
-                text-[#062B49]
-              ">
-                Designed for modern workloads
-              </h2>
-
             </div>
 
-            <p className="
-              max-w-lg
-              text-sm
-              sm:text-base
-              leading-7
-              text-gray-500
-            ">
-              Create a cloud environment that supports performance,
-              resilience, security and long-term technology growth.
-            </p>
+            {/* RIGHT CONTENT */}
 
-          </div>
+            <div className="relative min-h-[430px] overflow-hidden bg-[#062B49] sm:min-h-[460px] lg:min-h-[430px]">
 
+              {/* DECORATIVE ELEMENTS */}
 
-          <div className="
-            mt-12
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            gap-4
-          ">
+              <div className="absolute right-0 top-0 h-44 w-44 translate-x-20 -translate-y-20 rounded-full border border-white/10 sm:h-56 sm:w-56 lg:h-64 lg:w-64" />
 
-            {capabilities.map((item) => (
+              <div className="absolute bottom-0 right-0 h-56 w-56 translate-x-24 translate-y-24 rounded-full border border-[#9B5B35]/20 sm:h-72 sm:w-72 lg:h-80 lg:w-80" />
 
-              <div
-                key={item.title}
-                className="
-                  group
-                  flex
-                  gap-5
-                  p-5
-                  sm:p-6
-                  rounded-2xl
-                  bg-white
-                  border
-                  border-gray-100
-                  hover:border-[#9B5B35]/30
-                  hover:shadow-lg
-                  transition-all
-                  duration-300
-                "
-              >
+              {/* CONTENT */}
 
-                <div className="
-                  shrink-0
-                  w-12
-                  h-12
-                  rounded-xl
-                  bg-[#062B49]
-                  text-white
-                  flex
-                  items-center
-                  justify-center
-                  group-hover:bg-[#9B5B35]
-                  transition-all
-                ">
-                  {item.icon}
-                </div>
+              <div className="relative z-10 flex h-full min-h-[430px] flex-col justify-between p-6 sm:min-h-[460px] sm:p-8 md:p-10 lg:min-h-[430px] lg:p-14">
 
-                <div>
+                {/* TOP */}
 
-                  <h3 className="
-                    text-base
-                    sm:text-lg
-                    font-bold
-                    text-[#062B49]
-                  ">
-                    {item.title}
-                  </h3>
-
-                  <p className="
-                    mt-2
-                    text-sm
-                    leading-6
-                    text-gray-500
-                  ">
-                    {item.text}
-                  </p>
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================================================
-          DARK FEATURE SECTION
-      ========================================================= */}
-
-      <section className="
-        relative
-        overflow-hidden
-        bg-[#062B49]
-        py-20
-        sm:py-24
-        lg:py-28
-      ">
-
-        <div className="
-          absolute
-          -right-40
-          top-1/2
-          -translate-y-1/2
-          w-[450px]
-          h-[450px]
-          rounded-full
-          bg-[#9B5B35]/15
-          blur-[100px]
-        " />
-
-        <div className="
-          relative
-          max-w-7xl
-          mx-auto
-          px-5
-          sm:px-8
-          lg:px-12
-        ">
-
-          <div className="
-            grid
-            lg:grid-cols-2
-            gap-14
-            lg:gap-20
-            items-center
-          ">
-
-            <div>
-
-              <p className="
-                text-[#C9875D]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.2em]
-              ">
-                Why Cloud
-              </p>
-
-              <h2 className="
-                mt-4
-                text-3xl
-                sm:text-4xl
-                lg:text-5xl
-                font-bold
-                leading-tight
-                text-white
-              ">
-                Technology that
-                <span className="block text-[#C9875D]">
-                  adapts with you.
-                </span>
-              </h2>
-
-              <p className="
-                mt-6
-                text-sm
-                sm:text-base
-                leading-7
-                text-white/60
-              ">
-                Cloud environments can provide the flexibility required
-                to respond to changing workloads, technology demands
-                and business priorities.
-              </p>
-
-            </div>
-
-
-            <div className="
-              grid
-              grid-cols-1
-              sm:grid-cols-2
-              gap-3
-            ">
-
-              {benefits.map((benefit) => (
-
-                <div
-                  key={benefit}
-                  className="
-                    flex
-                    items-center
-                    gap-3
-                    p-4
-                    rounded-xl
-                    border
-                    border-white/10
-                    bg-white/[0.04]
-                  "
-                >
-
-                  <div className="
-                    w-7
-                    h-7
-                    shrink-0
-                    rounded-full
-                    bg-[#9B5B35]
-                    text-white
-                    flex
-                    items-center
-                    justify-center
-                  ">
-                    <FiCheck className="text-sm" />
-                  </div>
-
-                  <span className="
-                    text-sm
-                    text-white/75
-                  ">
-                    {benefit}
+                <div className="flex items-start justify-between gap-5">
+                  <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/40 sm:text-[10px] sm:tracking-[0.3em]">
+                    Cloud Architecture
                   </span>
 
+                  <span className="text-[52px] font-light leading-none tracking-[-0.06em] text-white/10 sm:text-[64px] lg:text-[72px]">
+                    {foundations[activeFoundation].number}
+                  </span>
                 </div>
 
-              ))}
+                {/* CENTER */}
 
+                <div className="max-w-2xl">
+
+                  <div className="mb-6 h-[2px] w-10 bg-[#9B5B35] sm:mb-8 sm:w-14" />
+
+                  <h3
+                    key={foundations[activeFoundation].title}
+                    className="text-[32px] font-bold leading-tight tracking-[-0.04em] text-white sm:text-[38px] md:text-[42px]"
+                  >
+                    {foundations[activeFoundation].title}
+                  </h3>
+
+                  <p
+                    key={foundations[activeFoundation].description}
+                    className="mt-5 max-w-xl text-[13px] leading-7 text-white/60 sm:mt-7 sm:text-[14px] sm:leading-8 md:text-[15px]"
+                  >
+                    {foundations[activeFoundation].description}
+                  </p>
+                </div>
+
+                {/* BOTTOM */}
+
+                <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:pt-6">
+
+                  <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/30 sm:text-[9px] sm:tracking-[0.28em]">
+                    EPSILORA TECHNOLOGY
+                  </span>
+
+                  <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-[#9B5B35] sm:text-[9px] sm:tracking-[0.28em]">
+                    {foundations[activeFoundation].title}
+                  </span>
+                </div>
+              </div>
             </div>
-
           </div>
-
         </div>
-
       </section>
 
+      {/* =========================================================
+          WHY CLOUD
+      ========================================================= */}
+
+      <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+
+          <div className="ml-0 grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-[0.35fr_1.65fr] md:gap-12 lg:ml-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+
+            {/* LEFT */}
+
+            <div>
+              <span className="text-[8px] font-bold uppercase tracking-[0.28em] text-gray-400 sm:text-[9px] sm:tracking-[0.3em]">
+                Why Cloud
+              </span>
+
+              <div className="mt-6 hidden h-[140px] w-px bg-gradient-to-b from-[#9B5B35] to-transparent sm:block lg:mt-8 lg:h-[180px]" />
+
+              <div className="mt-5 flex items-center gap-3 sm:mt-6 sm:block">
+                <span className="h-px w-6 bg-[#9B5B35] sm:hidden" />
+
+                <span className="text-[8px] font-bold uppercase tracking-[0.28em] text-[#9B5B35] sm:text-[9px] sm:tracking-[0.3em]">
+                  Built for change
+                </span>
+              </div>
+            </div>
+
+            {/* RIGHT */}
+
+            <div>
+              <h2 className="max-w-4xl text-[38px] font-bold leading-[0.98] tracking-[-0.05em] text-[#062B49] sm:text-[46px] md:text-[52px] lg:text-[58px] lg:leading-[0.95]">
+                Your technology should not
+                <span className="text-[#9B5B35]">
+                  {" "}limit your growth.
+                </span>
+              </h2>
+
+              <p className="mt-7 max-w-2xl text-[14px] leading-7 text-gray-500 sm:mt-8 sm:text-[15px] sm:leading-8 lg:mt-10 lg:text-lg">
+                Cloud environments create a foundation that can
+                adapt as workloads, applications, teams and business
+                requirements change.
+              </p>
+
+              {/* BENEFITS */}
+
+              <div className="mt-10 grid grid-cols-1 border-t border-[#062B49]/10 sm:mt-12 sm:grid-cols-2 lg:mt-16">
+
+                {benefits.map((benefit, index) => (
+                  <div
+                    key={benefit}
+                    className="
+                      group
+                      flex
+                      items-start
+                      gap-4
+                      border-b
+                      border-[#062B49]/10
+                      py-5
+                      sm:gap-5
+                      sm:py-6
+                      lg:gap-6
+                      lg:py-7
+                    "
+                  >
+                    <span className="shrink-0 text-[9px] font-bold tracking-[0.25em] text-[#9B5B35] sm:text-[10px]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <span className="text-[13px] font-semibold leading-6 text-[#062B49] transition-colors duration-300 group-hover:text-[#9B5B35] sm:text-sm">
+                      {benefit}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* =========================================================
           CLOUD ARCHITECTURE
       ========================================================= */}
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-[#F7F8FA] px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-32">
+        <div className="mx-auto max-w-7xl">
 
-        <div className="
-          max-w-7xl
-          mx-auto
-          px-5
-          sm:px-8
-          lg:px-12
-        ">
+          {/* HEADER */}
 
-          <div className="
-            rounded-3xl
-            bg-[#F7F8FA]
-            border
-            border-gray-100
-            p-6
-            sm:p-10
-            lg:p-14
-          ">
+          <div className="ml-0 flex flex-col gap-8 sm:gap-10 lg:ml-8 lg:flex-row lg:items-end lg:justify-between">
 
-            <div className="
-              grid
-              lg:grid-cols-[1fr_0.9fr]
-              gap-12
-              items-center
-            ">
+            <div>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="h-[2px] w-8 bg-[#9B5B35] sm:w-10" />
+
+                <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.35em]">
+                  Connected Cloud
+                </span>
+              </div>
+
+              <h2 className="mt-5 max-w-3xl text-[38px] font-bold leading-[0.96] tracking-[-0.05em] text-[#062B49] sm:text-[46px] md:text-[52px] lg:mt-7 lg:text-[58px] lg:leading-[0.94]">
+                One connected
+                <span className="block text-[#9B5B35]">
+                  technology ecosystem.
+                </span>
+              </h2>
+            </div>
+
+            <div className="max-w-sm border-l border-[#062B49]/10 pl-5 sm:pl-6 lg:pl-8">
+              <span className="text-[8px] font-bold uppercase tracking-[0.28em] text-gray-400 sm:text-[9px] sm:tracking-[0.3em]">
+                Cloud Architecture
+              </span>
+
+              <p className="mt-3 text-[12px] leading-6 text-gray-500 sm:mt-4 sm:text-sm sm:leading-7">
+                Connect infrastructure, applications and data
+                through a unified technology foundation.
+              </p>
+            </div>
+          </div>
+
+          {/* =====================================================
+              ARCHITECTURE VISUAL
+          ===================================================== */}
+
+          <div className="cloud-architecture relative mt-12 h-[620px] overflow-hidden bg-[#062B49] sm:mt-16 sm:h-[650px] md:h-[680px] lg:mt-24 lg:h-[560px]">
+
+            {/* ROTATING RINGS */}
+
+            <div className="cloud-ring-outer absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] sm:h-[450px] sm:w-[450px] lg:h-[500px] lg:w-[500px]" />
+
+            <div className="cloud-ring-middle absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#9B5B35]/20 sm:h-[330px] sm:w-[330px] lg:h-[370px] lg:w-[370px]" />
+
+            <div className="cloud-ring-inner absolute left-1/2 top-1/2 h-[180px] w-[180px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.07] sm:h-[210px] sm:w-[210px] lg:h-[240px] lg:w-[240px]" />
+
+            {/* CONNECTION LINES */}
+
+            <div className="cloud-connection-horizontal absolute left-[12%] right-[12%] top-1/2 h-px bg-white/10 sm:left-[15%] sm:right-[15%] lg:left-[20%] lg:right-[20%]" />
+
+            <div className="cloud-connection-vertical absolute bottom-[20%] left-1/2 top-[20%] w-px bg-white/10" />
+
+            {/* TOP LABEL */}
+
+            <div className="absolute left-1/2 top-6 -translate-x-1/2 text-center sm:top-8">
+              <span className="whitespace-nowrap text-[7px] font-bold uppercase tracking-[0.3em] text-white/25 sm:text-[8px] sm:tracking-[0.35em]">
+                EPSILORA CLOUD ARCHITECTURE
+              </span>
+            </div>
+
+            {/* CLOUD NODE */}
+
+            <div className="cloud-node cloud-node-1 absolute left-5 top-20 flex items-center gap-3 sm:left-8 sm:top-20 sm:gap-4 md:left-12 lg:left-16 lg:top-16 lg:gap-5">
+              <div className="cloud-node-icon relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-lg text-[#C9875D] sm:h-12 sm:w-12 sm:text-xl lg:h-14 lg:w-14">
+                <FiCloud />
+              </div>
 
               <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.25em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 01
+                </span>
 
-                <div className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  text-[#9B5B35]
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-[0.15em]
-                ">
-                  <FiGlobe />
-                  Connected Cloud
-                </div>
-
-                <h2 className="
-                  mt-5
-                  text-3xl
-                  sm:text-4xl
-                  font-bold
-                  text-[#062B49]
-                ">
-                  Connect infrastructure,
-                  <span className="block text-[#9B5B35]">
-                    applications and data.
-                  </span>
-                </h2>
-
-                <p className="
-                  mt-5
-                  text-sm
-                  sm:text-base
-                  leading-7
-                  text-gray-500
-                ">
-                  A modern cloud environment connects the technology
-                  components that support your organization. The result
-                  is a more adaptable foundation for digital operations.
-                </p>
-
+                <span className="mt-1 block text-xs font-bold text-white sm:mt-2 sm:text-sm">
+                  Cloud
+                </span>
               </div>
-
-
-              {/* Architecture Visual */}
-
-              <div className="relative">
-
-                <div className="
-                  relative
-                  rounded-2xl
-                  bg-[#062B49]
-                  p-5
-                  sm:p-7
-                  overflow-hidden
-                ">
-
-                  <div className="
-                    absolute
-                    -right-20
-                    -top-20
-                    w-48
-                    h-48
-                    rounded-full
-                    bg-[#9B5B35]/20
-                    blur-3xl
-                  " />
-
-                  <div className="
-                    relative
-                    grid
-                    grid-cols-2
-                    gap-3
-                  ">
-
-                    <div className="
-                      rounded-xl
-                      border
-                      border-white/10
-                      bg-white/[0.06]
-                      p-5
-                      text-center
-                    ">
-                      <FiCloud className="mx-auto text-[#C9875D] text-2xl" />
-                      <p className="mt-3 text-xs text-white/70">
-                        Cloud
-                      </p>
-                    </div>
-
-                    <div className="
-                      rounded-xl
-                      border
-                      border-white/10
-                      bg-white/[0.06]
-                      p-5
-                      text-center
-                    ">
-                      <FiServer className="mx-auto text-[#C9875D] text-2xl" />
-                      <p className="mt-3 text-xs text-white/70">
-                        Compute
-                      </p>
-                    </div>
-
-                    <div className="
-                      rounded-xl
-                      border
-                      border-white/10
-                      bg-white/[0.06]
-                      p-5
-                      text-center
-                    ">
-                      <FiDatabase className="mx-auto text-[#C9875D] text-2xl" />
-                      <p className="mt-3 text-xs text-white/70">
-                        Data
-                      </p>
-                    </div>
-
-                    <div className="
-                      rounded-xl
-                      border
-                      border-white/10
-                      bg-white/[0.06]
-                      p-5
-                      text-center
-                    ">
-                      <FiLayers className="mx-auto text-[#C9875D] text-2xl" />
-                      <p className="mt-3 text-xs text-white/70">
-                        Applications
-                      </p>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
             </div>
 
-          </div>
+            {/* COMPUTE NODE */}
 
-        </div>
+            <div className="cloud-node cloud-node-2 absolute right-5 top-20 flex items-center gap-3 text-right sm:right-8 sm:top-20 sm:gap-4 md:right-12 lg:right-16 lg:top-16 lg:gap-5">
 
-      </section>
+              <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.25em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 02
+                </span>
 
+                <span className="mt-1 block text-xs font-bold text-white sm:mt-2 sm:text-sm">
+                  Compute
+                </span>
+              </div>
 
-      {/* =========================================================
-          CTA
-      ========================================================= */}
-
-      <section className="px-5 sm:px-8 lg:px-12 pb-16 sm:pb-20 lg:pb-24">
-
-        <div className="
-          relative
-          max-w-7xl
-          mx-auto
-          overflow-hidden
-          rounded-3xl
-          bg-[#062B49]
-          px-6
-          sm:px-10
-          lg:px-14
-          py-12
-          sm:py-14
-          lg:py-16
-        ">
-
-          <div className="
-            absolute
-            -right-20
-            -top-20
-            w-64
-            h-64
-            rounded-full
-            bg-[#9B5B35]/20
-            blur-3xl
-          " />
-
-          <div className="
-            relative
-            flex
-            flex-col
-            lg:flex-row
-            lg:items-center
-            lg:justify-between
-            gap-8
-          ">
-
-            <div className="max-w-2xl">
-
-              <p className="
-                text-[#C9875D]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.2em]
-              ">
-                Start Your Cloud Journey
-              </p>
-
-              <h2 className="
-                mt-3
-                text-2xl
-                sm:text-3xl
-                lg:text-4xl
-                font-bold
-                text-white
-                leading-tight
-              ">
-                Ready to build a more flexible technology environment?
-              </h2>
-
-              <p className="
-                mt-4
-                text-sm
-                sm:text-base
-                leading-7
-                text-white/55
-              ">
-                Let's discuss your cloud infrastructure, migration and
-                security requirements.
-              </p>
-
+              <div className="cloud-node-icon relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-lg text-[#C9875D] sm:h-12 sm:w-12 sm:text-xl lg:h-14 lg:w-14">
+                <FiServer />
+              </div>
             </div>
 
+            {/* DATA NODE */}
 
-            <a
-              href="/contact"
-              className="
-                shrink-0
-                inline-flex
-                items-center
-                justify-center
-                gap-2
-                w-full
-                lg:w-auto
-                px-7
-                py-3.5
-                rounded-lg
-                bg-[#9B5B35]
-                hover:bg-[#844A2A]
-                text-white
-                text-sm
-                font-semibold
-                transition-all
-                duration-300
-                shadow-xl
-                shadow-black/20
-              "
-            >
-              Talk to Our Team
-              <FiArrowRight />
-            </a>
+            <div className="cloud-node cloud-node-3 absolute bottom-20 left-5 flex items-center gap-3 sm:bottom-20 sm:left-8 sm:gap-4 md:left-12 lg:bottom-16 lg:left-16 lg:gap-5">
 
+              <div className="cloud-node-icon relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-lg text-[#C9875D] sm:h-12 sm:w-12 sm:text-xl lg:h-14 lg:w-14">
+                <FiDatabase />
+              </div>
+
+              <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.25em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 03
+                </span>
+
+                <span className="mt-1 block text-xs font-bold text-white sm:mt-2 sm:text-sm">
+                  Data
+                </span>
+              </div>
+            </div>
+
+            {/* APPLICATION NODE */}
+
+            <div className="cloud-node cloud-node-4 absolute bottom-20 right-5 flex items-center gap-3 text-right sm:bottom-20 sm:right-8 sm:gap-4 md:right-12 lg:bottom-16 lg:right-16 lg:gap-5">
+
+              <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.25em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 04
+                </span>
+
+                <span className="mt-1 block text-xs font-bold text-white sm:mt-2 sm:text-sm">
+                  Applications
+                </span>
+              </div>
+
+              <div className="cloud-node-icon relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-lg text-[#C9875D] sm:h-12 sm:w-12 sm:text-xl lg:h-14 lg:w-14">
+                <FiLayers />
+              </div>
+            </div>
+
+            {/* CENTRAL CLOUD CORE */}
+
+            <div className="cloud-core absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#9B5B35] sm:h-36 sm:w-36 md:h-40 md:w-40 lg:h-44 lg:w-44">
+
+              <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full border border-white/20 text-center sm:h-28 sm:w-28 md:h-30 md:w-30 lg:h-32 lg:w-32">
+
+                <FiGlobe className="text-xl text-white sm:text-2xl" />
+
+                <span className="mt-2 text-[7px] font-bold uppercase tracking-[0.25em] text-white/60 sm:mt-3 sm:text-[9px] sm:tracking-[0.3em]">
+                  Connected
+                </span>
+
+                <span className="mt-1 text-base font-bold text-white sm:text-lg md:text-xl">
+                  CLOUD
+                </span>
+              </div>
+            </div>
+
+            {/* BOTTOM LABEL */}
+
+            <div className="absolute bottom-5 left-1/2 max-w-[90%] -translate-x-1/2 text-center sm:bottom-8">
+              <span className="text-[6px] font-bold uppercase tracking-[0.22em] text-[#C9875D] sm:text-[8px] sm:tracking-[0.3em]">
+                Infrastructure • Data • Applications • Compute
+              </span>
+            </div>
           </div>
 
-        </div>
+          {/* BOTTOM INFORMATION */}
 
+          <div className="mt-7 flex flex-col gap-4 sm:mt-10 md:flex-row md:items-center md:justify-between">
+
+            <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-gray-400 sm:text-[9px] sm:tracking-[0.3em]">
+              Connected Technology Architecture
+            </span>
+
+            <div className="flex items-center gap-3 sm:gap-4">
+              <span className="h-[2px] w-8 bg-[#9B5B35] sm:w-12" />
+
+              <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-gray-400 sm:text-[9px] sm:tracking-[0.25em]">
+                Cloud / Compute / Data / Applications
+              </span>
+            </div>
+          </div>
+        </div>
       </section>
 
+     
     </div>
   );
 };

@@ -10,6 +10,7 @@ const Navigation = ({
   openMenu,
   handleMenu,
   setOpenMenu,
+  closeMobileNavigation,
 }) => {
   return (
     <nav
@@ -30,7 +31,6 @@ const Navigation = ({
           lg:px-8
         "
       >
-
         <div
           className="
             flex
@@ -49,7 +49,13 @@ const Navigation = ({
 
           <a
             href="/"
-            onClick={() => setOpenMenu(null)}
+            onClick={() => {
+              if (closeMobileNavigation) {
+                closeMobileNavigation();
+              } else {
+                setOpenMenu(null);
+              }
+            }}
             className="
               w-full
               md:w-auto
@@ -89,6 +95,7 @@ const Navigation = ({
             openMenu={openMenu}
             handleMenu={handleMenu}
             setOpenMenu={setOpenMenu}
+            closeMobileNavigation={closeMobileNavigation}
           />
 
 
@@ -100,6 +107,7 @@ const Navigation = ({
             openMenu={openMenu}
             handleMenu={handleMenu}
             setOpenMenu={setOpenMenu}
+            closeMobileNavigation={closeMobileNavigation}
           />
 
 
@@ -111,6 +119,7 @@ const Navigation = ({
             openMenu={openMenu}
             handleMenu={handleMenu}
             setOpenMenu={setOpenMenu}
+            closeMobileNavigation={closeMobileNavigation}
           />
 
 
@@ -122,6 +131,7 @@ const Navigation = ({
             openMenu={openMenu}
             handleMenu={handleMenu}
             setOpenMenu={setOpenMenu}
+            closeMobileNavigation={closeMobileNavigation}
           />
 
 
@@ -131,7 +141,13 @@ const Navigation = ({
 
           <a
             href="/contact"
-            onClick={() => setOpenMenu(null)}
+            onClick={() => {
+              if (closeMobileNavigation) {
+                closeMobileNavigation();
+              } else {
+                setOpenMenu(null);
+              }
+            }}
             className="
               w-full
               md:w-auto

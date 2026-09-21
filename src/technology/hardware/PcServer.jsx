@@ -3,75 +3,45 @@ import {
   FiCpu,
   FiServer,
   FiMonitor,
-  FiSettings,
-  FiArrowRight,
   FiCheckCircle,
   FiActivity,
-  FiZap,
-  FiShield,
   FiDatabase,
   FiLayers,
-  FiHardDrive,
+  FiZap,
+  FiShield,
 } from "react-icons/fi";
 
 const PcServer = () => {
-  const components = [
-    {
-      icon: <FiCpu />,
-      number: "01",
-      title: "Processors",
-      text: "High-performance processors for business computing and demanding enterprise workloads.",
-    },
-    {
-      icon: <FiServer />,
-      number: "02",
-      title: "Server Components",
-      text: "Reliable hardware components designed for scalable and dependable server infrastructure.",
-    },
-    {
-      icon: <FiMonitor />,
-      number: "03",
-      title: "PC Components",
-      text: "Professional-grade components for desktops, workstations and business systems.",
-    },
-    {
-      icon: <FiSettings />,
-      number: "04",
-      title: "Infrastructure Support",
-      text: "Technology components that help create reliable and efficient IT environments.",
-    },
-  ];
-
-  const hardware = [
+  const technologies = [
     {
       icon: <FiDatabase />,
       title: "Memory (RAM)",
-      text: "High-performance memory for responsive systems.",
+      text: "High-performance memory designed for responsive business systems and demanding workloads.",
     },
     {
       icon: <FiLayers />,
       title: "Motherboards",
-      text: "Reliable platforms for PC and server configurations.",
+      text: "Reliable platforms that connect and support essential PC and server components.",
     },
     {
       icon: <FiCpu />,
       title: "Processors (CPU)",
-      text: "Processing power for demanding workloads.",
+      text: "Processing technology built to handle professional applications and intensive workloads.",
     },
     {
       icon: <FiActivity />,
       title: "Sound Cards",
-      text: "Audio hardware for professional computing environments.",
+      text: "Audio components designed for professional computing and specialized system requirements.",
     },
     {
       icon: <FiMonitor />,
       title: "Video Cards (GPU)",
-      text: "Graphics processing for demanding applications.",
+      text: "Graphics processing solutions for visual applications, professional workloads and high-performance systems.",
     },
     {
       icon: <FiServer />,
       title: "Server Components",
-      text: "Infrastructure hardware for enterprise systems.",
+      text: "Enterprise hardware components supporting scalable and dependable server infrastructure.",
     },
   ];
 
@@ -84,409 +54,620 @@ const PcServer = () => {
     "Long-term infrastructure support",
   ];
 
+  const computingFlow = [
+    {
+      icon: <FiCpu />,
+      number: "01",
+      title: "Processing Power",
+      text: "Computing components designed to handle business applications and demanding workloads.",
+    },
+    {
+      icon: <FiDatabase />,
+      number: "02",
+      title: "System Memory",
+      text: "Responsive memory architecture supporting smooth and efficient system performance.",
+    },
+    {
+      icon: <FiMonitor />,
+      number: "03",
+      title: "Visual Performance",
+      text: "Graphics capabilities designed for professional applications and visual workloads.",
+    },
+    {
+      icon: <FiServer />,
+      number: "04",
+      title: "Enterprise Ready",
+      text: "Hardware foundations designed for reliable PC, workstation and server environments.",
+    },
+  ];
+
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-[#062B49]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-white text-[#062B49]">
 
       {/* =====================================================
-          PREMIUM HERO
+          HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#062B49]">
-
-        {/* Background glow */}
-
-        <div className="absolute -right-32 -top-32 h-[380px] w-[380px] rounded-full bg-[#9B5B35]/25 blur-[100px] sm:h-[520px] sm:w-[520px]" />
-
-        <div className="absolute -bottom-40 -left-40 h-[350px] w-[350px] rounded-full bg-black/40 blur-[100px]" />
-
-        {/* Grid */}
-
+      <section className="relative h-[220px] w-full overflow-hidden sm:h-[270px] md:h-[310px] lg:h-[340px]">
         <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px)",
-            backgroundSize: "45px 45px",
-          }}
+          className="
+            absolute
+            inset-0
+            bg-[url('/pc&server.png')]
+            bg-cover
+            bg-center
+            bg-no-repeat
+          "
         />
+      </section>
 
-        <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-16 sm:px-8 sm:pb-20 sm:pt-24 lg:px-12 lg:pb-28 lg:pt-32">
+      {/* =====================================================
+          INTRODUCTION — COMPUTING FOUNDATION
+      ===================================================== */}
 
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
+      <section
+        className="
+          relative
+          overflow-hidden
+          px-5
+          py-16
+          sm:px-8
+          sm:py-20
+          md:px-10
+          md:py-24
+          lg:ml-10
+          lg:px-12
+          lg:py-28
+        "
+      >
+        <div className="mx-auto max-w-7xl">
 
-            {/* HERO CONTENT */}
+          {/* HEADER */}
 
-            <div>
+          <div className="relative">
 
-              <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <span className="h-[2px] w-8 bg-[#9B5B35] sm:w-12" />
 
-                <span className="h-[2px] w-8 bg-[#C98255] sm:w-12" />
-
-                <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#C98255] sm:text-xs">
-                  Enterprise Hardware
-                </span>
-
-              </div>
-
-              <h1 className="mt-6 text-[3.1rem] font-bold leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-
-                PC &
-
-                <span className="block text-[#C98255]">
-                  Server.
-                </span>
-
-              </h1>
-
-              <p className="mt-6 max-w-xl text-sm leading-7 text-white/60 sm:mt-7 sm:text-base sm:leading-8 lg:text-lg">
-                High-performance computing components and server
-                hardware designed to support modern business systems,
-                applications and enterprise workloads.
-              </p>
-
-              {/* Buttons */}
-
-              <div className="mt-8 grid grid-cols-1 gap-3 sm:flex">
-
-                <a
-                  href="/contact"
-                  className="group inline-flex min-h-[50px] items-center justify-center gap-3 bg-[#9B5B35] px-6 text-sm font-semibold text-white transition duration-300 hover:bg-[#C98255]"
-                >
-                  Discuss Your Requirement
-
-                  <FiArrowRight className="transition duration-300 group-hover:translate-x-1" />
-                </a>
-
-                <a
-                  href="#hardware"
-                  className="inline-flex min-h-[50px] items-center justify-center border border-white/15 px-6 text-sm font-semibold text-white/75 transition duration-300 hover:border-[#C98255] hover:text-white"
-                >
-                  Explore Hardware
-                </a>
-
-              </div>
-
-              {/* Stats */}
-
-              <div className="mt-10 grid max-w-xl grid-cols-3 border-t border-white/10 pt-6 sm:mt-12 sm:pt-7">
-
-                <div>
-
-                  <p className="text-xl font-bold text-white sm:text-2xl">
-                    High
-                  </p>
-
-                  <p className="mt-1 text-[10px] text-white/40 sm:text-xs">
-                    Performance
-                  </p>
-
-                </div>
-
-                <div className="border-l border-white/10 pl-3 sm:pl-6">
-
-                  <p className="text-xl font-bold text-white sm:text-2xl">
-                    Scalable
-                  </p>
-
-                  <p className="mt-1 text-[10px] text-white/40 sm:text-xs">
-                    Architecture
-                  </p>
-
-                </div>
-
-                <div className="border-l border-white/10 pl-3 sm:pl-6">
-
-                  <p className="text-xl font-bold text-white sm:text-2xl">
-                    Enterprise
-                  </p>
-
-                  <p className="mt-1 text-[10px] text-white/40 sm:text-xs">
-                    Ready
-                  </p>
-
-                </div>
-
-              </div>
-
+              <span
+                className="
+                  text-[9px]
+                  font-bold
+                  uppercase
+                  tracking-[0.28em]
+                  text-[#9B5B35]
+                  sm:text-[10px]
+                  sm:tracking-[0.35em]
+                "
+              >
+                The Foundation
+              </span>
             </div>
 
-            {/* =================================================
-                PREMIUM HARDWARE VISUAL
-            ================================================= */}
+            <div
+              className="
+                mt-7
+                grid
+                grid-cols-1
+                gap-8
+                md:mt-8
+                md:grid-cols-[1.1fr_0.9fr]
+                md:gap-12
+                lg:grid-cols-[1.15fr_0.85fr]
+                lg:gap-24
+              "
+            >
+              <h2
+                className="
+                  max-w-4xl
+                  text-[40px]
+                  font-bold
+                  leading-[0.94]
+                  tracking-[-0.05em]
+                  text-[#062B49]
+                  sm:text-[48px]
+                  md:text-[56px]
+                  lg:text-[64px]
+                  lg:leading-[0.92]
+                  lg:tracking-[-0.055em]
+                "
+              >
+                Your systems deserve
 
-            <div className="relative mx-auto mt-3 flex w-full max-w-[400px] justify-center lg:mt-0">
+                <span className="block text-[#9B5B35]">
+                  a stronger foundation.
+                </span>
+              </h2>
 
-              {/* Rings */}
-
-              <div className="absolute left-1/2 top-1/2 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C98255]/20 sm:h-[360px] sm:w-[360px]" />
-
-              <div className="absolute left-1/2 top-1/2 h-[195px] w-[195px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[285px] sm:w-[285px]" />
-
-              {/* Main hardware unit */}
-
-              <div className="relative h-[280px] w-[235px] sm:h-[360px] sm:w-[300px]">
-
-                {/* Rear layer */}
-
-                <div className="absolute inset-0 translate-x-4 translate-y-4 rotate-6 border border-[#C98255]/20 bg-white/[0.02]" />
-
-                {/* Middle layer */}
-
-                <div className="absolute inset-0 -translate-x-2 rotate-[-4deg] border border-white/10 bg-[#0A3554]/60 backdrop-blur-xl" />
-
-                {/* Main card */}
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center border border-[#C98255]/30 bg-[#062B49]/95 shadow-2xl">
-
-                  {/* CPU icon */}
-
-                  <div className="relative flex h-20 w-20 items-center justify-center border border-[#C98255]/30 bg-[#9B5B35]/10 text-3xl text-[#C98255] sm:h-24 sm:w-24 sm:text-4xl">
-
-                    <FiCpu />
-
-                    <span className="absolute inset-[-8px] border border-[#C98255]/10" />
-
-                  </div>
-
-                  <p className="mt-6 text-[9px] font-bold uppercase tracking-[0.4em] text-white/40 sm:text-[10px]">
-                    EPSILORA TECHNOLOGY
-                  </p>
-
-                  <h3 className="mt-3 text-xl font-bold text-white sm:text-2xl">
-                    Compute Core
-                  </h3>
-
-                  <div className="mt-5 h-[2px] w-12 bg-[#9B5B35]" />
-
-                  {/* Status */}
-
-                  <div className="mt-6 flex items-center gap-2">
-
-                    <span className="h-2 w-2 rounded-full bg-[#C98255]" />
-
-                    <span className="text-[9px] uppercase tracking-widest text-white/40 sm:text-[10px]">
-                      System Ready
-                    </span>
-
-                  </div>
-
-                </div>
-
+              <div className="flex items-end">
+                <p
+                  className="
+                    max-w-lg
+                    border-l
+                    border-[#062B49]/10
+                    pl-5
+                    text-[13px]
+                    leading-7
+                    text-gray-500
+                    sm:pl-6
+                    sm:text-[14px]
+                    md:pl-7
+                    lg:pl-8
+                    lg:text-[15px]
+                    lg:leading-8
+                  "
+                >
+                  From professional desktops and workstations to
+                  enterprise server environments, the right hardware
+                  foundation helps organizations run applications,
+                  workloads and everyday operations with confidence.
+                </p>
               </div>
-
-              {/* Performance card */}
-
-              <div className="absolute left-0 top-5 border border-white/10 bg-white/[0.07] p-3 backdrop-blur-xl sm:left-[-15px] sm:top-10 sm:p-4">
-
-                <div className="flex items-center gap-2.5 sm:gap-3">
-
-                  <div className="flex h-9 w-9 items-center justify-center bg-[#9B5B35] text-sm text-white sm:h-10 sm:w-10">
-                    <FiZap />
-                  </div>
-
-                  <div>
-
-                    <p className="text-[9px] text-white/40">
-                      Performance
-                    </p>
-
-                    <p className="text-xs font-semibold text-white sm:text-sm">
-                      High Performance
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              {/* Server card */}
-
-              <div className="absolute bottom-4 right-0 border border-white/10 bg-white/[0.07] p-3 backdrop-blur-xl sm:bottom-8 sm:right-[-15px] sm:p-4">
-
-                <div className="flex items-center gap-2.5 sm:gap-3">
-
-                  <div className="flex h-9 w-9 items-center justify-center bg-white/10 text-sm text-[#C98255] sm:h-10 sm:w-10">
-                    <FiServer />
-                  </div>
-
-                  <div>
-
-                    <p className="text-[9px] text-white/40">
-                      Infrastructure
-                    </p>
-
-                    <p className="text-xs font-semibold text-white sm:text-sm">
-                      Server Ready
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
-
             </div>
 
           </div>
 
+          {/* COMPUTING FLOW */}
+
+          <div className="relative mt-16 sm:mt-20 md:mt-24">
+
+            {/* DESKTOP CONNECTING LINE */}
+
+            <div
+              className="
+                absolute
+                left-0
+                right-0
+                top-[31px]
+                hidden
+                h-px
+                bg-[#062B49]/10
+                lg:block
+              "
+            />
+
+            <div
+              className="
+                absolute
+                left-0
+                top-[31px]
+                hidden
+                h-px
+                w-[25%]
+                bg-[#9B5B35]
+                lg:block
+              "
+            />
+
+            {/* FLOW ITEMS */}
+
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+
+              {computingFlow.map((item, index) => (
+                <div
+                  key={item.number}
+                  className="
+                    group
+                    relative
+                    border-t
+                    border-[#062B49]/10
+                    px-0
+                    py-7
+                    first:border-t-0
+                    sm:px-5
+                    sm:py-8
+                    lg:border-l
+                    lg:border-t-0
+                    lg:px-8
+                    lg:py-0
+                    lg:first:border-l-0
+                  "
+                >
+
+                  {/* ICON NODE */}
+
+                  <div className="relative z-10 flex items-center">
+
+                    <div
+                      className="
+                        flex
+                        h-14
+                        w-14
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-[#062B49]/15
+                        bg-[#F7F8FA]
+                        text-lg
+                        text-[#062B49]
+                        transition-all
+                        duration-500
+                        group-hover:border-[#9B5B35]
+                        group-hover:bg-[#9B5B35]
+                        group-hover:text-white
+                        sm:h-[62px]
+                        sm:w-[62px]
+                        sm:text-xl
+                      "
+                    >
+                      {item.icon}
+                    </div>
+
+                  </div>
+
+                  {/* NUMBER */}
+
+                  <div className="mt-5 flex items-center gap-3 sm:mt-7 sm:gap-4 lg:mt-8">
+
+                    <span
+                      className="
+                        text-[10px]
+                        font-bold
+                        tracking-[0.22em]
+                        text-[#9B5B35]
+                        sm:text-[11px]
+                        sm:tracking-[0.25em]
+                      "
+                    >
+                      {item.number}
+                    </span>
+
+                    <span className="h-px w-6 bg-[#9B5B35]/40 sm:w-8" />
+
+                  </div>
+
+                  {/* TITLE */}
+
+                  <h3
+                    className="
+                      mt-4
+                      text-[18px]
+                      font-bold
+                      tracking-[-0.02em]
+                      text-[#062B49]
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#9B5B35]
+                      sm:mt-5
+                      sm:text-[20px]
+                    "
+                  >
+                    {item.title}
+                  </h3>
+
+                  {/* DESCRIPTION */}
+
+                  <p
+                    className="
+                      mt-3
+                      max-w-[280px]
+                      text-[12px]
+                      leading-6
+                      text-gray-500
+                      sm:mt-4
+                      sm:text-[13px]
+                      sm:leading-7
+                    "
+                  >
+                    {item.text}
+                  </p>
+
+                  {/* BOTTOM LINE */}
+
+                  <div
+                    className="
+                      mt-7
+                      h-[2px]
+                      w-8
+                      bg-[#9B5B35]
+                      transition-all
+                      duration-500
+                      group-hover:w-16
+                      sm:mt-10
+                    "
+                  />
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
         </div>
+
+        {/* BACKGROUND CIRCLES */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            -right-40
+            top-20
+            hidden
+            h-[420px]
+            w-[420px]
+            rounded-full
+            border
+            border-[#9B5B35]/[0.04]
+            sm:block
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            -right-24
+            top-32
+            hidden
+            h-[260px]
+            w-[260px]
+            rounded-full
+            border
+            border-[#9B5B35]/[0.05]
+            sm:block
+          "
+        />
 
       </section>
 
       {/* =====================================================
-          INTRODUCTION
+          TECHNOLOGY PORTFOLIO
       ===================================================== */}
 
-      <section className="px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-
+      <section
+        id="technologies"
+        className="
+          relative
+          ml-0
+          overflow-hidden
+          px-5
+          py-16
+          sm:px-8
+          sm:py-20
+          md:px-10
+          md:py-24
+          lg:ml-16
+          lg:px-12
+          lg:py-20
+        "
+      >
         <div className="mx-auto max-w-7xl">
 
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-end lg:gap-20">
+          {/* HEADER */}
 
+          <div
+            className="
+              grid
+              grid-cols-1
+              gap-8
+              md:grid-cols-[1.2fr_0.8fr]
+              md:gap-12
+              lg:gap-20
+            "
+          >
             <div>
 
-              <div className="flex items-center gap-3">
+              <span
+                className="
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-[0.28em]
+                  text-[#9B5B35]
+                  sm:text-[9px]
+                  sm:tracking-[0.35em]
+                "
+              >
+                Technology Portfolio
+              </span>
 
-                <span className="h-[2px] w-8 bg-[#9B5B35]" />
+              <h2
+                className="
+                  mt-4
+                  max-w-3xl
+                  text-[38px]
+                  font-bold
+                  leading-[0.94]
+                  tracking-[-0.05em]
+                  text-[#062B49]
+                  sm:mt-5
+                  sm:text-[44px]
+                  md:text-[48px]
+                  md:leading-[0.92]
+                "
+              >
+                Computing is not
 
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9B5B35] sm:text-xs">
-                  Computing Infrastructure
+                <span className="text-[#9B5B35]">
+                  {" "}just hardware.
                 </span>
-
-              </div>
-
-              <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-
-                Power your systems with
-
-                <span className="block text-[#9B5B35]">
-                  dependable hardware.
-                </span>
-
               </h2>
 
             </div>
 
-            <p className="max-w-xl text-sm leading-7 text-gray-500 sm:text-base sm:leading-8">
-              From professional desktops to enterprise servers,
-              the right hardware foundation helps organizations
-              support applications, workloads and everyday operations.
-            </p>
+            <div className="flex items-end">
 
-          </div>
-
-          {/* Feature cards */}
-
-          <div className="mt-10 grid gap-3 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
-
-            {components.map((item) => (
-
-              <div
-                key={item.number}
-                className="group border border-gray-200 bg-white p-6 transition duration-500 hover:-translate-y-1 hover:border-[#9B5B35] hover:shadow-xl sm:p-7"
+              <p
+                className="
+                  max-w-sm
+                  border-l
+                  border-[#062B49]/15
+                  pl-5
+                  text-[12px]
+                  leading-6
+                  text-gray-500
+                  sm:pl-6
+                  sm:text-[13px]
+                "
               >
+                The right combination of processors, memory,
+                graphics and server components creates a dependable
+                foundation for modern digital operations.
+              </p>
 
-                <div className="flex items-start justify-between">
-
-                  <div className="flex h-11 w-11 items-center justify-center bg-[#062B49] text-lg text-white transition duration-500 group-hover:bg-[#9B5B35]">
-                    {item.icon}
-                  </div>
-
-                  <span className="text-xs font-bold text-gray-200">
-                    {item.number}
-                  </span>
-
-                </div>
-
-                <h3 className="mt-7 text-base font-bold text-[#062B49] sm:text-lg">
-                  {item.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-6 text-gray-500">
-                  {item.text}
-                </p>
-
-                <div className="mt-6 h-[2px] w-8 bg-[#9B5B35] transition-all duration-500 group-hover:w-14" />
-
-              </div>
-
-            ))}
+            </div>
 
           </div>
 
-        </div>
+          {/* TECHNOLOGY LIST */}
 
-      </section>
+          <div className="mt-10 sm:mt-12 md:mt-16">
 
-      {/* =====================================================
-          HARDWARE PORTFOLIO
-      ===================================================== */}
-
-      <section
-        id="hardware"
-        className="relative overflow-hidden bg-[#f6f4f1] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-28"
-      >
-
-        <div className="absolute -right-40 top-0 h-96 w-96 rounded-full bg-[#9B5B35]/10 blur-[100px]" />
-
-        <div className="relative mx-auto max-w-7xl">
-
-          <div className="max-w-2xl">
-
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9B5B35] sm:text-xs">
-              Hardware Portfolio
-            </span>
-
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-
-              Components built for
-
-              <span className="block text-[#9B5B35]">
-                modern computing.
-              </span>
-
-            </h2>
-
-            <p className="mt-5 text-sm leading-7 text-gray-500 sm:text-base">
-              Explore the essential components used across professional
-              computing systems and server infrastructure.
-            </p>
-
-          </div>
-
-          {/* Hardware grid */}
-
-          <div className="mt-10 grid gap-3 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
-
-            {hardware.map((item, index) => (
+            {technologies.map((item, index) => (
 
               <div
                 key={item.title}
-                className="group relative overflow-hidden border border-gray-200 bg-white p-5 transition duration-500 hover:-translate-y-1 hover:border-[#9B5B35] hover:shadow-xl sm:p-6"
+                className="
+                  technology-manifesto
+                  group
+                  relative
+                  overflow-hidden
+                  border-t
+                  border-[#062B49]/15
+                  py-4
+                  sm:py-5
+                "
               >
 
-                <span className="absolute right-5 top-5 text-[10px] font-bold text-gray-200 transition group-hover:text-[#9B5B35]/30">
-                  0{index + 1}
-                </span>
+                {/* HOVER BACKGROUND */}
 
-                <div className="flex h-11 w-11 items-center justify-center bg-[#062B49] text-lg text-white transition duration-500 group-hover:bg-[#9B5B35]">
-                  {item.icon}
-                </div>
+                <div
+                  className="
+                    technology-manifesto-fill
+                    absolute
+                    inset-y-0
+                    left-0
+                    w-0
+                    bg-[#062B49]
+                    transition-all
+                    duration-500
+                    group-hover:w-full
+                  "
+                />
 
-                <h3 className="mt-6 text-base font-bold text-[#062B49]">
-                  {item.title}
-                </h3>
+                <div className="relative">
 
-                <p className="mt-2.5 text-sm leading-6 text-gray-500">
-                  {item.text}
-                </p>
+                  <div
+                    className="
+                      grid
+                      grid-cols-[38px_1fr_40px]
+                      items-center
+                      gap-3
+                      sm:grid-cols-[45px_1fr_45px]
+                      sm:gap-5
+                      lg:grid-cols-[60px_1fr_250px_55px]
+                      lg:gap-8
+                    "
+                  >
 
-                <div className="mt-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#9B5B35]">
+                    {/* NUMBER */}
 
-                  Explore
+                    <span
+                      className="
+                        text-[9px]
+                        font-bold
+                        tracking-[0.2em]
+                        text-[#9B5B35]
+                        sm:text-[10px]
+                        sm:tracking-[0.25em]
+                      "
+                    >
+                      0{index + 1}
+                    </span>
 
-                  <FiArrowRight className="transition duration-300 group-hover:translate-x-1" />
+                    {/* TITLE */}
+
+                    <h3
+                      className="
+                        min-w-0
+                        text-[17px]
+                        font-bold
+                        leading-tight
+                        tracking-[-0.025em]
+                        text-[#062B49]
+                        transition-all
+                        duration-500
+                        group-hover:translate-x-2
+                        group-hover:text-white
+                        sm:text-[20px]
+                        md:text-[22px]
+                        lg:text-[27px]
+                        lg:leading-none
+                        lg:tracking-[-0.035em]
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                    {/* DESKTOP DESCRIPTION */}
+
+                    <p
+                      className="
+                        hidden
+                        text-[11px]
+                        leading-5
+                        text-gray-500
+                        transition-colors
+                        duration-500
+                        group-hover:text-white/50
+                        lg:block
+                      "
+                    >
+                      {item.text}
+                    </p>
+
+                    {/* ICON */}
+
+                    <div className="flex justify-end">
+
+                      <div
+                        className="
+                          flex
+                          h-8
+                          w-8
+                          items-center
+                          justify-center
+                          border
+                          border-[#062B49]/15
+                          text-xs
+                          text-[#062B49]
+                          transition-all
+                          duration-500
+                          group-hover:border-[#9B5B35]
+                          group-hover:bg-[#9B5B35]
+                          group-hover:text-white
+                          sm:h-9
+                          sm:w-9
+                          sm:text-sm
+                        "
+                      >
+                        {item.icon}
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* MOBILE / TABLET DESCRIPTION */}
+
+                  <p
+                    className="
+                      relative
+                      mt-2
+                      pl-[38px]
+                      text-[11px]
+                      leading-5
+                      text-gray-500
+                      sm:pl-[45px]
+                      sm:text-[12px]
+                      lg:hidden
+                    "
+                  >
+                    {item.text}
+                  </p>
 
                 </div>
 
@@ -494,51 +675,116 @@ const PcServer = () => {
 
             ))}
 
+            <div className="border-t border-[#062B49]/15" />
+
           </div>
 
         </div>
-
       </section>
 
       {/* =====================================================
           WHY EPSILORA
       ===================================================== */}
 
-      <section className="px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-
+      <section
+        className="
+          px-5
+          py-16
+          sm:px-8
+          sm:py-20
+          md:px-10
+          md:py-24
+          lg:px-12
+          lg:py-24
+        "
+      >
         <div className="mx-auto max-w-7xl">
 
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-20">
+          <div
+            className="
+              grid
+              gap-10
+              md:grid-cols-1
+              lg:grid-cols-[0.85fr_1.15fr]
+              lg:items-center
+              lg:gap-20
+            "
+          >
 
-            {/* Dark visual */}
+            {/* DARK STATEMENT */}
 
-            <div className="relative overflow-hidden bg-[#062B49] p-7 sm:p-10">
+            <div
+              className="
+                relative
+                overflow-hidden
+                bg-[#062B49]
+                p-6
+                sm:p-10
+              "
+            >
 
-              <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#9B5B35]/20 blur-3xl" />
+              <div
+                className="
+                  absolute
+                  -right-16
+                  -top-16
+                  h-48
+                  w-48
+                  rounded-full
+                  bg-[#9B5B35]/20
+                  blur-3xl
+                "
+              />
 
               <div className="relative">
 
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#C98255] sm:text-xs">
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.2em]
+                    text-[#C98255]
+                    sm:text-[10px]
+                    sm:tracking-[0.25em]
+                  "
+                >
                   Infrastructure Thinking
                 </span>
 
-                <h3 className="mt-5 text-3xl font-bold leading-tight text-white sm:text-4xl">
-
+                <h3
+                  className="
+                    mt-4
+                    text-3xl
+                    font-bold
+                    leading-tight
+                    text-white
+                    sm:mt-5
+                    sm:text-4xl
+                  "
+                >
                   Performance is not
 
                   <span className="block text-[#C98255]">
                     just speed.
                   </span>
-
                 </h3>
 
                 <p className="mt-5 text-sm leading-7 text-white/55">
-                  A dependable computing environment needs the right
-                  combination of performance, reliability, scalability
-                  and hardware architecture.
+                  It is the balance between processing power,
+                  memory, graphics, reliability and the infrastructure
+                  supporting every digital workload.
                 </p>
 
-                <div className="mt-8 grid grid-cols-2 gap-2">
+                <div
+                  className="
+                    mt-7
+                    grid
+                    grid-cols-2
+                    gap-2
+                    sm:mt-8
+                  "
+                >
 
                   <div className="border border-white/10 p-4 sm:p-5">
 
@@ -566,48 +812,117 @@ const PcServer = () => {
 
             </div>
 
-            {/* Benefits */}
+            {/* CONTENT */}
 
             <div>
 
               <div className="flex items-center gap-3">
 
-                <span className="h-[2px] w-8 bg-[#9B5B35]" />
+                <span className="h-[2px] w-7 bg-[#9B5B35] sm:w-8" />
 
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9B5B35] sm:text-xs">
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.2em]
+                    text-[#9B5B35]
+                    sm:text-[10px]
+                    sm:tracking-[0.25em]
+                  "
+                >
                   Why It Matters
                 </span>
 
               </div>
 
-              <h2 className="mt-5 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-
-                Hardware that
+              <h2
+                className="
+                  mt-5
+                  text-3xl
+                  font-bold
+                  leading-tight
+                  sm:text-4xl
+                  lg:text-5xl
+                "
+              >
+                Infrastructure that
 
                 <span className="block text-[#9B5B35]">
-                  works for your business.
+                  grows with you.
                 </span>
-
               </h2>
 
-              <p className="mt-5 text-sm leading-7 text-gray-500 sm:text-base sm:leading-8">
-                Choosing the right PC and server components creates a
-                stronger foundation for applications, users and future
-                infrastructure requirements.
+              <p
+                className="
+                  mt-5
+                  max-w-xl
+                  text-sm
+                  leading-7
+                  text-gray-500
+                  sm:text-base
+                  sm:leading-8
+                "
+              >
+                A well-planned PC and server environment can help
+                organizations maintain dependable performance while
+                creating a flexible foundation for future technology
+                requirements.
               </p>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4">
+              <div
+                className="
+                  mt-8
+                  grid
+                  grid-cols-1
+                  gap-3
+                  sm:grid-cols-2
+                  sm:gap-x-8
+                  sm:gap-y-4
+                "
+              >
 
-                {benefits.map((benefit) => (
+                {benefits.map((benefit, index) => (
 
                   <div
                     key={benefit}
-                    className="flex items-start gap-3 border-b border-gray-100 pb-3"
+                    className="
+                      flex
+                      items-start
+                      gap-3
+                      border-b
+                      border-gray-100
+                      pb-3
+                    "
                   >
 
-                    <FiCheckCircle className="mt-0.5 shrink-0 text-[#9B5B35]" />
+                    <span
+                      className="
+                        shrink-0
+                        text-[9px]
+                        font-bold
+                        text-[#9B5B35]
+                      "
+                    >
+                      0{index + 1}
+                    </span>
 
-                    <span className="text-sm font-medium leading-6 text-[#062B49]">
+                    <FiCheckCircle
+                      className="
+                        mt-0.5
+                        shrink-0
+                        text-[#9B5B35]
+                      "
+                    />
+
+                    <span
+                      className="
+                        text-sm
+                        font-medium
+                        leading-6
+                        text-[#062B49]
+                      "
+                    >
                       {benefit}
                     </span>
 
@@ -622,61 +937,6 @@ const PcServer = () => {
           </div>
 
         </div>
-
-      </section>
-
-      {/* =====================================================
-          CTA
-      ===================================================== */}
-
-      <section className="px-5 pb-16 sm:px-8 sm:pb-24 lg:px-12 lg:pb-28">
-
-        <div className="relative mx-auto max-w-7xl overflow-hidden bg-[#062B49]">
-
-          <div className="absolute -right-20 -top-32 h-72 w-72 rounded-full border border-[#C98255]/20 sm:h-96 sm:w-96" />
-
-          <div className="absolute -right-5 -top-20 h-52 w-52 rounded-full border border-[#C98255]/10 sm:h-72 sm:w-72" />
-
-          <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-[#9B5B35]/10 blur-3xl" />
-
-          <div className="relative px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-
-            <div className="max-w-3xl">
-
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C98255] sm:text-xs">
-                Build Your Infrastructure
-              </span>
-
-              <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-
-                Power your next
-
-                <span className="block text-[#C98255]">
-                  computing environment.
-                </span>
-
-              </h2>
-
-              <p className="mt-5 max-w-xl text-sm leading-7 text-white/55 sm:text-base">
-                Tell us about your PC, workstation or server requirements
-                and explore the right hardware components for your environment.
-              </p>
-
-              <a
-                href="/contact"
-                className="group mt-7 inline-flex min-h-[50px] w-full items-center justify-center gap-3 bg-[#9B5B35] px-7 text-sm font-semibold text-white transition duration-300 hover:bg-[#C98255] sm:w-auto"
-              >
-                Talk to Our Team
-
-                <FiArrowRight className="transition duration-300 group-hover:translate-x-1" />
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </section>
 
     </main>

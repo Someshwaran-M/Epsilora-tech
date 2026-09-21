@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FiShield,
   FiLock,
   FiActivity,
   FiUserCheck,
-  FiArrowRight,
   FiCheck,
   FiEye,
   FiDatabase,
   FiWifi,
-  FiAlertTriangle,
   FiLayers,
 } from "react-icons/fi";
 
 const InformationCyber = () => {
+  /* =====================================================
+      SECURITY AREAS
+  ===================================================== */
+
   const securityAreas = [
     {
       icon: <FiShield />,
@@ -41,6 +43,37 @@ const InformationCyber = () => {
     },
   ];
 
+  /* =====================================================
+      SECURITY FOUNDATION
+  ===================================================== */
+
+  const [activeFoundation, setActiveFoundation] = useState(0);
+
+  const foundations = [
+    {
+      number: "01",
+      title: "Network Security",
+      description:
+        "Protect network infrastructure and business systems through layered security controls designed to reduce unauthorized access and security threats.",
+    },
+    {
+      number: "02",
+      title: "Cloud & Data Security",
+      description:
+        "Protect important business data and cloud environments with security-focused architecture designed around modern digital infrastructure.",
+    },
+    {
+      number: "03",
+      title: "Identity & Monitoring",
+      description:
+        "Support secure access, authentication, visibility and monitoring across business applications, systems and connected environments.",
+    },
+  ];
+
+  /* =====================================================
+      CAPABILITIES
+  ===================================================== */
+
   const capabilities = [
     {
       icon: <FiShield />,
@@ -64,6 +97,10 @@ const InformationCyber = () => {
     },
   ];
 
+  /* =====================================================
+      BENEFITS
+  ===================================================== */
+
   const benefits = [
     "Network and infrastructure protection",
     "Cloud and business data security",
@@ -74,873 +111,334 @@ const InformationCyber = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#F7F8FA] text-[#062B49]">
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#062B49]">
+      <section className="relative h-[220px] w-full overflow-hidden sm:h-[270px] md:h-[310px] lg:h-[340px]">
+        <div className="cyber-hero-background absolute inset-0 bg-[url('/cyber.png')] bg-cover bg-center bg-no-repeat" />
+      </section>
 
-        {/* Background effects */}
 
-        <div className="absolute inset-0 pointer-events-none">
+      {/* =====================================================
+          SECURITY FOUNDATION
+      ===================================================== */}
 
-          <div
-            className="
-              absolute
-              -top-32
-              -right-32
-              w-80
-              h-80
-              rounded-full
-              bg-[#9B5B35]/20
-              blur-3xl
-            "
-          />
+      <section className="bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
 
-          <div
-            className="
-              absolute
-              -bottom-40
-              -left-32
-              w-96
-              h-96
-              rounded-full
-              bg-[#9B5B35]/10
-              blur-3xl
-            "
-          />
+        <div className="mx-auto max-w-7xl">
 
-          <div
-            className="
-              absolute
-              inset-0
-              opacity-[0.035]
-              bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)]
-              bg-[size:45px_45px]
-            "
-          />
+          {/* HEADER */}
 
-        </div>
-
-        <div
-          className="
-            relative
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-            py-16
-            sm:py-20
-            lg:py-28
-          "
-        >
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-            {/* LEFT */}
+          <div className="mb-12 flex flex-col gap-8 sm:mb-16 md:mb-20 md:flex-row md:items-end md:justify-between lg:ml-8">
 
             <div>
 
-              <div
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  px-3
-                  py-2
-                  border
-                  border-white/10
-                  bg-white/[0.05]
-                  text-[#C9875D]
-                  text-[11px]
-                  font-bold
-                  uppercase
-                  tracking-[0.2em]
-                "
-              >
-                <FiShield />
-                Cyber Security
-              </div>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="h-[2px] w-7 bg-[#9B5B35] sm:w-10" />
 
-              <h1
-                className="
-                  mt-5
-                  text-4xl
-                  sm:text-5xl
-                  lg:text-6xl
-                  xl:text-7xl
-                  font-bold
-                  leading-[1.05]
-                  tracking-tight
-                  text-white
-                "
-              >
-                Information
-                <span className="block text-[#C9875D]">
-                  & Cyber Security
+                <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.35em]">
+                  Security Foundation
                 </span>
-              </h1>
-
-              <p
-                className="
-                  mt-6
-                  max-w-xl
-                  text-sm
-                  sm:text-base
-                  lg:text-lg
-                  text-white/65
-                  leading-7
-                "
-              >
-                Security solutions designed to help protect your
-                systems, networks, identities and business data
-                across modern digital environments.
-              </p>
-
-              <div
-                className="
-                  mt-8
-                  flex
-                  flex-col
-                  sm:flex-row
-                  gap-3
-                "
-              >
-
-                <a
-                  href="/contact"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    gap-2
-                    px-6
-                    py-3.5
-                    bg-[#9B5B35]
-                    hover:bg-[#844A2A]
-                    text-white
-                    text-sm
-                    font-semibold
-                    transition-all
-                    duration-300
-                  "
-                >
-                  Talk to Security Experts
-                  <FiArrowRight />
-                </a>
-
-                <a
-                  href="#security-areas"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    px-6
-                    py-3.5
-                    border
-                    border-white/15
-                    hover:border-white/30
-                    text-white
-                    text-sm
-                    font-semibold
-                    transition-all
-                    duration-300
-                  "
-                >
-                  Explore Security
-                </a>
-
               </div>
 
-            </div>
-
-
-            {/* RIGHT SECURITY VISUAL */}
-
-            <div className="relative">
-
-              <div
-                className="
-                  relative
-                  mx-auto
-                  max-w-md
-                  aspect-square
-                  flex
-                  items-center
-                  justify-center
-                "
-              >
-
-                {/* Outer rings */}
-
-                <div
-                  className="
-                    absolute
-                    inset-4
-                    rounded-full
-                    border
-                    border-white/10
-                  "
-                />
-
-                <div
-                  className="
-                    absolute
-                    inset-12
-                    rounded-full
-                    border
-                    border-[#9B5B35]/30
-                  "
-                />
-
-                <div
-                  className="
-                    absolute
-                    inset-20
-                    rounded-full
-                    border
-                    border-white/10
-                  "
-                />
-
-                {/* Glow */}
-
-                <div
-                  className="
-                    absolute
-                    w-48
-                    h-48
-                    rounded-full
-                    bg-[#9B5B35]/20
-                    blur-3xl
-                  "
-                />
-
-                {/* Main shield */}
-
-                <div
-                  className="
-                    relative
-                    w-32
-                    h-36
-                    sm:w-40
-                    sm:h-44
-                    flex
-                    items-center
-                    justify-center
-                    bg-white/[0.06]
-                    border
-                    border-white/15
-                    backdrop-blur-xl
-                    shadow-2xl
-                  "
-                >
-
-                  <div
-                    className="
-                      absolute
-                      inset-3
-                      border
-                      border-[#9B5B35]/30
-                    "
-                  />
-
-                  <FiShield
-                    className="
-                      relative
-                      text-5xl
-                      sm:text-6xl
-                      text-[#C9875D]
-                    "
-                  />
-
-                </div>
-
-
-                {/* Floating security card */}
-
-                <div
-                  className="
-                    absolute
-                    top-3
-                    right-0
-                    sm:right-4
-                    px-4
-                    py-3
-                    bg-white
-                    shadow-xl
-                    border
-                    border-gray-100
-                  "
-                >
-
-                  <div className="flex items-center gap-3">
-
-                    <div
-                      className="
-                        w-9
-                        h-9
-                        flex
-                        items-center
-                        justify-center
-                        bg-[#062B49]
-                        text-white
-                      "
-                    >
-                      <FiLock />
-                    </div>
-
-                    <div>
-                      <p className="text-[10px] text-gray-500">
-                        SECURITY
-                      </p>
-
-                      <p className="text-xs font-bold text-[#062B49]">
-                        Protected
-                      </p>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                {/* Floating monitoring card */}
-
-                <div
-                  className="
-                    absolute
-                    bottom-5
-                    left-0
-                    sm:left-2
-                    px-4
-                    py-3
-                    bg-white
-                    shadow-xl
-                    border
-                    border-gray-100
-                  "
-                >
-
-                  <div className="flex items-center gap-3">
-
-                    <div
-                      className="
-                        w-9
-                        h-9
-                        flex
-                        items-center
-                        justify-center
-                        bg-[#9B5B35]
-                        text-white
-                      "
-                    >
-                      <FiActivity />
-                    </div>
-
-                    <div>
-                      <p className="text-[10px] text-gray-500">
-                        MONITORING
-                      </p>
-
-                      <p className="text-xs font-bold text-[#062B49]">
-                        Active
-                      </p>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          STATS
-      ===================================================== */}
-
-      <section className="border-b border-gray-100 bg-white">
-
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-            py-8
-          "
-        >
-
-          <div
-            className="
-              grid
-              grid-cols-2
-              lg:grid-cols-4
-              gap-6
-            "
-          >
-
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                24/7
-              </p>
-              <p className="mt-1 text-xs text-gray-500">
-                Security Visibility
-              </p>
-            </div>
-
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                Multi
-              </p>
-              <p className="mt-1 text-xs text-gray-500">
-                Layer Protection
-              </p>
-            </div>
-
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                Secure
-              </p>
-              <p className="mt-1 text-xs text-gray-500">
-                Digital Environments
-              </p>
-            </div>
-
-            <div>
-              <p className="text-2xl sm:text-3xl font-bold text-[#062B49]">
-                End-to-End
-              </p>
-              <p className="mt-1 text-xs text-gray-500">
-                Security Approach
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          INTRODUCTION
-      ===================================================== */}
-
-      <section className="py-16 sm:py-20 lg:py-24">
-
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-          "
-        >
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-
-            <div>
-
-              <p
-                className="
-                  text-[#9B5B35]
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-[0.2em]
-                "
-              >
-                Security Foundation
-              </p>
-
-              <h2
-                className="
-                  mt-3
-                  text-3xl
-                  sm:text-4xl
-                  lg:text-5xl
-                  font-bold
-                  leading-tight
-                  text-[#062B49]
-                "
-              >
-                Protect what keeps
+              <h2 className="mt-6 max-w-3xl text-[40px] font-bold leading-[0.97] tracking-[-0.05em] text-[#062B49] sm:mt-7 sm:text-[48px] md:text-[55px] lg:text-[60px]">
+                Security built
                 <span className="block text-[#9B5B35]">
-                  your business moving.
+                  for protection.
                 </span>
               </h2>
 
             </div>
 
-            <div>
 
-              <p
-                className="
-                  text-sm
-                  sm:text-base
-                  text-gray-600
-                  leading-7
-                "
-              >
-                Modern businesses depend on connected systems,
-                cloud platforms, networks, applications and
-                digital identities. A strong security foundation
-                helps protect these environments while supporting
-                reliable business operations.
-              </p>
+            <div className="hidden pb-2 text-right sm:block">
 
-              <p
-                className="
-                  mt-5
-                  text-sm
-                  sm:text-base
-                  text-gray-600
-                  leading-7
-                "
-              >
-                EPSILORA Technology focuses on security capabilities
-                across infrastructure, data, identity and monitoring
-                environments.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          SECURITY AREAS
-      ===================================================== */}
-
-      <section
-        id="security-areas"
-        className="bg-[#F8F9FA] py-16 sm:py-20 lg:py-24"
-      >
-
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-          "
-        >
-
-          <div className="max-w-2xl">
-
-            <p
-              className="
-                text-[#9B5B35]
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.2em]
-              "
-            >
-              Security Areas
-            </p>
-
-            <h2
-              className="
-                mt-3
-                text-3xl
-                sm:text-4xl
-                font-bold
-                text-[#062B49]
-              "
-            >
-              Security built around
-              <span className="text-[#9B5B35]">
-                {" "}your environment.
+              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                EPS / CYBER SECURITY
               </span>
-            </h2>
 
-            <p className="mt-4 text-sm sm:text-base text-gray-600 leading-7">
-              Explore the key security areas supporting modern
-              infrastructure and digital business environments.
-            </p>
+              <div className="mt-3 ml-auto h-px w-16 bg-[#9B5B35]" />
+
+            </div>
 
           </div>
 
 
-          <div
-            className="
-              mt-10
-              grid
-              grid-cols-1
-              md:grid-cols-2
-              gap-5
-              lg:gap-6
-            "
-          >
+          {/* FOUNDATION CONTENT */}
 
-            {securityAreas.map((item) => (
-              <div
-                key={item.title}
-                className="
-                  group
-                  relative
-                  overflow-hidden
-                  bg-white
-                  border
-                  border-gray-200
-                  p-6
-                  sm:p-8
-                  hover:border-[#9B5B35]/50
-                  hover:shadow-xl
-                  transition-all
-                  duration-300
-                "
-              >
+          <div className="grid grid-cols-1 gap-10 lg:ml-8 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
 
-                {/* Number */}
+            {/* LEFT NAVIGATION */}
 
-                <span
-                  className="
-                    absolute
-                    top-5
-                    right-6
-                    text-5xl
-                    font-bold
-                    text-gray-100
-                    group-hover:text-[#9B5B35]/10
-                    transition-colors
-                  "
-                >
-                  {item.number}
-                </span>
+            <div className="border-b border-[#062B49]/10 pb-8 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-14">
+
+              <p className="mb-5 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400 sm:mb-8">
+                Explore the foundation
+              </p>
+
+              <div>
+
+                {foundations.map((item, index) => {
+
+                  const isActive = activeFoundation === index;
+
+                  return (
+                    <button
+                      key={item.number}
+                      type="button"
+                      onClick={() => setActiveFoundation(index)}
+                      className="group block w-full text-left"
+                    >
+
+                      <div
+                        className={`
+                          relative flex items-center gap-4 border-b py-5
+                          transition-all duration-500
+                          sm:gap-6 sm:py-6
+                          lg:gap-7 lg:py-7
+                          ${
+                            isActive
+                              ? "border-[#9B5B35]"
+                              : "border-[#062B49]/10"
+                          }
+                        `}
+                      >
+
+                        <span
+                          className={`
+                            absolute left-[-12px] top-0 h-full w-[3px]
+                            bg-[#9B5B35] transition-all duration-500
+                            lg:left-[-57px]
+                            ${isActive ? "opacity-100" : "opacity-0"}
+                          `}
+                        />
+
+                        <span
+                          className={`
+                            text-[28px] font-light tracking-[-0.05em]
+                            transition-all duration-500
+                            sm:text-[31px]
+                            lg:text-[34px]
+                            ${
+                              isActive
+                                ? "text-[#9B5B35]"
+                                : "text-gray-300 group-hover:text-[#062B49]"
+                            }
+                          `}
+                        >
+                          {item.number}
+                        </span>
+
+                        <div className="flex-1">
+
+                          <span
+                            className={`
+                              text-[10px] font-bold uppercase tracking-[0.15em]
+                              transition-colors duration-300
+                              sm:text-[11px] sm:tracking-[0.2em]
+                              ${
+                                isActive
+                                  ? "text-[#062B49]"
+                                  : "text-gray-400 group-hover:text-[#062B49]"
+                              }
+                            `}
+                          >
+                            {item.title}
+                          </span>
+
+                        </div>
+
+                        <span
+                          className={`
+                            text-base transition-all duration-500 sm:text-lg
+                            ${
+                              isActive
+                                ? "translate-x-1 text-[#9B5B35]"
+                                : "text-gray-300"
+                            }
+                          `}
+                        >
+                          →
+                        </span>
+
+                      </div>
+
+                    </button>
+                  );
+
+                })}
+
+              </div>
+
+            </div>
 
 
-                {/* Icon */}
+            {/* RIGHT CONTENT */}
 
-                <div
-                  className="
-                    relative
-                    w-12
-                    h-12
-                    flex
-                    items-center
-                    justify-center
-                    bg-[#062B49]
-                    text-white
-                    group-hover:bg-[#9B5B35]
-                    transition-all
-                    duration-300
-                  "
-                >
-                  <span className="text-xl">
-                    {item.icon}
+            <div className="relative min-h-[430px] overflow-hidden bg-[#062B49] sm:min-h-[450px]">
+
+              {/* DECORATIVE CIRCLES */}
+
+              <div className="absolute right-0 top-0 h-48 w-48 translate-x-20 -translate-y-20 rounded-full border border-white/10 sm:h-64 sm:w-64" />
+
+              <div className="absolute bottom-0 right-0 h-64 w-64 translate-x-24 translate-y-24 rounded-full border border-[#9B5B35]/20 sm:h-80 sm:w-80 sm:translate-x-32 sm:translate-y-32" />
+
+              {/* GRID */}
+
+              <div className="cyber-foundation-grid absolute inset-0" />
+
+
+              <div className="relative z-10 flex min-h-[430px] flex-col justify-between p-7 sm:min-h-[450px] sm:p-10 md:p-12 lg:p-14">
+
+                {/* TOP */}
+
+                <div className="flex items-start justify-between gap-5">
+
+                  <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/40 sm:text-[10px] sm:tracking-[0.3em]">
+                    Security Architecture
                   </span>
+
+                  <span className="text-[54px] font-light leading-none tracking-[-0.06em] text-white/10 sm:text-[64px] md:text-[72px]">
+                    {foundations[activeFoundation].number}
+                  </span>
+
                 </div>
 
 
-                <h3
-                  className="
-                    mt-6
-                    text-lg
-                    sm:text-xl
-                    font-bold
-                    text-[#062B49]
-                  "
-                >
-                  {item.title}
-                </h3>
+                {/* MAIN */}
 
-                <p
-                  className="
-                    mt-3
-                    text-sm
-                    text-gray-600
-                    leading-6
-                    max-w-lg
-                  "
-                >
-                  {item.text}
-                </p>
+                <div className="max-w-2xl">
+
+                  <div className="mb-6 h-[2px] w-12 bg-[#9B5B35] sm:mb-8 sm:w-14" />
+
+                  <h3
+                    key={foundations[activeFoundation].title}
+                    className="cyber-foundation-title text-[32px] font-bold leading-tight tracking-[-0.04em] text-white sm:text-[38px] md:text-[42px]"
+                  >
+                    {foundations[activeFoundation].title}
+                  </h3>
+
+                  <p
+                    key={foundations[activeFoundation].description}
+                    className="cyber-foundation-description mt-5 max-w-xl text-[13px] leading-7 text-white/60 sm:mt-7 sm:text-[15px] sm:leading-8"
+                  >
+                    {foundations[activeFoundation].description}
+                  </p>
+
+                </div>
 
 
-                <div
-                  className="
-                    mt-6
-                    flex
-                    items-center
-                    gap-2
-                    text-xs
-                    font-semibold
-                    uppercase
-                    tracking-wider
-                    text-[#9B5B35]
-                  "
-                >
-                  Security Capability
-                  <FiArrowRight
-                    className="
-                      group-hover:translate-x-1
-                      transition-transform
-                    "
-                  />
+                {/* BOTTOM */}
+
+                <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-5 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:pt-6">
+
+                  <span className="text-[8px] font-bold uppercase tracking-[0.24em] text-white/30 sm:text-[9px] sm:tracking-[0.28em]">
+                    EPSILORA TECHNOLOGY
+                  </span>
+
+                  <span className="text-[8px] font-bold uppercase tracking-[0.24em] text-[#9B5B35] sm:text-[9px] sm:tracking-[0.28em]">
+                    {foundations[activeFoundation].title}
+                  </span>
+
                 </div>
 
               </div>
-            ))}
+
+            </div>
 
           </div>
 
         </div>
-
       </section>
 
 
       {/* =====================================================
-          CAPABILITIES
+          SECURITY CAPABILITIES
       ===================================================== */}
 
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
 
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-          "
-        >
+        <div className="mx-auto max-w-7xl">
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 gap-12 lg:ml-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
 
             {/* LEFT */}
 
             <div>
 
-              <p
-                className="
-                  text-[#9B5B35]
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-[0.2em]
-                "
-              >
+              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
                 Security Capabilities
-              </p>
+              </span>
 
-              <h2
-                className="
-                  mt-3
-                  text-3xl
-                  sm:text-4xl
-                  font-bold
-                  leading-tight
-                  text-[#062B49]
-                "
-              >
-                A layered approach to
-                <span className="block text-[#9B5B35]">
-                  digital security.
-                </span>
-              </h2>
+              <div className="mt-6 hidden h-[180px] w-px bg-gradient-to-b from-[#9B5B35] to-transparent sm:block lg:mt-8" />
 
-              <p
-                className="
-                  mt-5
-                  text-sm
-                  sm:text-base
-                  text-gray-600
-                  leading-7
-                  max-w-xl
-                "
-              >
-                Security is most effective when protection,
-                visibility, access control and infrastructure
-                work together as part of a connected security
-                architecture.
-              </p>
+              <span className="mt-6 block text-[9px] font-bold uppercase tracking-[0.3em] text-[#9B5B35]">
+                Built around secure environments
+              </span>
 
             </div>
 
 
             {/* RIGHT */}
 
-            <div
-              className="
-                grid
-                grid-cols-1
-                sm:grid-cols-2
-                gap-4
-              "
-            >
+            <div>
 
-              {capabilities.map((item) => (
-                <div
-                  key={item.title}
-                  className="
-                    p-5
-                    sm:p-6
-                    border
-                    border-gray-200
-                    hover:border-[#9B5B35]/50
-                    transition-all
-                    duration-300
-                  "
-                >
+              <h2 className="max-w-4xl text-[39px] font-bold leading-[0.98] tracking-[-0.05em] text-[#062B49] sm:text-[47px] md:text-[53px] lg:text-[58px]">
+                Built around
+                <span className="text-[#9B5B35]">
+                  {" "}secure environments.
+                </span>
+              </h2>
+
+              <p className="mt-7 max-w-2xl text-base leading-7 text-gray-500 sm:mt-10 sm:text-lg sm:leading-8">
+                Security protection should connect networks,
+                data, identity, visibility and infrastructure
+                through a structured approach to digital security.
+              </p>
+
+
+              <div className="mt-12 border-t border-[#062B49]/10 sm:mt-16">
+
+                {capabilities.map((item, index) => (
 
                   <div
-                    className="
-                      w-10
-                      h-10
-                      flex
-                      items-center
-                      justify-center
-                      bg-[#062B49]
-                      text-white
-                    "
+                    key={item.title}
+                    className="group grid grid-cols-[38px_1fr] gap-4 border-b border-[#062B49]/10 py-6 sm:grid-cols-[55px_1fr] sm:gap-5 sm:py-7 md:grid-cols-[70px_1fr] md:gap-6 md:py-8"
                   >
-                    {item.icon}
+
+                    <span className="pt-2 text-[9px] font-bold tracking-[0.2em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.25em]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+
+                    <div>
+
+                      <div className="flex items-center gap-4 sm:gap-5">
+
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#062B49]/10 text-[#062B49] transition-all duration-300 group-hover:border-[#9B5B35] group-hover:bg-[#9B5B35] group-hover:text-white sm:h-11 sm:w-11">
+                          {item.icon}
+                        </div>
+
+                        <h3 className="text-base font-bold text-[#062B49] transition-colors group-hover:text-[#9B5B35] sm:text-lg">
+                          {item.title}
+                        </h3>
+
+                      </div>
+
+                      <p className="mt-3 max-w-xl text-[13px] leading-6 text-gray-500 sm:mt-4 sm:text-sm sm:leading-7">
+                        {item.text}
+                      </p>
+
+                    </div>
+
                   </div>
 
-                  <h3
-                    className="
-                      mt-4
-                      font-bold
-                      text-[#062B49]
-                    "
-                  >
-                    {item.title}
-                  </h3>
+                ))}
 
-                  <p
-                    className="
-                      mt-2
-                      text-sm
-                      text-gray-600
-                      leading-6
-                    "
-                  >
-                    {item.text}
-                  </p>
-
-                </div>
-              ))}
+              </div>
 
             </div>
 
@@ -952,282 +450,80 @@ const InformationCyber = () => {
 
 
       {/* =====================================================
-          DARK SECURITY ARCHITECTURE
+          WHY CYBER SECURITY
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#062B49]">
+      <section className="bg-[#F7F8FA] px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
 
-        <div
-          className="
-            absolute
-            -right-32
-            top-0
-            w-96
-            h-96
-            rounded-full
-            bg-[#9B5B35]/10
-            blur-3xl
-          "
-        />
+        <div className="mx-auto max-w-7xl">
 
-        <div
-          className="
-            relative
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-            py-16
-            sm:py-20
-            lg:py-24
-          "
-        >
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 gap-12 lg:ml-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
 
             {/* LEFT */}
 
             <div>
 
-              <p
-                className="
-                  text-[#C9875D]
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-[0.2em]
-                "
-              >
-                Security Architecture
-              </p>
+              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                Why Cyber Security
+              </span>
 
-              <h2
-                className="
-                  mt-3
-                  text-3xl
-                  sm:text-4xl
-                  lg:text-5xl
-                  font-bold
-                  text-white
-                  leading-tight
-                "
-              >
-                Connect protection
-                <span className="block text-[#C9875D]">
-                  across every layer.
-                </span>
-              </h2>
+              <div className="mt-6 hidden h-[180px] w-px bg-gradient-to-b from-[#9B5B35] to-transparent sm:block lg:mt-8" />
 
-              <p
-                className="
-                  mt-5
-                  text-sm
-                  sm:text-base
-                  text-white/60
-                  leading-7
-                  max-w-xl
-                "
-              >
-                Build a security environment where network,
-                data, identity and monitoring capabilities
-                work together.
-              </p>
+              <span className="mt-6 block text-[9px] font-bold uppercase tracking-[0.3em] text-[#9B5B35]">
+                Built for protection
+              </span>
 
             </div>
 
 
-            {/* RIGHT ARCHITECTURE */}
-
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-
-              {[
-                {
-                  icon: <FiWifi />,
-                  title: "Network",
-                },
-                {
-                  icon: <FiDatabase />,
-                  title: "Data",
-                },
-                {
-                  icon: <FiUserCheck />,
-                  title: "Identity",
-                },
-                {
-                  icon: <FiActivity />,
-                  title: "Monitoring",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="
-                    group
-                    p-5
-                    sm:p-6
-                    min-h-[140px]
-                    sm:min-h-[160px]
-                    border
-                    border-white/10
-                    bg-white/[0.05]
-                    hover:bg-white/[0.08]
-                    hover:border-[#9B5B35]/40
-                    transition-all
-                    duration-300
-                  "
-                >
-
-                  <div
-                    className="
-                      w-10
-                      h-10
-                      flex
-                      items-center
-                      justify-center
-                      bg-[#9B5B35]
-                      text-white
-                    "
-                  >
-                    {item.icon}
-                  </div>
-
-                  <h3
-                    className="
-                      mt-5
-                      text-sm
-                      sm:text-base
-                      font-bold
-                      text-white
-                    "
-                  >
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-1 text-xs text-white/40">
-                    Security Layer
-                  </p>
-
-                </div>
-              ))}
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          BENEFITS
-      ===================================================== */}
-
-      <section className="py-16 sm:py-20 lg:py-24">
-
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-          "
-        >
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* RIGHT */}
 
             <div>
 
-              <p
-                className="
-                  text-[#9B5B35]
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-[0.2em]
-                "
-              >
-                Security Focus
-              </p>
-
-              <h2
-                className="
-                  mt-3
-                  text-3xl
-                  sm:text-4xl
-                  font-bold
-                  text-[#062B49]
-                "
-              >
-                Designed for modern
-                <span className="block text-[#9B5B35]">
-                  business environments.
+              <h2 className="max-w-4xl text-[39px] font-bold leading-[0.98] tracking-[-0.05em] text-[#062B49] sm:text-[47px] md:text-[53px] lg:text-[58px]">
+                Protect your critical
+                <span className="text-[#9B5B35]">
+                  {" "}digital environment.
                 </span>
               </h2>
 
-              <p
-                className="
-                  mt-5
-                  text-sm
-                  sm:text-base
-                  text-gray-600
-                  leading-7
-                  max-w-xl
-                "
-              >
-                Establish security capabilities that support
-                infrastructure protection, data security,
-                identity management and continuous visibility.
+              <p className="mt-7 max-w-2xl text-base leading-7 text-gray-500 sm:mt-10 sm:text-lg sm:leading-8">
+                Modern businesses depend on connected systems,
+                cloud platforms, networks, applications and
+                digital identities. A structured security
+                environment helps support reliable operations
+                while protecting critical business resources.
               </p>
 
-            </div>
 
+              <div className="mt-12 border-t border-[#062B49]/10 sm:mt-16">
 
-            <div className="space-y-3">
-
-              {benefits.map((benefit) => (
-                <div
-                  key={benefit}
-                  className="
-                    flex
-                    items-center
-                    gap-4
-                    p-4
-                    border
-                    border-gray-200
-                    hover:border-[#9B5B35]/40
-                    transition-all
-                  "
-                >
+                {benefits.map((benefit, index) => (
 
                   <div
-                    className="
-                      flex
-                      shrink-0
-                      items-center
-                      justify-center
-                      w-8
-                      h-8
-                      bg-[#062B49]
-                      text-white
-                    "
+                    key={benefit}
+                    className="group flex items-start gap-4 border-b border-[#062B49]/10 py-5 sm:items-center sm:gap-6 sm:py-6 md:gap-7 md:py-7"
                   >
-                    <FiCheck />
+
+                    <span className="pt-1 text-[9px] font-bold tracking-[0.2em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.25em]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#062B49]/10 text-[#062B49] transition-all duration-300 group-hover:border-[#9B5B35] group-hover:bg-[#9B5B35] group-hover:text-white">
+                      <FiCheck />
+                    </div>
+
+
+                    <span className="text-[13px] font-semibold leading-6 text-[#062B49] transition-colors duration-300 group-hover:text-[#9B5B35] sm:text-sm">
+                      {benefit}
+                    </span>
+
                   </div>
 
-                  <span
-                    className="
-                      text-sm
-                      font-medium
-                      text-[#062B49]
-                    "
-                  >
-                    {benefit}
-                  </span>
+                ))}
 
-                </div>
-              ))}
+              </div>
 
             </div>
 
@@ -1239,114 +535,203 @@ const InformationCyber = () => {
 
 
       {/* =====================================================
-          FINAL CTA
+          SECURITY ARCHITECTURE
       ===================================================== */}
 
-      <section className="px-5 sm:px-8 lg:px-12 pb-16 sm:pb-20 lg:pb-24">
+      <section className="bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
 
-        <div
-          className="
-            relative
-            overflow-hidden
-            max-w-7xl
-            mx-auto
-            bg-[#062B49]
-            px-6
-            sm:px-10
-            lg:px-14
-            py-12
-            sm:py-14
-            lg:py-16
-          "
-        >
+        <div className="mx-auto max-w-7xl">
 
-          <div
-            className="
-              absolute
-              -right-20
-              -top-20
-              w-64
-              h-64
-              rounded-full
-              bg-[#9B5B35]/20
-              blur-3xl
-            "
-          />
+          {/* HEADER */}
 
-          <div className="relative">
+          <div className="flex flex-col gap-10 lg:ml-8 lg:flex-row lg:items-end lg:justify-between">
 
-            <div className="max-w-2xl">
+            <div>
 
-              <p
-                className="
-                  text-[#C9875D]
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-[0.2em]
-                "
-              >
-                Secure Your Environment
-              </p>
+              <div className="flex items-center gap-3 sm:gap-4">
 
-              <h2
-                className="
-                  mt-3
-                  text-2xl
-                  sm:text-3xl
-                  lg:text-4xl
-                  font-bold
-                  text-white
-                "
-              >
-                Build a stronger
-                <span className="text-[#C9875D]">
-                  {" "}security foundation.
+                <span className="h-[2px] w-7 bg-[#9B5B35] sm:w-10" />
+
+                <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.35em]">
+                  Connected Security
+                </span>
+
+              </div>
+
+              <h2 className="mt-6 max-w-3xl text-[39px] font-bold leading-[0.96] tracking-[-0.05em] text-[#062B49] sm:mt-7 sm:text-[47px] md:text-[53px] lg:text-[58px]">
+                One connected
+                <span className="block text-[#9B5B35]">
+                  security ecosystem.
                 </span>
               </h2>
-
-              <p
-                className="
-                  mt-4
-                  text-sm
-                  sm:text-base
-                  text-white/60
-                  leading-7
-                "
-              >
-                Talk to our technology and security experts
-                about your infrastructure and digital security
-                requirements.
-              </p>
 
             </div>
 
 
-            <div className="mt-8">
+            <div className="max-w-sm border-l border-[#062B49]/10 pl-5 sm:pl-8">
 
-              <a
-                href="/contact"
-                className="
-                  inline-flex
-                  w-full
-                  sm:w-auto
-                  items-center
-                  justify-center
-                  gap-2
-                  px-7
-                  py-3.5
-                  bg-[#9B5B35]
-                  hover:bg-[#844A2A]
-                  text-white
-                  text-sm
-                  font-semibold
-                  transition-all
-                  duration-300
-                "
-              >
-                Contact Our Experts
-                <FiArrowRight />
-              </a>
+              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+                Security Architecture
+              </span>
+
+              <p className="mt-3 text-[13px] leading-6 text-gray-500 sm:mt-4 sm:text-sm sm:leading-7">
+                Connect network, data, identity and monitoring
+                through a unified security foundation.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* ARCHITECTURE VISUAL */}
+
+          <div className="cyber-architecture relative mt-14 h-[560px] overflow-hidden bg-[#062B49] sm:mt-20 md:h-[620px] lg:mt-24 lg:h-[560px]">
+
+            {/* GLOW */}
+
+            <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#9B5B35]/10 blur-[70px] sm:h-[380px] sm:w-[380px]" />
+
+
+            {/* RINGS */}
+
+            <div className="cyber-ring-outer absolute left-1/2 top-1/2 h-[310px] w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] sm:h-[420px] sm:w-[420px] lg:h-[500px] lg:w-[500px]" />
+
+            <div className="cyber-ring-middle absolute left-1/2 top-1/2 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#9B5B35]/20 sm:h-[310px] sm:w-[310px] lg:h-[370px] lg:w-[370px]" />
+
+            <div className="cyber-ring-inner absolute left-1/2 top-1/2 h-[155px] w-[155px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.07] sm:h-[205px] sm:w-[205px] lg:h-[240px] lg:w-[240px]" />
+
+
+            {/* CONNECTIONS */}
+
+            <div className="cyber-connection-horizontal absolute left-[10%] right-[10%] top-1/2 h-px bg-gradient-to-r from-transparent via-[#9B5B35]/30 to-transparent sm:left-[16%] sm:right-[16%] lg:left-[20%] lg:right-[20%]" />
+
+            <div className="cyber-connection-vertical absolute bottom-[15%] left-1/2 top-[15%] w-px bg-gradient-to-b from-transparent via-[#9B5B35]/30 to-transparent" />
+
+
+            {/* TOP LABEL */}
+
+            <div className="absolute left-1/2 top-6 -translate-x-1/2 text-center sm:top-8">
+
+              <span className="whitespace-nowrap text-[7px] font-bold uppercase tracking-[0.25em] text-white/25 sm:text-[8px] sm:tracking-[0.35em]">
+                EPSILORA SECURITY ARCHITECTURE
+              </span>
+
+            </div>
+
+
+            {/* NETWORK */}
+
+            <div className="cyber-node cyber-node-1 absolute left-5 top-20 flex items-center gap-3 sm:left-8 sm:top-20 sm:gap-4 lg:left-16 lg:top-16 lg:gap-5">
+
+              <div className="cyber-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
+                <FiWifi />
+              </div>
+
+              <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 01
+                </span>
+
+                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
+                  Network
+                </span>
+              </div>
+
+            </div>
+
+
+            {/* DATA */}
+
+            <div className="cyber-node cyber-node-2 absolute right-5 top-20 flex items-center gap-3 text-right sm:right-8 sm:top-20 sm:gap-4 lg:right-16 lg:top-16 lg:gap-5">
+
+              <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 02
+                </span>
+
+                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
+                  Data
+                </span>
+              </div>
+
+              <div className="cyber-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
+                <FiDatabase />
+              </div>
+
+            </div>
+
+
+            {/* IDENTITY */}
+
+            <div className="cyber-node cyber-node-3 absolute bottom-20 left-5 flex items-center gap-3 sm:bottom-20 sm:left-8 sm:gap-4 lg:bottom-16 lg:left-16 lg:gap-5">
+
+              <div className="cyber-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
+                <FiUserCheck />
+              </div>
+
+              <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 03
+                </span>
+
+                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
+                  Identity
+                </span>
+              </div>
+
+            </div>
+
+
+            {/* MONITORING */}
+
+            <div className="cyber-node cyber-node-4 absolute bottom-20 right-5 flex items-center gap-3 text-right sm:bottom-20 sm:right-8 sm:gap-4 lg:bottom-16 lg:right-16 lg:gap-5">
+
+              <div>
+                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
+                  Layer 04
+                </span>
+
+                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
+                  Monitoring
+                </span>
+              </div>
+
+              <div className="cyber-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
+                <FiActivity />
+              </div>
+
+            </div>
+
+
+            {/* CENTRAL SECURITY CORE */}
+
+            <div className="cyber-core absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#9B5B35] sm:h-40 sm:w-40 lg:h-44 lg:w-44">
+
+              <div className="flex h-[92px] w-[92px] flex-col items-center justify-center rounded-full border border-white/20 text-center sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+
+                <FiShield className="text-xl text-white sm:text-2xl" />
+
+                <span className="mt-2 text-[7px] font-bold uppercase tracking-[0.25em] text-white/60 sm:mt-3 sm:text-[9px] sm:tracking-[0.3em]">
+                  Connected
+                </span>
+
+                <span className="mt-1 text-[12px] font-bold text-white sm:text-lg lg:text-xl">
+                  SECURITY
+                </span>
+
+              </div>
+
+            </div>
+
+
+            {/* BOTTOM LABEL */}
+
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center sm:bottom-8">
+
+              <span className="whitespace-nowrap text-[7px] font-bold uppercase tracking-[0.2em] text-[#C9875D] sm:text-[8px] sm:tracking-[0.3em]">
+                Network • Data • Identity • Monitoring
+              </span>
 
             </div>
 
@@ -1356,7 +741,9 @@ const InformationCyber = () => {
 
       </section>
 
-    </div>
+
+
+    </main>
   );
 };
 

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import {
   FiSearch,
-  FiChevronDown,
   FiMenu,
   FiX,
   FiArrowRight,
@@ -20,7 +19,6 @@ import {
 
 import Navigation from "./navigation/Navigation.jsx";
 
-
 const Navbar = () => {
   const navigate = useNavigate();
 
@@ -33,7 +31,6 @@ const Navbar = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchResults, setShowSearchResults] = useState(false);
-
 
   /* =========================================================
      SEARCH DATA
@@ -59,7 +56,6 @@ const Navbar = () => {
       path: "/contact",
       keywords: "contact us enquiry phone email location",
     },
-
 
     /* =====================================================
        HARDWARE
@@ -92,7 +88,6 @@ const Navbar = () => {
         "server server management rack cabinet kvm processors ram",
     },
 
-
     /* =====================================================
        SERVICES
     ===================================================== */
@@ -105,7 +100,6 @@ const Navbar = () => {
       keywords:
         "consulting professional services technology infrastructure migration security",
     },
-
 
     /* =====================================================
        SOLUTIONS
@@ -146,7 +140,6 @@ const Navbar = () => {
       keywords:
         "cyber security cybersecurity information security firewall network security identity access cloud data security",
     },
-
 
     /* =====================================================
        PARTNERS
@@ -226,15 +219,25 @@ const Navbar = () => {
     },
   ];
 
-
   /* =========================================================
-     MENU
+     MENU CONTROL
   ========================================================= */
 
   const handleMenu = (menu) => {
-    setOpenMenu(openMenu === menu ? null : menu);
+    setOpenMenu((currentMenu) =>
+      currentMenu === menu ? null : menu
+    );
   };
 
+  /* =========================================================
+     CLOSE MOBILE NAVIGATION
+  ========================================================= */
+
+  const closeMobileNavigation = () => {
+    setMobileMenu(false);
+    setOpenMenu(null);
+    setShowSearchResults(false);
+  };
 
   /* =========================================================
      CLOSE MOBILE MENU
@@ -243,8 +246,16 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setMobileMenu(false);
     setOpenMenu(null);
+    setShowSearchResults(false);
   };
 
+  /* =========================================================
+     CLOSE DESKTOP DROPDOWN
+  ========================================================= */
+
+  const closeDropdown = () => {
+    setOpenMenu(null);
+  };
 
   /* =========================================================
      SEARCH FILTER
@@ -267,7 +278,6 @@ const Navbar = () => {
           })
           .slice(0, 8)
       : [];
-
 
   /* =========================================================
      SEARCH SUBMIT
@@ -293,8 +303,7 @@ const Navbar = () => {
       );
     });
 
-    const firstMatch =
-      exactMatch || filteredResults[0];
+    const firstMatch = exactMatch || filteredResults[0];
 
     if (firstMatch) {
       navigate(firstMatch.path);
@@ -305,9 +314,8 @@ const Navbar = () => {
     }
   };
 
-
   /* =========================================================
-     RESULT CLICK
+     SEARCH RESULT CLICK
   ========================================================= */
 
   const handleSearchResult = (path) => {
@@ -318,7 +326,6 @@ const Navbar = () => {
 
     closeMobileMenu();
   };
-
 
   /* =========================================================
      SEARCH BOX
@@ -335,6 +342,7 @@ const Navbar = () => {
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
+
               setShowSearchResults(
                 e.target.value.trim().length > 0
               );
@@ -391,7 +399,6 @@ const Navbar = () => {
 
         </form>
 
-
         {/* ===================================================
             SEARCH RESULTS
         =================================================== */}
@@ -412,13 +419,12 @@ const Navbar = () => {
             "
           >
 
-            {/* RESULTS */}
-
             {filteredResults.length > 0 ? (
 
               <div className="max-h-[420px] overflow-y-auto">
 
                 {filteredResults.map((item) => (
+
                   <button
                     key={`${item.category}-${item.title}`}
                     type="button"
@@ -441,8 +447,6 @@ const Navbar = () => {
 
                     <div className="flex items-start gap-3">
 
-                      {/* ICON */}
-
                       <div
                         className="
                           shrink-0
@@ -459,9 +463,6 @@ const Navbar = () => {
                       >
                         <FiSearch size={15} />
                       </div>
-
-
-                      {/* TEXT */}
 
                       <div className="min-w-0 flex-1">
 
@@ -527,13 +528,12 @@ const Navbar = () => {
                     </div>
 
                   </button>
+
                 ))}
 
               </div>
 
             ) : (
-
-              /* NO RESULTS */
 
               <div className="px-5 py-8 text-center">
 
@@ -579,6 +579,9 @@ const Navbar = () => {
     );
   };
 
+  /* =========================================================
+     RENDER
+  ========================================================= */
 
   return (
     <header className="w-full bg-white relative z-50">
@@ -700,9 +703,7 @@ const Navbar = () => {
             "
           >
 
-            {/* =================================================
-                LOGO
-            ================================================= */}
+            {/* LOGO */}
 
             <a
               href="/"
@@ -731,9 +732,7 @@ const Navbar = () => {
             </a>
 
 
-            {/* =================================================
-                DESKTOP SEARCH
-            ================================================= */}
+            {/* DESKTOP SEARCH */}
 
             <div
               className="
@@ -745,15 +744,11 @@ const Navbar = () => {
                 2xl:mx-8
               "
             >
-
               <SearchBox />
-
             </div>
 
 
-            {/* =================================================
-                TABLET CONTACT
-            ================================================= */}
+            {/* TABLET CONTACT */}
 
             <div
               className="
@@ -802,7 +797,6 @@ const Navbar = () => {
 
               </div>
 
-
               <div
                 className="
                   flex
@@ -845,9 +839,7 @@ const Navbar = () => {
             </div>
 
 
-            {/* =================================================
-                DESKTOP RIGHT SIDE
-            ================================================= */}
+            {/* DESKTOP RIGHT SIDE */}
 
             <div
               className="
@@ -860,8 +852,6 @@ const Navbar = () => {
             >
 
               <div className="flex flex-col items-end">
-
-                {/* Social Icons */}
 
                 <div className="flex items-center gap-4 text-[#062B49]">
 
@@ -916,11 +906,7 @@ const Navbar = () => {
                 </div>
 
 
-                {/* Phone + Email */}
-
                 <div className="flex items-start gap-4 mt-2 text-xs">
-
-                  {/* PHONE */}
 
                   <a
                     href="tel:+910000000000"
@@ -975,8 +961,6 @@ const Navbar = () => {
                   </span>
 
 
-                  {/* EMAIL */}
-
                   <a
                     href="mailto:info@epsilora.com"
                     className="
@@ -1030,14 +1014,14 @@ const Navbar = () => {
             </div>
 
 
-            {/* =================================================
+            {/* =====================================================
                 MOBILE MENU BUTTON
-            ================================================= */}
+            ===================================================== */}
 
             <button
               type="button"
               onClick={() => {
-                setMobileMenu(!mobileMenu);
+                setMobileMenu((current) => !current);
                 setOpenMenu(null);
                 setShowSearchResults(false);
               }}
@@ -1079,11 +1063,10 @@ const Navbar = () => {
           ===================================================== */}
 
           {mobileMenu && (
+
             <div className="md:hidden">
 
-              {/* =================================================
-                  SEARCH - TOP
-              ================================================= */}
+              {/* SEARCH */}
 
               <div className="border-t border-gray-200 px-1 pt-5">
 
@@ -1092,9 +1075,7 @@ const Navbar = () => {
               </div>
 
 
-              {/* =================================================
-                  NAVIGATION - CENTER
-              ================================================= */}
+              {/* NAVIGATION */}
 
               <div className="epsilora-mobile-navigation mt-5">
 
@@ -1102,14 +1083,13 @@ const Navbar = () => {
                   openMenu={openMenu}
                   handleMenu={handleMenu}
                   setOpenMenu={setOpenMenu}
+                  closeMobileNavigation={closeMobileNavigation}
                 />
 
               </div>
 
 
-              {/* =================================================
-                  SOCIAL ICONS - BOTTOM
-              ================================================= */}
+              {/* SOCIAL ICONS */}
 
               <div
                 className="
@@ -1160,9 +1140,7 @@ const Navbar = () => {
               </div>
 
 
-              {/* =================================================
-                  PHONE - BOTTOM
-              ================================================= */}
+              {/* PHONE */}
 
               <a
                 href="tel:+910000000000"
@@ -1189,9 +1167,7 @@ const Navbar = () => {
               </a>
 
 
-              {/* =================================================
-                  EMAIL - BOTTOM
-              ================================================= */}
+              {/* EMAIL */}
 
               <a
                 href="mailto:info@epsilora.com"
@@ -1218,6 +1194,7 @@ const Navbar = () => {
               </a>
 
             </div>
+
           )}
 
         </div>
@@ -1235,6 +1212,7 @@ const Navbar = () => {
           openMenu={openMenu}
           handleMenu={handleMenu}
           setOpenMenu={setOpenMenu}
+          closeMobileNavigation={closeMobileNavigation}
         />
 
       </div>

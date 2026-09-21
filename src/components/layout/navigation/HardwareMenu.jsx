@@ -6,31 +6,51 @@ const HardwareMenu = ({
   openMenu,
   handleMenu,
   setOpenMenu,
+  closeMobileNavigation,
 }) => {
   const categories = [
-  {
-    title: "Data Storage",
-    description: "Storage devices and solutions",
-    link: "/technology/hardware/datastorage",
-  },
-  {
-    title: "PC & Server",
-    description: "Computer and server components",
-    link: "/technology/hardware/pc-server",
-  },
-  {
-    title: "Server & Server Management",
-    description: "Server infrastructure and management",
-    link: "/technology/hardware/server-server-management",
-  },
-];
+    {
+      title: "Data Storage",
+      description: "Storage devices and solutions",
+      link: "/technology/hardware/datastorage",
+    },
+    {
+      title: "PC & Server",
+      description: "Computer and server components",
+      link: "/technology/hardware/pc-server",
+    },
+    {
+      title: "Server & Server Management",
+      description: "Server infrastructure and management",
+      link: "/technology/hardware/server-server-management",
+    },
+  ];
+
+  /* =====================================================
+     HARDWARE MENU BUTTON
+  ====================================================== */
 
   const handleHardwareClick = () => {
     handleMenu("hardware");
   };
 
+  /* =====================================================
+     CLOSE MENU AFTER LINK CLICK
+     
+     Mobile:
+     - Close dropdown
+     - Close complete hamburger menu
+     
+     Desktop:
+     - Close dropdown only
+  ====================================================== */
+
   const handleClose = () => {
-    setOpenMenu(null);
+    if (closeMobileNavigation) {
+      closeMobileNavigation();
+    } else {
+      setOpenMenu(null);
+    }
   };
 
   return (
@@ -38,7 +58,7 @@ const HardwareMenu = ({
 
       {/* =====================================================
           HARDWARE BUTTON
-      ===================================================== */}
+      ====================================================== */}
 
       <button
         type="button"
@@ -77,6 +97,7 @@ const HardwareMenu = ({
           className={`
             transition-transform
             duration-300
+
             ${
               openMenu === "hardware"
                 ? "rotate-180"
@@ -90,7 +111,7 @@ const HardwareMenu = ({
       {/* =====================================================
           MOBILE DROPDOWN
           Mobile + Tablet
-      ===================================================== */}
+      ====================================================== */}
 
       {openMenu === "hardware" && (
         <div
@@ -130,7 +151,9 @@ const HardwareMenu = ({
           "
         >
 
-          {/* HEADER */}
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div
             className="
@@ -149,9 +172,12 @@ const HardwareMenu = ({
               className="
                 text-[10px]
                 sm:text-[11px]
+
                 uppercase
                 tracking-[0.18em]
+
                 text-[#9B5B35]
+
                 font-bold
               "
             >
@@ -166,6 +192,7 @@ const HardwareMenu = ({
                 sm:text-xl
 
                 font-bold
+
                 text-[#062B49]
               "
             >
@@ -180,6 +207,7 @@ const HardwareMenu = ({
                 sm:text-sm
 
                 text-gray-500
+
                 leading-5
               "
             >
@@ -189,7 +217,9 @@ const HardwareMenu = ({
           </div>
 
 
-          {/* CATEGORY LIST */}
+          {/* =================================================
+              CATEGORY LIST
+          ================================================= */}
 
           <div
             className="
@@ -295,7 +325,7 @@ const HardwareMenu = ({
 
       {/* =====================================================
           DESKTOP DROPDOWN
-      ===================================================== */}
+      ====================================================== */}
 
       {openMenu === "hardware" && (
         <div
@@ -326,7 +356,9 @@ const HardwareMenu = ({
           "
         >
 
-          {/* HEADER */}
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div
             className="
@@ -341,6 +373,7 @@ const HardwareMenu = ({
             <p
               className="
                 text-[11px]
+
                 uppercase
                 tracking-[0.18em]
 
@@ -381,7 +414,9 @@ const HardwareMenu = ({
           </div>
 
 
-          {/* CATEGORY LIST */}
+          {/* =================================================
+              CATEGORY LIST
+          ================================================= */}
 
           <div className="p-3">
 
