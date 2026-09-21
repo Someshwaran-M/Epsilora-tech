@@ -1,114 +1,265 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  FiArrowRight,
+  FiArrowUpRight,
   FiShield,
   FiCpu,
   FiHeadphones,
 } from "react-icons/fi";
 
 const WhyEpsilora = () => {
+  const [active, setActive] = useState(0);
+
   const features = [
     {
       icon: <FiShield />,
       title: "Reliable Technology",
+      short: "RELIABILITY",
       description:
-        "We deliver secure and dependable technology solutions designed for your business needs.",
+        "Secure and dependable technology solutions designed around your business needs.",
     },
     {
       icon: <FiCpu />,
       title: "Right Solutions",
+      short: "PRECISION",
       description:
-        "We understand your requirements and recommend practical solutions that create real business value.",
+        "Practical technology solutions focused on creating real business value.",
     },
     {
       icon: <FiHeadphones />,
       title: "Long-Term Support",
+      short: "CONTINUITY",
       description:
-        "Our relationship continues beyond implementation with ongoing support and technology guidance.",
+        "Continuous support and technology guidance beyond implementation.",
     },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f9fa] py-16 sm:py-20 lg:py-28">
-      
-      {/* Decorative background */}
-      <div className="absolute -right-32 top-20 h-72 w-72 rounded-full bg-[#9B5B35]/5 blur-3xl" />
-      <div className="absolute -left-32 bottom-10 h-72 w-72 rounded-full bg-[#062B49]/5 blur-3xl" />
+    <section className="relative overflow-hidden bg-[#062B49] text-white">
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 md:px-10 lg:px-12 lg:py-16">
 
-        {/* Heading */}
-        <div className="max-w-3xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#9B5B35] sm:text-sm">
-            Why Epsilora
-          </p>
+        {/* HEADER */}
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
 
-          <h2 className="text-3xl font-bold leading-tight text-[#111827] sm:text-4xl md:text-5xl lg:text-6xl">
-            Technology That
-            <br className="hidden sm:block" />
-            <span className="text-[#062B49]">
-              Moves Your Business Forward
-            </span>
-          </h2>
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              <span className="h-px w-7 bg-[#C18A61]" />
 
-          <p className="mt-5 max-w-2xl text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
-            We combine technology expertise, reliable solutions and
-            continuous support to help organizations build a stronger
-            digital future.
-          </p>
-        </div>
-
-        {/* Feature Cards */}
-        <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#9B5B35]/40 hover:shadow-xl sm:p-8"
-            >
-              {/* Number */}
-              <div className="absolute right-5 top-4 text-5xl font-bold text-gray-100 transition-colors duration-300 group-hover:text-[#9B5B35]/10">
-                0{index + 1}
-              </div>
-
-              {/* Icon */}
-              <div className="relative flex h-12 w-12 items-center justify-center bg-[#062B49] text-xl text-white transition-all duration-300 group-hover:bg-[#9B5B35]">
-                {feature.icon}
-              </div>
-
-              {/* Content */}
-              <h3 className="relative mt-6 text-xl font-bold text-[#111827]">
-                {feature.title}
-              </h3>
-
-              <p className="relative mt-3 text-sm leading-6 text-gray-500">
-                {feature.description}
-              </p>
-
-              {/* Bottom line */}
-              <div className="mt-7 h-[2px] w-10 bg-[#9B5B35] transition-all duration-300 group-hover:w-full" />
+              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C18A61]">
+                Why Epsilora
+              </span>
             </div>
-          ))}
+
+            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+              Technology with{" "}
+              <span className="text-[#C18A61]">purpose.</span>
+            </h2>
+          </div>
+
+          <p className="max-w-md text-xs leading-6 text-white/50 sm:text-sm">
+            Reliable technology, practical solutions and continuous support
+            for your digital journey.
+          </p>
+
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-10 flex flex-col gap-5 border-t border-gray-200 pt-8 sm:mt-14 sm:flex-row sm:items-center sm:justify-between">
+        {/* MAIN */}
+        <div className="mt-10 grid overflow-hidden border border-white/10 lg:grid-cols-[260px_1fr]">
 
-          <p className="max-w-xl text-sm leading-6 text-gray-500 sm:text-base">
-            Looking for the right technology partner for your organization?
+          {/* LEFT MENU */}
+          <div className="border-b border-white/10 lg:border-b-0 lg:border-r">
+
+            {features.map((feature, index) => {
+              const isActive = active === index;
+
+              return (
+                <button
+                  key={feature.title}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  className={`
+                    group
+                    relative
+                    flex
+                    w-full
+                    items-center
+                    gap-3
+                    border-b
+                    border-white/10
+                    px-4
+                    py-4
+                    text-left
+                    transition-all
+                    duration-300
+                    last:border-b-0
+                    ${
+                      isActive
+                        ? "bg-white/[0.06]"
+                        : "hover:bg-white/[0.03]"
+                    }
+                  `}
+                >
+                  <span
+                    className={`
+                      flex
+                      h-9
+                      w-9
+                      shrink-0
+                      items-center
+                      justify-center
+                      border
+                      text-sm
+                      transition-all
+                      duration-300
+                      ${
+                        isActive
+                          ? "border-[#C18A61] bg-[#9B5B35] text-white"
+                          : "border-white/15 text-white/40"
+                      }
+                    `}
+                  >
+                    {feature.icon}
+                  </span>
+
+                  <span
+                    className={`
+                      text-xs
+                      font-semibold
+                      sm:text-sm
+                      ${
+                        isActive
+                          ? "text-white"
+                          : "text-white/40"
+                      }
+                    `}
+                  >
+                    {feature.title}
+                  </span>
+
+                  <FiArrowUpRight
+                    className={`
+                      ml-auto text-sm
+                      ${
+                        isActive
+                          ? "text-[#C18A61]"
+                          : "text-white/20"
+                      }
+                    `}
+                  />
+
+                  <span
+                    className={`
+                      absolute
+                      bottom-0
+                      left-0
+                      h-[2px]
+                      bg-[#C18A61]
+                      transition-all
+                      duration-300
+                      ${
+                        isActive ? "w-full" : "w-0"
+                      }
+                    `}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* RIGHT CONTENT */}
+          <div className="relative min-h-[290px] overflow-hidden">
+
+            {/* Background word */}
+            <div className="pointer-events-none absolute bottom-0 right-[-10px] select-none">
+              <span className="text-[80px] font-black uppercase tracking-[-0.07em] text-white/[0.035] sm:text-[110px] lg:text-[150px]">
+                {features[active].short}
+              </span>
+            </div>
+
+            <div
+              key={active}
+              className="relative flex min-h-[290px] flex-col justify-between p-6 sm:p-8 lg:p-10"
+              style={{
+                animation: "epsiloraReveal 0.4s ease-out",
+              }}
+            >
+              {/* TOP */}
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-white/25">
+                  0{active + 1} / 03
+                </span>
+
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#C18A61]">
+                  {features[active].short}
+                </span>
+              </div>
+
+              {/* CONTENT */}
+              <div>
+                <div className="mb-4 flex h-11 w-11 items-center justify-center border border-[#C18A61]/40 text-lg text-[#C18A61]">
+                  {features[active].icon}
+                </div>
+
+                <h3 className="text-2xl font-semibold sm:text-3xl lg:text-4xl">
+                  {features[active].title}
+                </h3>
+
+                <p className="mt-3 max-w-lg text-xs leading-6 text-white/45 sm:text-sm">
+                  {features[active].description}
+                </p>
+              </div>
+
+              {/* BOTTOM */}
+              <div className="mt-6 flex items-center gap-3">
+                <span className="h-px w-8 bg-[#C18A61]" />
+
+                <span className="text-[9px] uppercase tracking-[0.2em] text-white/30">
+                  Epsilora Technology
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM */}
+        <div className="mt-7 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+
+          <p className="text-xs text-white/35 sm:text-sm">
+            Technology designed around your business.
           </p>
 
           <a
             href="/contact"
-            className="inline-flex w-fit items-center gap-3 bg-[#062B49] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#9B5B35] sm:px-7"
+            className="group inline-flex w-fit items-center gap-2 border-b border-white/20 pb-1 text-xs font-semibold text-white transition-all hover:border-[#C18A61] hover:text-[#C18A61]"
           >
             Talk to Our Team
-            <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+
+            <FiArrowUpRight className="text-sm transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
 
         </div>
-
       </div>
+
+      <style>{`
+        @keyframes epsiloraReveal {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

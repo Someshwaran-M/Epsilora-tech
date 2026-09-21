@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FiCpu,
   FiCloud,
@@ -10,6 +10,8 @@ import {
 } from "react-icons/fi";
 
 const Innovation = () => {
+  const [active, setActive] = useState(null);
+
   const technologyPillars = [
     {
       number: "01",
@@ -60,7 +62,6 @@ const Innovation = () => {
       <div className="pointer-events-none absolute inset-0">
 
         {/* Top Right Brown Shape */}
-
         <div
           className="
             absolute
@@ -77,7 +78,6 @@ const Innovation = () => {
         />
 
         {/* Bottom Left Blue Shape */}
-
         <div
           className="
             absolute
@@ -92,7 +92,6 @@ const Innovation = () => {
         />
 
         {/* Small Brown Accent */}
-
         <div
           className="
             absolute
@@ -110,8 +109,8 @@ const Innovation = () => {
         <div
           className="
             absolute
-            left-[8%]
             bottom-[25%]
+            left-[8%]
             hidden
             h-2
             w-2
@@ -123,13 +122,11 @@ const Innovation = () => {
 
       </div>
 
-
       {/* =====================================================
           CONTAINER
       ===================================================== */}
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-
 
         {/* ===================================================
             HEADER
@@ -138,7 +135,6 @@ const Innovation = () => {
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
 
           {/* LEFT */}
-
           <div>
 
             <div className="flex items-center gap-3">
@@ -158,7 +154,6 @@ const Innovation = () => {
               </span>
 
             </div>
-
 
             <h2
               className="
@@ -181,9 +176,7 @@ const Innovation = () => {
 
           </div>
 
-
           {/* RIGHT */}
-
           <div>
 
             <p
@@ -205,247 +198,279 @@ const Innovation = () => {
 
         </div>
 
-
         {/* ===================================================
             INTRODUCTION LINE
         =================================================== */}
 
-        <div
-          className="
-            mt-12
-            flex
-            flex-col
-            gap-4
-            border-y
-            border-gray-200
-            py-6
-            sm:mt-16
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
-        >
 
-          <p
-            className="
-              max-w-3xl
-              text-sm
-              font-medium
-              leading-6
-              text-[#062B49]
-              sm:text-base
-            "
-          >
-            We turn technology opportunities into practical
-            solutions that improve performance, strengthen
-            resilience and create long-term value.
-          </p>
-
-
-          <div className="flex shrink-0 items-center gap-2">
-
-            <span className="h-2 w-2 rounded-full bg-[#9B5B35]" />
-
-            <span
-              className="
-                text-[10px]
-                font-bold
-                uppercase
-                tracking-[0.18em]
-                text-gray-400
-              "
-            >
-              EPSILORA TECHNOLOGY
-            </span>
-
-          </div>
-
-        </div>
-
+         
 
         {/* ===================================================
             TECHNOLOGY PILLARS
         =================================================== */}
 
-        <div
-          className="
-            mt-12
-            grid
-            grid-cols-1
-            gap-5
-            sm:grid-cols-2
-            lg:mt-16
-            lg:grid-cols-4
-          "
-        >
+        <div className="mt-14 lg:mt-20">
+  <div className="mx-auto max-w-7xl">
 
-          {technologyPillars.map((pillar) => (
+   
+
+    {/* Technology Navigation */}
+    <div className="border-t border-gray-200">
+
+      {technologyPillars.map((pillar, index) => {
+        const isActive = active === index;
+
+        return (
+          <div
+            key={pillar.number}
+            onClick={() => setActive(isActive ? null : index)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(event) => {
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+                event.preventDefault();
+                setActive(isActive ? null : index);
+              }
+            }}
+            className="group cursor-pointer border-b border-gray-200 outline-none"
+          >
+
+            {/* Main Row */}
             <div
-              key={pillar.number}
-              className="
-                group
+              className={`
                 relative
-                overflow-hidden
-                border
-                border-gray-200
-                bg-white
-                p-6
-                shadow-sm
+                flex
+                min-h-[105px]
+                items-center
+                gap-5
+                py-6
                 transition-all
                 duration-500
-                hover:-translate-y-2
-                hover:border-[#9B5B35]/50
-                hover:shadow-xl
-                sm:p-7
-                lg:p-8
-              "
+                sm:min-h-[125px]
+                sm:gap-8
+                sm:py-8
+                lg:min-h-[145px]
+                lg:gap-12
+                lg:py-10
+                ${
+                  isActive
+                    ? "bg-[#062B49] px-5 sm:px-8 lg:px-10"
+                    : "hover:bg-[#F7F8FA]"
+                }
+              `}
             >
 
-              {/* Brown Top Border */}
-
-              <div
-                className="
-                  absolute
-                  left-0
-                  right-0
-                  top-0
-                  h-[3px]
-                  bg-[#9B5B35]
-                  opacity-0
-                  transition-all
-                  duration-500
-                  group-hover:opacity-100
-                "
-              />
-
-
               {/* Number */}
-
-              <div className="flex items-center justify-between">
+              <div className="flex shrink-0 items-center gap-4 sm:gap-6">
 
                 <span
-                  className="
+                  className={`
                     text-xs
                     font-bold
                     tracking-[0.2em]
-                    text-[#9B5B35]
-                  "
+                    transition-colors
+                    duration-500
+                    sm:text-sm
+                    ${
+                      isActive
+                        ? "text-[#C18A61]"
+                        : "text-[#9B5B35]"
+                    }
+                  `}
                 >
                   {pillar.number}
                 </span>
 
-
-                <FiArrowUpRight
-                  className="
-                    text-lg
-                    text-gray-300
+                <span
+                  className={`
+                    hidden
+                    h-px
+                    w-8
                     transition-all
-                    duration-300
-                    group-hover:-translate-y-1
-                    group-hover:translate-x-1
-                    group-hover:text-[#9B5B35]
-                  "
+                    duration-500
+                    sm:block
+                    lg:w-12
+                    ${
+                      isActive
+                        ? "bg-[#9B5B35]"
+                        : "bg-gray-200 group-hover:w-16 group-hover:bg-[#9B5B35]"
+                    }
+                  `}
                 />
 
               </div>
 
-
               {/* Icon */}
-
               <div
-                className="
-                  mt-8
+                className={`
                   flex
-                  h-14
-                  w-14
+                  h-10
+                  w-10
+                  shrink-0
                   items-center
                   justify-center
-                  border
-                  border-[#9B5B35]/25
-                  bg-[#9B5B35]/5
-                  text-2xl
-                  text-[#9B5B35]
                   transition-all
                   duration-500
-                  group-hover:border-[#9B5B35]
-                  group-hover:bg-[#9B5B35]
-                  group-hover:text-white
-                "
+                  sm:h-12
+                  sm:w-12
+                  ${
+                    isActive
+                      ? "text-[#C18A61]"
+                      : "text-[#062B49] group-hover:text-[#9B5B35]"
+                  }
+                `}
               >
                 {pillar.icon}
               </div>
 
-
               {/* Title */}
+              <div className="min-w-0 flex-1">
 
-              <h3
-                className="
-                  mt-6
-                  text-lg
-                  font-bold
-                  text-[#062B49]
-                  sm:text-xl
-                "
-              >
-                {pillar.title}
-              </h3>
-
-
-              {/* Description */}
-
-              <p
-                className="
-                  mt-3
-                  text-sm
-                  leading-6
-                  text-gray-500
-                "
-              >
-                {pillar.description}
-              </p>
-
-
-              {/* Bottom */}
-
-              <div
-                className="
-                  mt-7
-                  flex
-                  items-center
-                  gap-3
-                "
-              >
-
-                <span
-                  className="
-                    h-[2px]
-                    w-8
-                    bg-[#9B5B35]
+                <h4
+                  className={`
+                    text-xl
+                    font-bold
+                    tracking-tight
                     transition-all
                     duration-500
-                    group-hover:w-14
-                  "
-                />
-
-                <span
-                  className="
-                    text-[10px]
-                    font-bold
-                    uppercase
-                    tracking-[0.15em]
-                    text-gray-400
-                  "
+                    sm:text-2xl
+                    lg:text-3xl
+                    ${
+                      isActive
+                        ? "translate-x-1 text-white"
+                        : "text-[#062B49] group-hover:translate-x-1"
+                    }
+                  `}
                 >
-                  Explore
-                </span>
+                  {pillar.title}
+                </h4>
+
+                {/* Desktop small hint */}
+                <p
+                  className={`
+                    mt-2
+                    hidden
+                    text-xs
+                    uppercase
+                    tracking-[0.16em]
+                    transition-all
+                    duration-500
+                    sm:block
+                    ${
+                      isActive
+                        ? "text-white/40"
+                        : "text-gray-400"
+                    }
+                  `}
+                >
+                  Explore capability
+                </p>
+
+              </div>
+
+              {/* Arrow */}
+              <div
+                className={`
+                  flex
+                  h-9
+                  w-9
+                  shrink-0
+                  items-center
+                  justify-center
+                  transition-all
+                  duration-500
+                  sm:h-11
+                  sm:w-11
+                  ${
+                    isActive
+                      ? "rotate-45 text-[#C18A61]"
+                      : "text-gray-300 group-hover:translate-x-1 group-hover:text-[#9B5B35]"
+                  }
+                `}
+              >
+                <FiArrowUpRight className="text-xl sm:text-2xl" />
+              </div>
+
+              {/* Active Line */}
+              <div
+                className={`
+                  absolute
+                  bottom-0
+                  left-0
+                  h-[2px]
+                  bg-[#9B5B35]
+                  transition-all
+                  duration-700
+                  ${
+                    isActive
+                      ? "w-full"
+                      : "w-0 group-hover:w-24"
+                  }
+                `}
+              />
+
+            </div>
+
+            {/* Expanded Content */}
+            <div
+              className={`
+                grid
+                overflow-hidden
+                transition-all
+                duration-700
+                ease-in-out
+                ${
+                  isActive
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0"
+                }
+              `}
+            >
+
+              <div className="min-h-0">
+
+                <div className="relative bg-[#062B49] px-5 pb-8 pt-2 sm:px-8 sm:pb-10 lg:px-28 lg:pb-12">
+
+                  {/* Decorative line */}
+                  <div className="absolute bottom-0 left-5 top-0 w-px bg-[#9B5B35]/40 sm:left-8 lg:left-28" />
+
+                  <div className="pl-6 sm:pl-8 lg:pl-10">
+
+                    <div className="max-w-3xl">
+
+                      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C18A61]">
+                        {pillar.number} / Technology Perspective
+                      </p>
+
+                      <p className="mt-4 max-w-2xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
+                        {pillar.description}
+                      </p>
+
+                    </div>
+
+                    {/* Bottom metadata */}
+                    
+
+                  </div>
+
+                </div>
 
               </div>
 
             </div>
-          ))}
 
-        </div>
+          </div>
+        );
+      })}
 
+    </div>
+
+    
+  </div>
+</div>
 
         {/* ===================================================
             APPROACH SECTION
@@ -462,7 +487,6 @@ const Innovation = () => {
         >
 
           {/* LEFT CONTENT */}
-
           <div>
 
             <div className="flex items-center gap-3">
@@ -483,7 +507,6 @@ const Innovation = () => {
 
             </div>
 
-
             <h3
               className="
                 mt-5
@@ -500,7 +523,6 @@ const Innovation = () => {
                 {" "}real challenges.
               </span>
             </h3>
-
 
             <p
               className="
@@ -519,16 +541,9 @@ const Innovation = () => {
               and long-term scalability.
             </p>
 
-
             <div className="mt-7 flex items-center gap-3">
 
-              <div
-                className="
-                  h-10
-                  w-1
-                  bg-[#9B5B35]
-                "
-              />
+              <div className="h-10 w-1 bg-[#9B5B35]" />
 
               <p
                 className="
@@ -547,9 +562,7 @@ const Innovation = () => {
 
           </div>
 
-
           {/* RIGHT CAPABILITIES */}
-
           <div
             className="
               border
@@ -589,7 +602,6 @@ const Innovation = () => {
 
               </div>
 
-
               <div
                 className="
                   hidden
@@ -609,7 +621,6 @@ const Innovation = () => {
               </div>
 
             </div>
-
 
             <div
               className="
@@ -661,7 +672,6 @@ const Innovation = () => {
 
         </div>
 
-
         {/* ===================================================
             FINAL CTA
         =================================================== */}
@@ -680,7 +690,6 @@ const Innovation = () => {
         >
 
           {/* CTA Accent */}
-
           <div
             className="
               absolute
@@ -693,7 +702,6 @@ const Innovation = () => {
               blur-3xl
             "
           />
-
 
           <div
             className="
@@ -719,7 +727,6 @@ const Innovation = () => {
                 The Next Step
               </p>
 
-
               <h3
                 className="
                   mt-3
@@ -736,7 +743,6 @@ const Innovation = () => {
                 that moves your business forward.
               </h3>
 
-
               <p
                 className="
                   mt-4
@@ -752,7 +758,6 @@ const Innovation = () => {
               </p>
 
             </div>
-
 
             <a
               href="/contact"
@@ -771,11 +776,12 @@ const Innovation = () => {
                 text-white
                 transition-all
                 duration-300
-                hover:bg-[#844A2A]
                 hover:border-[#844A2A]
+                hover:bg-[#844A2A]
               "
             >
               Start a Conversation
+
               <FiArrowUpRight />
             </a>
 
@@ -784,7 +790,6 @@ const Innovation = () => {
         </div>
 
       </div>
-
     </section>
   );
 };
