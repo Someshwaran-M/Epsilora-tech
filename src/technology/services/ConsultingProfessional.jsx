@@ -6,742 +6,302 @@ import {
   FiShield,
   FiArrowRight,
   FiCheckCircle,
-  FiActivity,
   FiLayers,
   FiTarget,
   FiTrendingUp,
   FiServer,
   FiGlobe,
 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
-const ConsultingProfessional = () => {
-  const services = [
-    {
-      icon: <FiBriefcase />,
-      number: "01",
-      title: "Technology Consulting",
-      text: "Professional guidance to help organizations plan and improve their technology infrastructure.",
-    },
-    {
-      icon: <FiSettings />,
-      number: "02",
-      title: "Infrastructure Services",
-      text: "Expert support for modern IT infrastructure, systems and technology environments.",
-    },
-    {
-      icon: <FiDatabase />,
-      number: "03",
-      title: "Migration Services",
-      text: "Plan and execute technology migrations with a structured and reliable approach.",
-    },
-    {
-      icon: <FiShield />,
-      number: "04",
-      title: "Security Services",
-      text: "Professional technology services focused on improving infrastructure security and reliability.",
-    },
-  ];
+const services = [
+  {
+    number: "01",
+    icon: FiBriefcase,
+    title: "Technology Consulting",
+    description:
+      "Professional guidance to help organizations plan and improve their technology infrastructure.",
+  },
+  {
+    number: "02",
+    icon: FiSettings,
+    title: "Infrastructure Services",
+    description:
+      "Expert support for modern IT infrastructure, systems and technology environments.",
+  },
+  {
+    number: "03",
+    icon: FiDatabase,
+    title: "Migration Services",
+    description:
+      "Plan and execute technology migrations with a structured and reliable approach.",
+  },
+  {
+    number: "04",
+    icon: FiShield,
+    title: "Security Services",
+    description:
+      "Professional technology services focused on improving infrastructure security and reliability.",
+  },
+];
 
-  const serviceAreas = [
-    "Active Directory Migration",
-    "Data Center Relocation",
-    "Network Assessment",
-    "Server Virtualization",
-    "Virtual Environment Security",
-    "Desktop Infrastructure",
-    "VMware Health Check",
-    "Technology Migration",
-  ];
+const processSteps = [
+  {
+    number: "01",
+    icon: FiTarget,
+    title: "Assess",
+    description:
+      "Understand your current infrastructure, requirements and technology environment.",
+  },
+  {
+    number: "02",
+    icon: FiLayers,
+    title: "Plan",
+    description:
+      "Develop a structured approach aligned with your operational and business requirements.",
+  },
+  {
+    number: "03",
+    icon: FiSettings,
+    title: "Transform",
+    description:
+      "Implement technology improvements, migrations and infrastructure changes.",
+  },
+  {
+    number: "04",
+    icon: FiTrendingUp,
+    title: "Improve",
+    description:
+      "Support continuous improvement and long-term infrastructure reliability.",
+  },
+];
 
-  const process = [
-    {
-      icon: <FiTarget />,
-      number: "01",
-      title: "Assess",
-      text: "Understand your current infrastructure, requirements and technology environment.",
-    },
-    {
-      icon: <FiLayers />,
-      number: "02",
-      title: "Plan",
-      text: "Develop a structured approach aligned with your operational and business requirements.",
-    },
-    {
-      icon: <FiSettings />,
-      number: "03",
-      title: "Transform",
-      text: "Implement technology improvements, migrations and infrastructure changes.",
-    },
-    {
-      icon: <FiTrendingUp />,
-      number: "04",
-      title: "Improve",
-      text: "Support continuous improvement and long-term infrastructure reliability.",
-    },
-  ];
+const serviceAreas = [
+  "Active Directory Migration",
+  "Data Center Relocation",
+  "Network Assessment",
+  "Server Virtualization",
+  "Virtual Environment Security",
+  "Desktop Infrastructure",
+  "VMware Health Check",
+  "Technology Migration",
+];
 
+function SectionLabel({ children }) {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-white text-[#062B49]">
+    <div className="mb-2 flex items-center gap-2">
+      <span className="h-[2px] w-7 bg-[#9B5B35]" />
+      <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#9B5B35]">
+        {children}
+      </span>
+    </div>
+  );
+}
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-
-      <section className="relative h-[220px] w-full overflow-hidden sm:h-[270px] md:h-[310px] lg:h-[340px]">
-        <div
-          className="
-            consulting-hero-image
-            absolute
-            inset-0
-            bg-[url('/consulting.png')]
-            bg-cover
-            bg-center
-            bg-no-repeat
-          "
-        />
-      </section>
-
-      {/* =====================================================
-          SERVICES
-      ===================================================== */}
-
-      <section
-        id="services"
-        className="bg-white px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-28"
-      >
+function ConsultingProfessional() {
+  return (
+    <main className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-[#062B49]">
+      {/* INTRODUCTION */}
+      <section className="bg-white px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-9">
         <div className="mx-auto max-w-7xl">
-
-          {/* SECTION HEADER */}
-
-          <div className="ml-0 flex flex-col gap-8 border-b border-gray-200 pb-8 sm:pb-10 lg:ml-8 lg:flex-row lg:items-end lg:justify-between">
-
+          <div className="grid grid-cols-1 items-center gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
             <div>
-              <div className="flex items-center gap-3">
-                <span className="h-[2px] w-7 bg-[#9B5B35] sm:w-8" />
+              <SectionLabel>Professional Expertise</SectionLabel>
 
-                <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.28em]">
-                  Professional Expertise
-                </span>
-              </div>
-
-              <h2 className="mt-5 max-w-4xl text-[38px] font-bold leading-[1] tracking-[-0.04em] text-[#062B49] sm:text-[46px] md:text-[54px] lg:mt-6 lg:text-5xl lg:leading-[1.05]">
-                Technology expertise
-                <span className="block text-[#9B5B35]">
+              <h1 className="max-w-xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[42px]">
+                Technology expertise{" "}
+                <span className="text-[#9B5B35]">
                   that moves business forward.
                 </span>
-              </h2>
+              </h1>
             </div>
 
-            <p className="max-w-xl text-[13px] leading-7 text-gray-500 sm:text-sm sm:leading-7 lg:pb-1">
-              Our consulting and professional services help organizations
-              assess, plan, migrate and improve their technology environments
-              with practical and reliable solutions.
+            <div>
+              <p className="max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+                Our consulting and professional services help organizations
+                assess, plan, migrate and improve their technology environments
+                with practical and reliable solutions.
+              </p>
+
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <Link
+                  to="/contact"
+                  className="group inline-flex min-h-10 items-center justify-center gap-2 bg-[#062B49] px-5 py-2.5 text-xs font-semibold text-white transition-colors duration-300 hover:bg-[#9B5B35] sm:text-sm"
+                >
+                  Discuss Your Requirements
+                  <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+
+                <span className="text-xs font-medium text-slate-500 sm:text-sm">
+                  Assess. Plan. Transform. Improve.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section
+        id="services"
+        className="border-y border-slate-200 bg-[#F7F9FB] px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-9"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-5 max-w-2xl">
+            <SectionLabel>What We Do</SectionLabel>
+
+            <h2 className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+              Professional technology services for your business.
+            </h2>
+
+            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
+              From technology consulting to infrastructure improvements, we
+              help organizations build reliable and efficient technology
+              environments.
             </p>
           </div>
 
-          {/* SERVICE LIST */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:gap-4">
+            {services.map((service) => {
+              const Icon = service.icon;
 
-          <div className="mt-5 sm:mt-6">
-            {services.map((service) => (
-              <div
-                key={service.number}
-                className="
-                  group
-                  relative
-                  ml-0
-                  flex
-                  flex-col
-                  gap-5
-                  border-b
-                  border-gray-200
-                  py-7
-                  transition-all
-                  duration-500
-                  sm:py-8
-                  md:grid
-                  md:grid-cols-[70px_64px_1fr_44px]
-                  md:items-center
-                  md:gap-5
-                  md:py-9
-                  lg:ml-8
-                  lg:grid-cols-[80px_56px_32%_1fr_44px]
-                  lg:gap-0
-                  lg:py-10
-                  lg:hover:px-6
-                "
-              >
+              return (
+                <article
+                  key={service.number}
+                  className="group flex h-full flex-col border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#9B5B35]/50 hover:shadow-[0_8px_24px_rgba(6,43,73,0.07)] sm:p-6"
+                >
+                  <div className="mb-4 flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center bg-[#062B49] text-white transition-colors duration-300 group-hover:bg-[#9B5B35]">
+                      <Icon size={20} strokeWidth={1.7} />
+                    </div>
 
-                {/* HOVER LINE */}
-
-                <div
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-[2px]
-                    w-0
-                    bg-[#9B5B35]
-                    transition-all
-                    duration-700
-                    group-hover:w-full
-                  "
-                />
-
-                {/* MOBILE / TABLET TOP ROW */}
-
-                <div className="flex items-center justify-between md:contents">
-
-                  {/* NUMBER */}
-
-                  <div className="md:w-auto">
-                    <span
-                      className="
-                        text-[10px]
-                        font-bold
-                        tracking-[0.25em]
-                        text-gray-300
-                        transition
-                        duration-500
-                        group-hover:text-[#9B5B35]
-                        sm:text-xs
-                      "
-                    >
+                    <span className="text-xs font-bold tracking-widest text-slate-300 transition-colors duration-300 group-hover:text-[#9B5B35]">
                       {service.number}
                     </span>
                   </div>
 
-                  {/* ICON */}
-
-                  <div
-                    className="
-                      flex
-                      h-12
-                      w-12
-                      shrink-0
-                      items-center
-                      justify-center
-                      border
-                      border-gray-200
-                      bg-gray-50
-                      text-lg
-                      text-[#062B49]
-                      transition-all
-                      duration-500
-                      group-hover:border-[#9B5B35]
-                      group-hover:bg-[#9B5B35]
-                      group-hover:text-white
-                      sm:h-14
-                      sm:w-14
-                      sm:text-xl
-                      md:mr-0
-                      lg:mr-10
-                    "
-                  >
-                    {service.icon}
-                  </div>
-                </div>
-
-                {/* TITLE */}
-
-                <div className="w-full md:col-span-2 lg:col-span-1">
-                  <h3
-                    className="
-                      text-[21px]
-                      font-bold
-                      leading-tight
-                      tracking-tight
-                      text-[#062B49]
-                      transition
-                      duration-500
-                      group-hover:text-[#9B5B35]
-                      sm:text-2xl
-                    "
-                  >
+                  <h3 className="text-lg font-bold leading-snug text-[#062B49] sm:text-xl">
                     {service.title}
                   </h3>
-                </div>
 
-                {/* DESCRIPTION */}
-
-                <div className="w-full md:col-span-3 md:pr-10 lg:col-span-1 lg:pr-10">
-                  <p
-                    className="
-                      max-w-xl
-                      text-[12px]
-                      leading-6
-                      text-gray-500
-                      transition
-                      duration-500
-                      group-hover:text-gray-700
-                      sm:text-sm
-                      sm:leading-7
-                    "
-                  >
-                    {service.text}
+                  <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">
+                    {service.description}
                   </p>
-                </div>
 
-                {/* ACTION */}
-
-                <div
-                  className="
-                    hidden
-                    h-10
-                    w-10
-                    shrink-0
-                    items-center
-                    justify-center
-                    border
-                    border-gray-200
-                    text-[#062B49]
-                    transition-all
-                    duration-500
-                    group-hover:border-[#9B5B35]
-                    group-hover:bg-[#9B5B35]
-                    group-hover:text-white
-                    md:flex
-                    lg:h-11
-                    lg:w-11
-                  "
-                >
-                  <FiArrowRight
-                    className="
-                      transition-transform
-                      duration-500
-                      group-hover:translate-x-1
-                    "
-                  />
-                </div>
-              </div>
-            ))}
+                  <div className="mt-4 h-[2px] w-9 bg-[#9B5B35] transition-all duration-300 group-hover:w-16" />
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* =====================================================
-          PROCESS
-          DESKTOP = ARCHITECTURAL STAIRCASE
-          MOBILE/TABLET = VERTICAL PROCESS
-      ===================================================== */}
-
-      <section className="px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:ml-8 lg:px-12 lg:py-20">
-
+      {/* OUR APPROACH */}
+      <section className="bg-white px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-9">
         <div className="mx-auto max-w-7xl">
-
-          {/* PROCESS HEADER */}
-
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3">
-              <span className="h-[2px] w-7 bg-[#9B5B35] sm:w-8" />
-
-              <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.3em]">
-                Our Approach
-              </span>
-            </div>
-
-            <h2 className="mt-5 text-[38px] font-bold leading-[1] tracking-[-0.04em] text-[#062B49] sm:text-[46px] md:text-[52px] lg:text-5xl">
-              A structured path from
-              <span className="block text-[#9B5B35]">
-                assessment to improvement.
-              </span>
-            </h2>
-
-            <p className="mt-5 max-w-2xl text-[13px] leading-7 text-gray-500 sm:text-sm sm:leading-7">
-              Our approach brings structure to technology planning,
-              transformation and continuous improvement.
-            </p>
-          </div>
-
-          {/* =================================================
-              MOBILE / TABLET PROCESS
-          ================================================= */}
-
-          <div className="relative mt-12 md:mt-16 lg:hidden">
-
-            {/* Vertical line */}
-
-            <div className="absolute bottom-6 left-[21px] top-6 w-px bg-[#062B49]/15 sm:left-[27px]" />
-
-            <div className="space-y-0">
-              {process.map((step, index) => (
-                <div
-                  key={step.number}
-                  className="group relative grid grid-cols-[44px_1fr] gap-5 border-t border-[#062B49]/10 py-7 sm:grid-cols-[56px_1fr] sm:gap-7 sm:py-9"
-                >
-
-                  {/* NUMBER / ICON */}
-
-                  <div className="relative z-10 flex items-start justify-center">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#062B49]/15 bg-white text-[#062B49] transition-all duration-500 group-hover:border-[#9B5B35] group-hover:bg-[#9B5B35] group-hover:text-white sm:h-14 sm:w-14">
-                      {step.icon}
-                    </div>
-                  </div>
-
-                  {/* CONTENT */}
-
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-[9px] font-bold tracking-[0.3em] text-[#9B5B35] sm:text-[10px]">
-                        {step.number}
-                      </span>
-
-                      <span className="h-px w-6 bg-[#9B5B35]/40" />
-                    </div>
-
-                    <h3 className="mt-3 text-[25px] font-bold tracking-tight text-[#062B49] transition-colors duration-500 group-hover:text-[#9B5B35] sm:text-3xl">
-                      {step.title}
-                    </h3>
-
-                    <p className="mt-3 max-w-xl text-[12px] leading-6 text-gray-500 sm:mt-4 sm:text-sm sm:leading-7">
-                      {step.text}
-                    </p>
-
-                    {index < process.length - 1 && (
-                      <div className="mt-5 h-[2px] w-8 bg-[#9B5B35] transition-all duration-500 group-hover:w-14" />
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* =================================================
-              DESKTOP PROCESS STAIRCASE
-          ================================================= */}
-
-          <div className="relative mt-20 hidden h-[560px] lg:block">
-
-            {/* BASE LINE */}
-
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-[#062B49]/15" />
-
-            {/* STEP 01 */}
-
-            <div
-              className="
-                group
-                absolute
-                bottom-0
-                left-0
-                h-[300px]
-                w-[25%]
-                border-l
-                border-t
-                border-[#062B49]/20
-                px-8
-                pt-8
-                transition-all
-                duration-500
-                hover:bg-white
-              "
-            >
-              <div className="absolute left-0 top-0 h-[2px] w-0 bg-[#9B5B35] transition-all duration-500 group-hover:w-full" />
-
-              <div className="flex items-start justify-between">
-                <span className="text-[11px] font-bold tracking-[0.3em] text-[#9B5B35]">
-                  {process[0].number}
-                </span>
-
-                <div
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#062B49]/15
-                    text-[#062B49]
-                    transition-all
-                    duration-500
-                    group-hover:border-[#9B5B35]
-                    group-hover:bg-[#9B5B35]
-                    group-hover:text-white
-                  "
-                >
-                  {process[0].icon}
-                </div>
-              </div>
-
-              <div className="mt-20">
-                <h3 className="text-3xl font-bold tracking-tight text-[#062B49] transition-colors duration-500 group-hover:text-[#9B5B35]">
-                  {process[0].title}
-                </h3>
-
-                <p className="mt-5 max-w-[240px] text-sm leading-7 text-gray-500">
-                  {process[0].text}
-                </p>
-              </div>
-            </div>
-
-            {/* STEP 02 */}
-
-            <div
-              className="
-                group
-                absolute
-                bottom-0
-                left-[25%]
-                h-[370px]
-                w-[25%]
-                border-l
-                border-t
-                border-[#062B49]/20
-                px-8
-                pt-8
-                transition-all
-                duration-500
-                hover:bg-white
-              "
-            >
-              <div className="absolute left-0 top-0 h-[2px] w-0 bg-[#9B5B35] transition-all duration-500 group-hover:w-full" />
-
-              <div className="flex items-start justify-between">
-                <span className="text-[11px] font-bold tracking-[0.3em] text-[#9B5B35]">
-                  {process[1].number}
-                </span>
-
-                <div
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#062B49]/15
-                    text-[#062B49]
-                    transition-all
-                    duration-500
-                    group-hover:border-[#9B5B35]
-                    group-hover:bg-[#9B5B35]
-                    group-hover:text-white
-                  "
-                >
-                  {process[1].icon}
-                </div>
-              </div>
-
-              <div className="mt-20">
-                <h3 className="text-3xl font-bold tracking-tight text-[#062B49] transition-colors duration-500 group-hover:text-[#9B5B35]">
-                  {process[1].title}
-                </h3>
-
-                <p className="mt-5 max-w-[240px] text-sm leading-7 text-gray-500">
-                  {process[1].text}
-                </p>
-              </div>
-            </div>
-
-            {/* STEP 03 */}
-
-            <div
-              className="
-                group
-                absolute
-                bottom-0
-                left-[50%]
-                h-[440px]
-                w-[25%]
-                border-l
-                border-t
-                border-[#062B49]/20
-                px-8
-                pt-8
-                transition-all
-                duration-500
-                hover:bg-white
-              "
-            >
-              <div className="absolute left-0 top-0 h-[2px] w-0 bg-[#9B5B35] transition-all duration-500 group-hover:w-full" />
-
-              <div className="flex items-start justify-between">
-                <span className="text-[11px] font-bold tracking-[0.3em] text-[#9B5B35]">
-                  {process[2].number}
-                </span>
-
-                <div
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#062B49]/15
-                    text-[#062B49]
-                    transition-all
-                    duration-500
-                    group-hover:border-[#9B5B35]
-                    group-hover:bg-[#9B5B35]
-                    group-hover:text-white
-                  "
-                >
-                  {process[2].icon}
-                </div>
-              </div>
-
-              <div className="mt-20">
-                <h3 className="text-3xl font-bold tracking-tight text-[#062B49] transition-colors duration-500 group-hover:text-[#9B5B35]">
-                  {process[2].title}
-                </h3>
-
-                <p className="mt-5 max-w-[240px] text-sm leading-7 text-gray-500">
-                  {process[2].text}
-                </p>
-              </div>
-            </div>
-
-            {/* STEP 04 */}
-
-            <div
-              className="
-                group
-                absolute
-                bottom-0
-                left-[75%]
-                h-[510px]
-                w-[25%]
-                border-l
-                border-r
-                border-t
-                border-[#062B49]/20
-                px-8
-                pt-8
-                transition-all
-                duration-500
-                hover:bg-white
-              "
-            >
-              <div className="absolute left-0 top-0 h-[2px] w-0 bg-[#9B5B35] transition-all duration-500 group-hover:w-full" />
-
-              <div className="flex items-start justify-between">
-                <span className="text-[11px] font-bold tracking-[0.3em] text-[#9B5B35]">
-                  {process[3].number}
-                </span>
-
-                <div
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#062B49]/15
-                    text-[#062B49]
-                    transition-all
-                    duration-500
-                    group-hover:border-[#9B5B35]
-                    group-hover:bg-[#9B5B35]
-                    group-hover:text-white
-                  "
-                >
-                  {process[3].icon}
-                </div>
-              </div>
-
-              <div className="mt-20">
-                <h3 className="text-3xl font-bold tracking-tight text-[#062B49] transition-colors duration-500 group-hover:text-[#9B5B35]">
-                  {process[3].title}
-                </h3>
-
-                <p className="mt-5 max-w-[240px] text-sm leading-7 text-gray-500">
-                  {process[3].text}
-                </p>
-              </div>
-            </div>
-
-            {/* DIRECTION ARROWS */}
-
-            <div className="absolute bottom-6 left-[23.5%] text-[#9B5B35]">
-              →
-            </div>
-
-            <div className="absolute bottom-6 left-[48.5%] text-[#9B5B35]">
-              →
-            </div>
-
-            <div className="absolute bottom-6 left-[73.5%] text-[#9B5B35]">
-              →
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================
-          SERVICE AREAS
-      ===================================================== */}
-
-      <section className="bg-[#f6f4f1] px-5 py-16 sm:px-8 sm:py-20 md:px-10 md:py-24 lg:px-12 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-
-          <div className="ml-0 grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-[0.8fr_1.2fr] md:items-center md:gap-12 lg:ml-8 lg:gap-20">
-
-            {/* LEFT */}
-
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
             <div>
-              <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#9B5B35] sm:text-[10px]">
-                Service Capabilities
-              </span>
+              <SectionLabel>Our Approach</SectionLabel>
 
-              <h2 className="mt-4 text-[36px] font-bold leading-[1.05] tracking-[-0.035em] text-[#062B49] sm:text-[44px] md:text-[48px]">
-                Expertise across
-                <span className="block text-[#9B5B35]">
+              <h2 className="max-w-lg text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
+                A structured path from{" "}
+                <span className="text-[#9B5B35]">
+                  assessment to improvement.
+                </span>
+              </h2>
+
+              <p className="mt-3 max-w-md text-sm leading-6 text-slate-600 sm:text-base">
+                Our approach brings structure to technology planning,
+                transformation and continuous improvement.
+              </p>
+
+              <div className="mt-4 flex items-center gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#9B5B35]/30 text-[#9B5B35]">
+                  <FiCheckCircle size={18} />
+                </div>
+
+                <p className="text-sm font-semibold text-[#062B49]">
+                  A practical, step-by-step approach
+                </p>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute bottom-4 left-[17px] top-4 hidden w-px bg-slate-200 sm:block" />
+
+              <div className="space-y-3 sm:space-y-4">
+                {processSteps.map((step) => {
+                  const Icon = step.icon;
+
+                  return (
+                    <div
+                      key={step.number}
+                      className="group relative flex gap-4"
+                    >
+                      <div className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center border border-slate-200 bg-white text-[#9B5B35] transition-colors duration-300 group-hover:border-[#9B5B35] group-hover:bg-[#9B5B35] group-hover:text-white">
+                        <Icon size={17} />
+                      </div>
+
+                      <div className="flex-1 border-b border-slate-100 pb-3">
+                        <div className="mb-1 flex items-center gap-2">
+                          <span className="text-[10px] font-bold tracking-widest text-[#9B5B35]">
+                            STEP {step.number}
+                          </span>
+
+                          <span className="h-px w-5 bg-slate-200" />
+                        </div>
+
+                        <h3 className="text-lg font-bold text-[#062B49]">
+                          {step.title}
+                        </h3>
+
+                        <p className="mt-1 max-w-xl text-sm leading-6 text-slate-600">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE CAPABILITIES */}
+      <section className="border-y border-slate-200 bg-[#F7F9FB] px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-9">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
+            <div>
+              <SectionLabel>Service Capabilities</SectionLabel>
+
+              <h2 className="max-w-lg text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
+                Expertise across{" "}
+                <span className="text-[#9B5B35]">
                   your IT environment.
                 </span>
               </h2>
 
-              <p className="mt-5 max-w-xl text-[13px] leading-7 text-gray-500 sm:text-sm sm:leading-8 md:text-base">
-                From infrastructure assessment to migration and
-                virtualization, our professional service areas are
-                designed around practical technology requirements.
+              <p className="mt-3 max-w-md text-sm leading-6 text-slate-600 sm:text-base">
+                From infrastructure assessment to migration and virtualization,
+                our professional service areas are designed around practical
+                technology requirements.
               </p>
             </div>
-
-            {/* AREAS */}
 
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {serviceAreas.map((item, index) => (
                 <div
                   key={item}
-                  className="
-                    group
-                    flex
-                    min-h-[58px]
-                    items-center
-                    gap-3
-                    border
-                    border-gray-200
-                    bg-white
-                    px-4
-                    py-3
-                    transition
-                    duration-300
-                    hover:border-[#9B5B35]
-                    hover:shadow-sm
-                    sm:px-5
-                  "
+                  className="group flex min-h-[58px] items-center gap-3 border border-slate-200 bg-white px-4 py-3 transition-all duration-300 hover:border-[#9B5B35] hover:shadow-sm sm:px-5"
                 >
-                  <span className="shrink-0 text-[9px] font-bold text-[#9B5B35]/50 sm:text-[10px]">
-                    0{index + 1}
+                  <span className="shrink-0 text-[10px] font-bold text-[#9B5B35]/60">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <FiArrowRight
-                    className="
-                      shrink-0
-                      text-[#9B5B35]
-                      transition
-                      duration-300
-                      group-hover:translate-x-1
-                    "
-                  />
+                  <FiArrowRight className="shrink-0 text-[#9B5B35] transition-transform duration-300 group-hover:translate-x-1" />
 
-                  <span className="text-[12px] font-semibold leading-5 text-[#062B49] sm:text-sm">
+                  <span className="text-xs font-semibold leading-5 text-[#062B49] sm:text-sm">
                     {item}
                   </span>
                 </div>
@@ -750,45 +310,8 @@ const ConsultingProfessional = () => {
           </div>
         </div>
       </section>
-
-      {/* =====================================================
-          HERO IMAGE ANIMATION
-      ===================================================== */}
-
-      <style>{`
-        .consulting-hero-image {
-          animation: consultingHeroZoom 16s ease-in-out infinite alternate;
-          will-change: transform;
-        }
-
-        @keyframes consultingHeroZoom {
-          0% {
-            transform: scale(1);
-          }
-
-          100% {
-            transform: scale(1.035);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .consulting-hero-image {
-            animation: none;
-          }
-
-          *,
-          *::before,
-          *::after {
-            scroll-behavior: auto !important;
-            transition-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-          }
-        }
-      `}</style>
-
     </main>
   );
-};
+}
 
 export default ConsultingProfessional;

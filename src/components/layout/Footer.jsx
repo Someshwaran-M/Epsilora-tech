@@ -29,7 +29,7 @@ const Footer = () => {
   // Company Links
   const quickLinks = [
     ["Home", "/"],
-    ["Services", "/technology/services/consulting-professional"],
+    ["Services", "/technology/services"],
     ["Contact Us", "/contact"],
     ["Brand Partners", "/technology/partners"],
   ];
@@ -539,7 +539,7 @@ const Footer = () => {
                   className="text-[#C18A61]"
                 />
 
-                info@epsilora.in
+                info@epsilora.com
               </a>
 
             </div>

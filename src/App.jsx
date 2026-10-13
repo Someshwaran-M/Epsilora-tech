@@ -1,42 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
+// Layout Components
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Loader from "./components/common/Loader";
 
+// Main Pages
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import Service from "./pages/Service";
 
-/* =========================================================
-   HARDWARE PAGES
-========================================================= */
-
+// Hardware Pages
 import Datastorage from "./technology/hardware/Datastorage";
 import PcServer from "./technology/hardware/PcServer";
 import ServerServer from "./technology/hardware/ServerServer";
 
-/* =========================================================
-   SERVICES PAGES
-========================================================= */
-
+// Services Pages
 import ConsultingProfessional from "./technology/services/ConsultingProfessional";
+import AccountingFinancial from "./technology/services/AccountingFinancial";
+import ITManagement from "./technology/services/ITManagement";
+import CyberSecurity from "./technology/services/CyberSecurity";
 
-/* =========================================================
-   SOLUTIONS PAGES
-========================================================= */
-
+// Solutions Pages
 import Cloud from "./technology/solutions/Cloud";
 import DataCenter from "./technology/solutions/DataCenter";
 import Emerging from "./technology/solutions/Emerging";
 import InformationCyber from "./technology/solutions/InformationCyber";
 
-/* =========================================================
-   PARTNERS PAGE
-========================================================= */
-
+// Partners Page
 import Partners from "./technology/partners/Partners";
-
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -49,141 +42,99 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  /* =========================================================
-     LOADER
-  ========================================================= */
-
+  // Display loader
   if (loading) {
     return <Loader />;
   }
 
   return (
     <>
-      {/* =====================================================
-          NAVBAR
-      ===================================================== */}
-
+      {/* Navbar */}
       <Navbar />
 
-
-      {/* =====================================================
-          ROUTES
-      ===================================================== */}
-
+      {/* Application Routes */}
       <Routes>
+        {/* Home */}
+        <Route path="/" element={<Home />} />
 
-        {/* ===================================================
-            HOME
-        =================================================== */}
+        {/* Contact */}
+        <Route path="/contact" element={<Contact />} />
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
-
-        {/* ===================================================
-            CONTACT
-        =================================================== */}
-
-        <Route
-          path="/contact"
-          element={<Contact />}
-        />
-
-
-        {/* ===================================================
-            HARDWARE
-        =================================================== */}
-
-        {/* Data Storage */}
-
+        {/* Hardware Pages */}
         <Route
           path="/technology/hardware/datastorage"
           element={<Datastorage />}
         />
-
-
-        {/* PC & Server */}
 
         <Route
           path="/technology/hardware/pc-server"
           element={<PcServer />}
         />
 
-
-        {/* Server & Server Management */}
-
         <Route
           path="/technology/hardware/server-server-management"
           element={<ServerServer />}
         />
 
-
-        {/* ===================================================
-            SERVICES
-        =================================================== */}
+        {/* Main Services Page */}
+        <Route
+          path="/technology/services"
+          element={<Service />}
+        />
 
         {/* Consulting & Professional Services */}
-
         <Route
           path="/technology/services/consulting-professional"
           element={<ConsultingProfessional />}
         />
 
+        {/* Accounting & Financial Services */}
+        <Route
+          path="/technology/services/accounting-financial"
+          element={<AccountingFinancial />}
+        />
 
-        {/* ===================================================
-            SOLUTIONS
-        =================================================== */}
+        {/* IT Management Services */}
+        <Route
+          path="/technology/services/it-management"
+          element={<ITManagement />}
+        />
 
-        {/* Cloud */}
+        {/* Cyber Security Services */}
+        <Route
+          path="/technology/services/cyber-security"
+          element={<CyberSecurity />}
+        />
 
+        {/* Solutions Pages */}
         <Route
           path="/technology/solutions/cloud"
           element={<Cloud />}
         />
-
-
-        {/* Data Center */}
 
         <Route
           path="/technology/solutions/datacenter"
           element={<DataCenter />}
         />
 
-
-        {/* Emerging Technology */}
-
         <Route
           path="/technology/solutions/emerging"
           element={<Emerging />}
         />
-
-
-        {/* Information & Cyber Security */}
 
         <Route
           path="/technology/solutions/information-cyber"
           element={<InformationCyber />}
         />
 
-
-        {/* ===================================================
-            BRAND PARTNERS
-        =================================================== */}
-
+        {/* Technology Partners */}
         <Route
           path="/technology/partners"
           element={<Partners />}
         />
-
       </Routes>
 
-
-      {/* =====================================================
-          FOOTER
-      ===================================================== */}
-
+      {/* Footer */}
       <Footer />
     </>
   );

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FiChevronDown, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -10,10 +11,28 @@ const ServicesMenu = ({
 }) => {
   const categories = [
     {
-      title: "Consulting & Professional Services",
+      title: "Accounting & Financial",
       description:
-        "Expert consulting, migration and professional services",
-      link: "/technology/services/consulting-professional",
+        "Accounting systems, financial technology, reporting and financial solutions.",
+      link: "/technology/services#accounting-financial",
+    },
+    {
+      title: "Consulting & Professional",
+      description:
+        "Expert consulting, migration and professional services.",
+      link: "/technology/services#consulting-professional",
+    },
+    {
+      title: "IT Management",
+      description:
+        "IT infrastructure, system management, monitoring and technical support.",
+      link: "/technology/services#it-management",
+    },
+    {
+      title: "Cyber Security",
+      description:
+        "Cybersecurity solutions, threat monitoring and business data protection.",
+      link: "/technology/services#cyber-security",
     },
   ];
 
@@ -27,11 +46,11 @@ const ServicesMenu = ({
 
   /* =====================================================
      CLOSE AFTER SUBMENU SELECTION
-     
+
      Mobile:
      - Close submenu
      - Close complete hamburger navigation
-     
+
      Desktop:
      - Close dropdown
   ====================================================== */
@@ -54,6 +73,7 @@ const ServicesMenu = ({
       <button
         type="button"
         onClick={handleServicesClick}
+        aria-expanded={openMenu === "services"}
         className="
           w-full
           lg:w-auto
@@ -91,10 +111,9 @@ const ServicesMenu = ({
         />
       </button>
 
-
       {/* =====================================================
           MOBILE + TABLET DROPDOWN
-      ===================================================== */}
+      ====================================================== */}
 
       {openMenu === "services" && (
         <div
@@ -129,7 +148,6 @@ const ServicesMenu = ({
             lg:hidden
           "
         >
-
           {/* =================================================
               HEADER
           ================================================= */}
@@ -184,13 +202,11 @@ const ServicesMenu = ({
             </p>
           </div>
 
-
           {/* =================================================
-              SERVICE CATEGORY
+              SERVICE CATEGORIES
           ================================================= */}
 
           <div className="p-3 sm:p-4">
-
             {categories.map((category) => (
               <Link
                 key={category.title}
@@ -216,9 +232,7 @@ const ServicesMenu = ({
                   duration-300
                 "
               >
-
                 <div className="min-w-0">
-
                   <p
                     className="
                       text-sm
@@ -245,7 +259,6 @@ const ServicesMenu = ({
                   >
                     {category.description}
                   </p>
-
                 </div>
 
                 <FiArrowRight
@@ -258,19 +271,15 @@ const ServicesMenu = ({
                     duration-300
                   "
                 />
-
               </Link>
             ))}
-
           </div>
-
         </div>
       )}
 
-
       {/* =====================================================
           DESKTOP DROPDOWN
-      ===================================================== */}
+      ====================================================== */}
 
       {openMenu === "services" && (
         <div
@@ -298,7 +307,6 @@ const ServicesMenu = ({
             overflow-hidden
           "
         >
-
           {/* =================================================
               HEADER
           ================================================= */}
@@ -346,13 +354,11 @@ const ServicesMenu = ({
             </p>
           </div>
 
-
           {/* =================================================
-              SERVICE CATEGORY
+              SERVICE CATEGORIES
           ================================================= */}
 
           <div className="p-3">
-
             {categories.map((category) => (
               <Link
                 key={category.title}
@@ -377,9 +383,7 @@ const ServicesMenu = ({
                   duration-300
                 "
               >
-
                 <div className="min-w-0">
-
                   <p
                     className="
                       text-sm
@@ -404,7 +408,6 @@ const ServicesMenu = ({
                   >
                     {category.description}
                   </p>
-
                 </div>
 
                 <FiArrowRight
@@ -418,15 +421,11 @@ const ServicesMenu = ({
                     duration-300
                   "
                 />
-
               </Link>
             ))}
-
           </div>
-
         </div>
       )}
-
     </div>
   );
 };

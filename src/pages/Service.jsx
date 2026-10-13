@@ -1,793 +1,512 @@
-import React from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { motion } from "framer-motion";
 import {
   FiArrowUpRight,
+  FiBriefcase,
+  FiChevronRight,
   FiMonitor,
-  FiShield,
   FiServer,
-  FiCpu,
+  FiShield,
 } from "react-icons/fi";
 
-const services = [
+const serviceItems = [
   {
+    id: "accounting-financial",
     number: "01",
-    title: "IT Consulting",
+    title: "Accounting & Financial",
     description:
-      "Strategic technology consulting to help your business make smarter decisions.",
-    icon: <FiMonitor />,
+      "Financial technology, accounting systems, reporting, and solutions that support smarter business decisions.",
+    icon: FiMonitor,
+    aliases: [
+      "AccountingFinancial",
+      "AccountingAndFinancial",
+      "AccountingFinancialServices",
+      "Accounting",
+    ],
   },
   {
+    id: "consulting-professional",
     number: "02",
-    title: "Cybersecurity",
+    title: "Consulting & Professional",
     description:
-      "Protect your business with reliable cybersecurity solutions and services.",
-    icon: <FiShield />,
+      "Professional IT consulting, technology planning, implementation, and strategic business support.",
+    icon: FiBriefcase,
+    aliases: [
+      "ConsultingProfessional",
+      "ConsultingAndProfessional",
+      "ConsultingProfessionalServices",
+      "Consulting",
+    ],
   },
   {
+    id: "it-management",
     number: "03",
-    title: "Infrastructure",
+    title: "IT Management",
     description:
-      "Build secure, scalable, and reliable technology infrastructure.",
-    icon: <FiServer />,
+      "IT infrastructure management, system monitoring, maintenance, and reliable technical support.",
+    icon: FiServer,
+    aliases: [
+      "ITManagement",
+      "ItManagement",
+      "ITManagementServices",
+      "InformationTechnologyManagement",
+    ],
   },
   {
+    id: "cyber-security",
     number: "04",
-    title: "Technology Solutions",
+    title: "Cyber Security",
     description:
-      "Modern technology solutions designed around your business requirements.",
-    icon: <FiCpu />,
+      "Protect business systems and data through cybersecurity assessments, threat monitoring, and risk management.",
+    icon: FiShield,
+    aliases: [
+      "CyberSecurity",
+      "CyberSecurityServices",
+      "CyberSecurityManagement",
+      "CyberSecuritySolutions",
+    ],
   },
 ];
 
-/* =========================================================
-   CONTAINER ANIMATION
-========================================================= */
+const serviceModules = import.meta.glob(
+  "../technology/services/**/*.jsx",
+  { eager: true }
+);
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.45,
-      delayChildren: 0.2,
-    },
-  },
+const normalizeName = (value = "") =>
+  value
+    .split("/")
+    .pop()
+    .replace(/\.(jsx|tsx|js|ts)$/i, "")
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toLowerCase();
+
+const getServiceComponent = (service) => {
+  const aliases = service.aliases.map(normalizeName);
+
+  for (const [path, module] of Object.entries(serviceModules)) {
+    const filename = normalizeName(path);
+
+    if (
+      aliases.some(
+        (alias) => filename === alias || filename.endsWith(alias)
+      ) &&
+      typeof module.default === "function"
+    ) {
+      return module.default;
+    }
+  }
+
+  return null;
 };
 
-/* =========================================================
-   SERVICE ENTRY ANIMATION
-========================================================= */
+const serviceComponents = Object.fromEntries(
+  serviceItems.map((service) => [
+    service.id,
+    getServiceComponent(service),
+  ])
+);
 
-const serviceVariants = {
-  hidden: {
-    opacity: 0,
-    x: -120,
-    scale: 0.82,
-  },
+export default function Service() {
+  const [activeService, setActiveService] = useState(
+    "accounting-financial"
+  );
 
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1],
+  const sectionRefs = useRef({});
+  const clickNavigationRef = useRef(false);
+  const services = useMemo(() => serviceItems, []);
+
+  const scrollToService = useCallback(
+    (serviceId, updateUrl = true) => {
+      const target = sectionRefs.current[serviceId];
+
+      if (!target) return;
+
+      clickNavigationRef.current = true;
+      setActiveService(serviceId);
+
+      // Scroll the main browser page naturally.
+      const top =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        24;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "smooth",
+      });
+
+      if (updateUrl) {
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}#${serviceId}`
+        );
+      }
+
+      window.setTimeout(() => {
+        clickNavigationRef.current = false;
+      }, 800);
     },
-  },
-};
+    []
+  );
 
-/* =========================================================
-   CONNECTOR ANIMATION
-========================================================= */
+  useEffect(() => {
+    const openInitialSection = () => {
+      const hash = decodeURIComponent(
+        window.location.hash.slice(1)
+      );
 
-const connectorVariants = {
-  hidden: {
-    scaleX: 0,
-    opacity: 0,
-  },
+      const matchingService = services.find(
+        (service) => service.id === hash
+      );
 
-  visible: {
-    scaleX: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      delay: 0.55,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
+      if (matchingService) {
+        window.setTimeout(() => {
+          scrollToService(matchingService.id, false);
+        }, 150);
+      }
+    };
 
-/* =========================================================
-   ICON ANIMATION
-========================================================= */
+    openInitialSection();
+    window.addEventListener("hashchange", openInitialSection);
 
-const iconVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.3,
-    rotate: -45,
-  },
+    return () => {
+      window.removeEventListener(
+        "hashchange",
+        openInitialSection
+      );
+    };
+  }, [scrollToService, services]);
 
-  visible: {
-    opacity: 1,
-    scale: 1,
-    rotate: 0,
-    transition: {
-      duration: 0.7,
-      delay: 0.35,
-      type: "spring",
-      stiffness: 180,
-      damping: 12,
-    },
-  },
-};
+  useEffect(() => {
+    const updateActiveService = () => {
+      if (clickNavigationRef.current) return;
 
-const Services = () => {
+      let currentService = services[0]?.id;
+      const activationLine = 130;
+
+      for (const service of services) {
+        const section = sectionRefs.current[service.id];
+
+        if (
+          section &&
+          section.getBoundingClientRect().top <= activationLine
+        ) {
+          currentService = service.id;
+        }
+      }
+
+      if (currentService) {
+        setActiveService(currentService);
+      }
+    };
+
+    window.addEventListener("scroll", updateActiveService, {
+      passive: true,
+    });
+
+    updateActiveService();
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveService);
+    };
+  }, [services]);
+
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-        bg-[#062B49]
-        py-20
-        text-white
-        sm:py-24
-        lg:py-32
-      "
-    >
-      {/* =====================================================
-          BACKGROUND
-      ====================================================== */}
-
-      <div className="pointer-events-none absolute inset-0">
-
-        {/* Brown Glow */}
-
-        <motion.div
-          animate={{
-            x: [0, -35, 0],
-            y: [0, 25, 0],
-            scale: [1, 1.08, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            absolute
-            -right-40
-            -top-40
-            h-[420px]
-            w-[420px]
-            rounded-full
-            bg-[#9B5B35]/10
-            blur-3xl
-          "
+    <div className="w-full bg-white text-[#062B49]">
+      {/* Brand Partners Hero Banner */}
+      <section className="relative h-[220px] w-full overflow-hidden sm:h-[300px] md:h-[360px] lg:h-[425px]">
+        <img
+          src="/consulting.png"
+          alt="Brand Partners - Together for a Better Tomorrow"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
+      </section>
 
-        {/* White Glow */}
+      {/* Services Layout */}
+      <main className="mx-auto w-full max-w-[1280px] bg-white text-[#062B49]">
+        <div className="grid w-full grid-cols-1 md:grid-cols-[280px_minmax(0,1fr)] lg:grid-cols-[320px_minmax(0,1fr)]">
+          {/* Sidebar */}
+          <aside className="relative z-10 bg-white md:sticky md:top-0 md:flex md:h-screen md:flex-col md:border-r md:border-[#E7EBEF]">
+            <div className="px-5 pb-4 pt-5 sm:px-7 sm:pt-7 lg:px-8">
+              <p className="mb-2 text-xs font-bold uppercase tracking-[0.22em] text-[#9B5B35]">
+                What We Do
+              </p>
 
-        <motion.div
-          animate={{
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-            scale: [1, 1.06, 1],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            absolute
-            -bottom-48
-            -left-48
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-white/[0.025]
-            blur-3xl
-          "
-        />
+              <h1 className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+                Our Services
+              </h1>
 
-        {/* Decorative Points */}
-
-        <motion.div
-          animate={{
-            opacity: [0.25, 1, 0.25],
-            scale: [0.8, 1.3, 0.8],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            absolute
-            left-[12%]
-            top-[18%]
-            hidden
-            h-2
-            w-2
-            rounded-full
-            bg-[#9B5B35]
-            lg:block
-          "
-        />
-
-        <motion.div
-          animate={{
-            opacity: [0.2, 1, 0.2],
-            scale: [0.8, 1.3, 0.8],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="
-            absolute
-            bottom-[18%]
-            right-[12%]
-            hidden
-            h-2
-            w-2
-            rounded-full
-            bg-[#C18A61]
-            lg:block
-          "
-        />
-      </div>
-
-      {/* =====================================================
-          MAIN CONTAINER
-      ====================================================== */}
-
-      <div
-        className="
-          relative
-          mx-auto
-          max-w-7xl
-          px-5
-          sm:px-8
-          lg:px-12
-        "
-      >
-
-        {/* =====================================================
-            HEADER
-        ====================================================== */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 35,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.2,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
-          className="
-            grid
-            gap-8
-            lg:grid-cols-[0.85fr_1.15fr]
-            lg:items-end
-            lg:gap-20
-          "
-        >
-
-          <div>
-
-            <div className="flex items-center gap-3">
-
-              <span className="h-[2px] w-10 bg-[#9B5B35]" />
-
-              <span
-                className="
-                  text-[10px]
-                  font-bold
-                  uppercase
-                  tracking-[0.25em]
-                  text-[#C18A61]
-                  sm:text-xs
-                "
-              >
-                Professional Services
-              </span>
-
+              <p className="mt-3 max-w-sm text-sm leading-6 text-[#667586]">
+                Explore our services and find the right technology
+                support for your business.
+              </p>
             </div>
 
-            <h2
-              className="
-                mt-5
-                max-w-xl
-                text-3xl
-                font-bold
-                leading-[1.08]
-                tracking-tight
-                sm:text-4xl
-                md:text-5xl
-                lg:text-6xl
-              "
+            {/* Desktop Navigation */}
+            <nav
+              aria-label="Service navigation"
+              className="hidden min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-4 pb-6 md:flex lg:px-5"
             >
-              Consulting &
+              {services.map((service) => {
+                const Icon = service.icon;
+                const isActive = activeService === service.id;
 
-              <span className="block text-[#C18A61]">
-                Professional Services
-              </span>
-            </h2>
-
-          </div>
-
-          <div>
-
-            <p
-              className="
-                max-w-xl
-                text-sm
-                leading-7
-                text-white/55
-                sm:text-base
-                sm:leading-8
-              "
-            >
-              Expertise. Experience. Real Results.
-              We deliver professional technology services
-              designed around your business goals.
-            </p>
-
-          </div>
-
-        </motion.div>
-
-        {/* =====================================================
-            ANIMATED SERVICES
-        ====================================================== */}
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            amount: 0.15,
-          }}
-          className="
-            mt-14
-            sm:mt-16
-            lg:mt-20
-          "
-        >
-
-          <div
-            className="
-              grid
-              grid-cols-1
-              gap-12
-              sm:grid-cols-2
-              lg:grid-cols-4
-              lg:gap-4
-              xl:gap-6
-            "
-          >
-
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                variants={serviceVariants}
-                className="
-                  group
-                  relative
-                  flex
-                  justify-center
-                "
-              >
-
-                {/* =================================================
-                    CONNECTOR
-                ================================================== */}
-
-                {index !== services.length - 1 && (
-                  <motion.div
-                    variants={connectorVariants}
-                    style={{
-                      transformOrigin: "left center",
-                    }}
-                    className="
-                      absolute
-                      left-[calc(50%+90px)]
-                      top-1/2
-                      hidden
-                      h-px
-                      w-[calc(100%-115px)]
-                      bg-gradient-to-r
-                      from-[#9B5B35]/70
-                      via-[#C18A61]/30
-                      to-white/5
-                      lg:block
-                    "
+                return (
+                  <button
+                    key={service.id}
+                    type="button"
+                    onClick={() => scrollToService(service.id)}
+                    aria-current={isActive ? "location" : undefined}
+                    className={`group relative flex w-full items-center gap-3 rounded-xl border px-4 py-4 text-left transition-all duration-300 ${
+                      isActive
+                        ? "border-[#062B49] bg-[#062B49] text-white shadow-md shadow-[#062B49]/10"
+                        : "border-transparent bg-white text-[#425466] hover:border-[#E5EAF0] hover:bg-[#F7F9FB] hover:text-[#062B49]"
+                    }`}
                   >
-                    {/* Moving Light */}
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg ${
+                        isActive
+                          ? "bg-white/10 text-[#C18A61]"
+                          : "bg-[#F3F5F7] text-[#9B5B35] group-hover:bg-[#F0E7E1]"
+                      }`}
+                    >
+                      <Icon />
+                    </span>
 
-                    <motion.span
-                      animate={{
-                        left: ["0%", "100%"],
-                      }}
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: index * 0.5,
-                      }}
-                      className="
-                        absolute
-                        top-1/2
-                        h-1
-                        w-1
-                        -translate-y-1/2
-                        rounded-full
-                        bg-[#C18A61]
-                        shadow-[0_0_12px_#C18A61]
-                      "
+                    <span className="min-w-0 flex-1">
+                      <span
+                        className={`mb-1 block text-[10px] font-bold tracking-[0.16em] ${
+                          isActive
+                            ? "text-[#C18A61]"
+                            : "text-[#9B5B35]"
+                        }`}
+                      >
+                        SERVICE {service.number}
+                      </span>
+
+                      <span className="block text-sm font-semibold leading-5">
+                        {service.title}
+                      </span>
+                    </span>
+
+                    <FiChevronRight
+                      className={`shrink-0 transition-transform duration-300 ${
+                        isActive
+                          ? "text-[#C18A61]"
+                          : "-translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                      }`}
                     />
-                  </motion.div>
-                )}
+                  </button>
+                );
+              })}
+            </nav>
 
-                {/* =================================================
-                    OUTER CIRCLE
-                ================================================== */}
+            {/* Mobile Navigation */}
+            <nav
+              aria-label="Mobile service navigation"
+              className="flex gap-2 overflow-x-auto px-4 pb-4 md:hidden"
+            >
+              {services.map((service) => {
+                const isActive = activeService === service.id;
 
-                <motion.div
-                  animate={{
-                    y: [0, -7, 0, 6, 0],
-                  }}
-                  transition={{
-                    duration: 5 + index * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.4,
-                  }}
-                  className="
-                    relative
-                    flex
-                    h-[270px]
-                    w-[270px]
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-white/[0.025]
-                    transition-all
-                    duration-700
-                    group-hover:scale-[1.05]
-                    group-hover:border-[#9B5B35]/70
-                    group-hover:bg-[#9B5B35]/10
-                    group-hover:shadow-[0_0_70px_rgba(155,91,53,0.20)]
-                    sm:h-[290px]
-                    sm:w-[290px]
-                    lg:h-[245px]
-                    lg:w-[245px]
-                    xl:h-[270px]
-                    xl:w-[270px]
-                  "
-                >
-
-                  {/* =================================================
-                      OUTER ROTATING RING
-                  ================================================== */}
-
-                  <motion.div
-                    animate={{
-                      rotate: 360,
-                    }}
-                    transition={{
-                      duration: 22,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-[-8px]
-                      rounded-full
-                      border
-                      border-transparent
-                      border-t-[#9B5B35]/60
-                      border-r-[#C18A61]/20
-                    "
-                  />
-
-                  {/* =================================================
-                      INNER CIRCLE
-                  ================================================== */}
-
-                  <div
-                    className="
-                      absolute
-                      inset-5
-                      rounded-full
-                      border
-                      border-white/[0.07]
-                      transition-all
-                      duration-700
-                      group-hover:inset-7
-                      group-hover:border-[#9B5B35]/30
-                    "
-                  />
-
-                  {/* =================================================
-                      NUMBER
-                  ================================================== */}
-
-                  <motion.span
-                    animate={{
-                      opacity: [0.5, 1, 0.5],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: index * 0.5,
-                    }}
-                    className="
-                      absolute
-                      left-1/2
-                      top-8
-                      -translate-x-1/2
-                      text-[10px]
-                      font-bold
-                      tracking-[0.25em]
-                      text-[#C18A61]
-                    "
+                return (
+                  <button
+                    key={service.id}
+                    type="button"
+                    onClick={() => scrollToService(service.id)}
+                    className={`shrink-0 rounded-full border px-4 py-2.5 text-xs font-semibold transition-colors ${
+                      isActive
+                        ? "border-[#062B49] bg-[#062B49] text-white"
+                        : "border-[#E1E6EB] bg-white text-[#425466]"
+                    }`}
                   >
-                    {service.number}
-                  </motion.span>
+                    {service.title}
+                  </button>
+                );
+              })}
+            </nav>
 
-                  {/* =================================================
-                      ICON
-                  ================================================== */}
+            <div className="hidden shrink-0 border-t border-[#E7EBEF] px-7 py-5 lg:block">
+              <p className="text-xs leading-5 text-[#7B8794]">
+                Need help choosing a service?
+              </p>
 
-                  <motion.div
-                    variants={iconVariants}
-                    className="
-                      relative
-                      flex
-                      h-14
-                      w-14
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-[#9B5B35]/40
-                      bg-[#9B5B35]/10
-                      text-xl
-                      text-[#C18A61]
-                      transition-all
-                      duration-500
-                      group-hover:scale-110
-                      group-hover:border-[#9B5B35]
-                      group-hover:bg-[#9B5B35]
-                      group-hover:text-white
-                    "
-                  >
-                    {service.icon}
-                  </motion.div>
+              <a
+                href="/contact"
+                className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-[#9B5B35] transition-colors hover:text-[#062B49]"
+              >
+                Talk to our team <FiArrowUpRight />
+              </a>
+            </div>
+          </aside>
 
-                  {/* =================================================
-                      CONTENT
-                  ================================================== */}
+          {/* Main Service Content */}
+          <div className="min-w-0 bg-white">
+            {/* Introduction */}
+            <section className="relative overflow-hidden border-b border-[#E9EDF1] bg-white px-5 py-9 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
+              <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full border border-[#C18A61]/15" />
+              <div className="pointer-events-none absolute -right-10 -top-14 h-44 w-44 rounded-full border border-[#C18A61]/20" />
 
-                  <div
-                    className="
-                      relative
-                      z-10
-                      mx-auto
-                      mt-4
-                      w-[185px]
-                      text-center
-                    "
-                  >
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="relative z-10 max-w-3xl"
+              >
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#9B5B35]">
+                  EPSILORA Technology
+                </p>
 
-                    <h3
-                      className="
-                        text-lg
-                        font-bold
-                        leading-tight
-                        text-white
-                        transition-colors
-                        duration-300
-                        group-hover:text-[#C18A61]
-                      "
-                    >
-                      {service.title}
-                    </h3>
+                <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+                  Technology Services
+                  <span className="block text-[#9B5B35]">
+                    Designed Around Your Business
+                  </span>
+                </h2>
 
-                    <p
-                      className="
-                        mt-3
-                        text-[11px]
-                        leading-5
-                        text-white/40
-                        transition-colors
-                        duration-300
-                        group-hover:text-white/70
-                      "
-                    >
-                      {service.description}
-                    </p>
-
-                  </div>
-
-                  {/* =================================================
-                      ARROW
-                  ================================================== */}
-
-                  <div
-                    className="
-                      absolute
-                      bottom-7
-                      right-8
-                      flex
-                      h-8
-                      w-8
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-white/10
-                      text-white/30
-                      transition-all
-                      duration-500
-                      group-hover:rotate-45
-                      group-hover:border-[#9B5B35]
-                      group-hover:text-[#C18A61]
-                    "
-                  >
-                    <FiArrowUpRight className="text-sm" />
-                  </div>
-
-                  {/* =================================================
-                      PULSE RING
-                  ================================================== */}
-
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.08, 1],
-                      opacity: [0.15, 0.35, 0.15],
-                    }}
-                    transition={{
-                      duration: 3.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.5,
-                    }}
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-[-18px]
-                      rounded-full
-                      border
-                      border-[#9B5B35]/20
-                    "
-                  />
-
-                </motion.div>
-
+                <p className="mt-5 max-w-2xl text-sm leading-7 text-[#667586] sm:text-base">
+                  Discover our accounting and financial, consulting,
+                  IT management, and cybersecurity services. We help
+                  businesses strengthen their operations through
+                  dependable technology and professional expertise.
+                </p>
               </motion.div>
-            ))}
+            </section>
 
+            {/* Individual Service Components */}
+            <div className="px-5 sm:px-8 lg:px-12">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                const ServiceComponent =
+                  serviceComponents[service.id];
+
+                return (
+                  <section
+                    key={service.id}
+                    id={service.id}
+                    ref={(element) => {
+                      sectionRefs.current[service.id] = element;
+                    }}
+                    className={`scroll-mt-6 border-b border-[#E9EDF1] py-10 sm:py-12 lg:py-16 ${
+                      index === services.length - 1
+                        ? "border-b-0"
+                        : ""
+                    }`}
+                  >
+                    <div className="mb-7 flex items-start gap-4 sm:mb-9">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F5EDE7] text-xl text-[#9B5B35] sm:h-14 sm:w-14 sm:text-2xl">
+                        <Icon />
+                      </div>
+
+                      <div className="min-w-0 flex-1">
+                        <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#9B5B35]">
+                          Service {service.number}
+                        </p>
+
+                        <h2 className="text-2xl font-bold leading-tight sm:text-3xl">
+                          {service.title}
+                        </h2>
+
+                        <p className="mt-3 max-w-3xl text-sm leading-7 text-[#667586] sm:text-base">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {ServiceComponent ? (
+                      <div className="service-component-content min-w-0 w-full">
+                        <ServiceComponent />
+                      </div>
+                    ) : (
+                      <div className="rounded-xl border border-dashed border-[#D9E0E7] bg-[#FAFBFC] p-5 sm:p-7">
+                        <h3 className="text-base font-semibold">
+                          {service.title}
+                        </h3>
+
+                        <p className="mt-2 text-sm leading-6 text-[#667586]">
+                          The separate component for this service
+                          has not been found in{" "}
+                          <code className="break-all rounded bg-[#EEF1F4] px-1.5 py-0.5 text-xs">
+                            src/technology/services/
+                          </code>
+                          . Check the JSX filename and its default
+                          export.
+                        </p>
+                      </div>
+                    )}
+                  </section>
+                );
+              })}
+            </div>
+
+            {/* Bottom CTA */}
+            <section className="mx-5 mb-8 rounded-2xl bg-[#062B49] px-6 py-8 text-white sm:mx-8 sm:px-8 lg:mx-12 lg:px-10">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#C18A61]">
+                    Let's Work Together
+                  </p>
+
+                  <h2 className="text-xl font-bold sm:text-2xl">
+                    Need a solution for your business?
+                  </h2>
+
+                  <p className="mt-2 max-w-xl text-sm leading-6 text-white/75">
+                    Speak with our team about your requirements and
+                    technology goals.
+                  </p>
+                </div>
+
+                <a
+                  href="/contact"
+                  className="inline-flex w-fit shrink-0 items-center justify-center gap-2 rounded-lg bg-[#C18A61] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#062B49]"
+                >
+                  Contact Us <FiArrowUpRight />
+                </a>
+              </div>
+            </section>
           </div>
+        </div>
+      </main>
 
-        </motion.div>
+      <style>{`
+        .service-component-content {
+          color: #062B49;
+          min-width: 0;
+        }
 
-        {/* =====================================================
-            CTA
-        ====================================================== */}
+        .service-component-content img {
+          max-width: 100%;
+          height: auto;
+        }
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.4,
-          }}
-          className="
-            mt-16
-            flex
-            flex-col
-            items-start
-            justify-between
-            gap-6
-            border-t
-            border-white/10
-            pt-7
-            sm:flex-row
-            sm:items-center
-            lg:mt-20
-          "
-        >
+        .service-component-content > section:first-child {
+          margin-top: 0;
+        }
 
-          <div>
+        .service-component-content > section:last-child {
+          margin-bottom: 0;
+        }
 
-            <p
-              className="
-                text-[9px]
-                font-bold
-                uppercase
-                tracking-[0.22em]
-                text-white/30
-              "
-            >
-              Technology Expertise
-            </p>
+        html {
+          scroll-behavior: smooth;
+        }
 
-            <p
-              className="
-                mt-2
-                text-sm
-                font-medium
-                text-white/70
-              "
-            >
-              Practical technology. Meaningful outcomes.
-            </p>
-
-          </div>
-
-          <a
-            href="/services"
-            className="
-              group
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              border
-              border-[#9B5B35]
-              px-6
-              py-3
-              text-sm
-              font-semibold
-              text-white
-              transition-all
-              duration-300
-              hover:bg-[#9B5B35]
-              hover:shadow-[0_0_30px_rgba(155,91,53,0.25)]
-            "
-          >
-            Explore All Services
-
-            <FiArrowUpRight
-              className="
-                transition-transform
-                duration-300
-                group-hover:rotate-45
-              "
-            />
-          </a>
-
-        </motion.div>
-
-      </div>
-    </section>
+        @media (prefers-reduced-motion: reduce) {
+          html {
+            scroll-behavior: auto !important;
+          }
+        }
+      `}</style>
+    </div>
   );
-};
-
-export default Services;
+}
