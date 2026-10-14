@@ -17,6 +17,7 @@ import Process from "./Process";
 import Testimonials from "./Testimonials";
 import Faq from "./Faq";
 import Innovation from "./Innovation";
+import Servicespage from "./Servicepage";
 
 const Home = () => {
   const [showFaq, setShowFaq] = useState(false);
@@ -241,7 +242,7 @@ const Home = () => {
 <Innovation />
 
       {/* SERVICE */}
-      <Service />
+      <Servicespage />
 
       {/* PRODUCTS & SOLUTIONS */}
       <Products />
