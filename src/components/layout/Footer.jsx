@@ -28,9 +28,9 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/technology/services" },
-    { name: "Solutions", path: "/technology/solutions" },
     { name: "Hardware", path: "/technology/hardware" },
+    { name: "Solutions", path: "/technology/solutions" },
+    { name: "Services", path: "/technology/services" },
     { name: "Technology Alliance", path: "/technology/partners" },
     { name: "Contact Us", path: "/contact" },
   ];
