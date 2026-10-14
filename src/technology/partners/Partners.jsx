@@ -328,93 +328,10 @@ const Partners = () => {
 
         <div className="absolute inset-0 bg-gradient-to-r from-[#062B49]/50 via-[#062B49]/10 to-transparent" />
 
-        <div className="hero-in relative flex h-full items-end px-5 pb-7 sm:px-8 sm:pb-9 lg:px-12 lg:pb-11">
-          <div className="mx-auto w-full max-w-7xl">
-            <div className="mb-3 flex items-center gap-3">
-              <span className="h-px w-8 bg-[#9B5B35]" />
-              <span className="text-[10px] font-bold uppercase tracking-[.25em] text-white sm:text-xs">
-                EPSILORA Technology
-              </span>
-            </div>
-
-            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Our Technology Partners
-            </h1>
-          </div>
-        </div>
+       
       </section>
 
-      {/* INTRODUCTION */}
-      <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
-        <div className="absolute right-0 top-0 h-full w-px bg-[#062B49]/5" />
-
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 md:px-10 lg:px-12">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-[150px_1fr] md:gap-10 lg:grid-cols-[180px_1fr] lg:gap-16">
-            <div>
-              <div className="flex items-center gap-3 md:block">
-                <span className="text-[10px] font-bold uppercase tracking-[.3em] text-[#9B5B35] sm:text-[11px]">
-                  01
-                </span>
-                <div className="h-px w-8 bg-[#9B5B35] md:mt-5 md:h-24 md:w-px md:bg-gradient-to-b md:from-[#9B5B35] md:to-transparent" />
-              </div>
-
-              <p className="ml-3 text-[9px] font-bold uppercase tracking-[.2em] text-[#062B49]/50 sm:text-[10px] md:ml-0 md:mt-5 md:tracking-[.25em]">
-                Partner
-                <br className="hidden md:block" /> Ecosystem
-              </p>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-3 sm:gap-4">
-                <span className="h-px w-8 bg-[#9B5B35] sm:w-12" />
-                <span className="text-[9px] font-bold uppercase tracking-[.25em] text-[#9B5B35] sm:text-[10px] sm:tracking-[.3em]">
-                  Technology Ecosystem
-                </span>
-              </div>
-
-              <h2 className="mt-6 max-w-5xl text-[38px] font-bold leading-[.98] tracking-[-.045em] text-[#062B49] sm:mt-8 sm:text-[48px] md:text-[56px] lg:text-6xl lg:leading-[1.02]">
-                Technology from
-                <span className="block text-[#9B5B35]">
-                  leading ecosystems.
-                </span>
-              </h2>
-
-              <div className="mt-8 grid grid-cols-1 gap-7 sm:mt-10 md:mt-12 md:grid-cols-[1fr_1px_1fr] md:gap-8 lg:mt-14 lg:gap-10">
-                <p className="text-[15px] leading-7 text-gray-600 sm:text-base sm:leading-8 lg:text-lg">
-                  EPSILORA Technology works with technology ecosystems across
-                  cloud, cybersecurity, networking, computing, storage, data
-                  center infrastructure and IT management.
-                </p>
-
-                <div className="hidden bg-gray-200 md:block" />
-
-                <div>
-                  <p className="text-[15px] leading-7 text-gray-600 sm:text-base sm:leading-8 lg:text-lg">
-                    Our partner ecosystem helps bring together complementary
-                    technologies to create solutions aligned with different
-                    business and infrastructure requirements.
-                  </p>
-
-                  <div className="mt-6 flex items-center gap-3 sm:mt-8">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#9B5B35]/30 text-xs text-[#9B5B35]">
-                      <FiArrowRight size={15} />
-                    </span>
-                    <span className="text-[9px] font-bold uppercase tracking-[.18em] text-[#062B49]/50 sm:text-[10px] sm:tracking-[.2em]">
-                      Connected Technology
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-10 flex items-center gap-3 sm:mt-12 sm:gap-5 md:mt-14 lg:mt-16">
-                <div className="h-px flex-1 bg-gray-200" />
-                <div className="h-2 w-2 shrink-0 bg-[#9B5B35]" />
-                <div className="h-px w-14 bg-[#9B5B35]/40 sm:w-24" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* PARTNER LOGOS */}
       <section
