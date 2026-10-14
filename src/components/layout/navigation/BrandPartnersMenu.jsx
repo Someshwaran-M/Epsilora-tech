@@ -4,54 +4,54 @@ import { FiChevronDown, FiArrowRight, FiExternalLink } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const partners = [
-  { name: "Trellix", logo: "trellix.png", category: "Cyber Security" },
+  { name: "Trellix", logo: "/partners/trellix.png", category: "Cyber Security" },
   { name: "Trend Micro", logo: "trend-micro.png", category: "Cyber Security" },
-  { name: "Radware", logo: "radware.png", category: "Network Security" },
-  { name: "Hitachi Vantara", logo: "hitachi-vantara.png", category: "Infrastructure" },
-  { name: "Securonix", logo: "securonix.png", category: "Cyber Security" },
-  { name: "Nutanix", logo: "nutanix.png", category: "Cloud & Infrastructure" },
+  { name: "Radware", logo: "radware.jpg", category: "Network Security" },
+  { name: "Hitachi Vantara", logo: "hitachi-vantara.jpg", category: "Infrastructure" },
+  { name: "Securonix", logo: "securonix.jpg", category: "Cyber Security" },
+  { name: "Nutanix", logo: "nutanix.jpg", category: "Cloud & Infrastructure" },
   { name: "Netskope", logo: "netskope.png", category: "Cloud Security" },
-  { name: "Forescout", logo: "forescout.png", category: "Network Security" },
-  { name: "Keysight", logo: "keysight.png", category: "Network Testing" },
+  { name: "Forescout", logo: "forescout.jpg", category: "Network Security" },
+  { name: "Keysight", logo: "keysight.jpg", category: "Network Testing" },
   { name: "OpenText", logo: "opentext.png", category: "Enterprise Software" },
-  { name: "AlgoSec", logo: "algosec.png", category: "Network Security" },
+  { name: "AlgoSec", logo: "algosec.jpg", category: "Network Security" },
   { name: "OPSWAT", logo: "opswat.png", category: "Cyber Security" },
-  { name: "Varonis", logo: "varonis.png", category: "Data Security" },
-  { name: "Utimaco", logo: "utimaco.png", category: "Data Security" },
+  { name: "Varonis", logo: "varonis.jpg", category: "Data Security" },
+  { name: "Utimaco", logo: "utimaco.jpg", category: "Data Security" },
   { name: "NETSCOUT", logo: "netscout.png", category: "Network Security" },
-  { name: "InnSp... ", logo: "innspark.png", category: "Cyber Security" },
+  { name: "InnSpark ", logo: "innspark.jpeg", category: "Cyber Security" },
   { name: "efficientIP", logo: "efficient-ip.png", category: "Network Infrastructure" },
   { name: "XM Cyber", logo: "xm-cyber.png", category: "Cyber Security" },
-  { name: "Ivanti", logo: "ivanti.png", category: "IT Management" },
+  { name: "Ivanti", logo: "ivanti.jpg", category: "IT Management" },
   { name: "HEAL", logo: "heal.png", category: "Technology" },
 
   { name: "Accops", logo: "accops.png", category: "Workspace Solutions" },
-  { name: "IRONSCALES", logo: "ironscales.png", category: "Email Security" },
-  { name: "Balbix", logo: "balbix.png", category: "Cyber Security" },
+  { name: "IRONSCALES", logo: "ironscales.jpg", category: "Email Security" },
+  { name: "Balbix", logo: "balbix.jpg", category: "Cyber Security" },
   { name: "Versa Networks", logo: "versa-networks.png", category: "Network Security" },
   { name: "Genie Networks", logo: "genie-networks.png", category: "Network Analytics" },
-  { name: "Indusface", logo: "indusface.png", category: "Application Security" },
+  { name: "Indusface", logo: "indusface.jpg", category: "Application Security" },
   { name: "SecuPi", logo: "secupi.png", category: "Data Security" },
-  { name: "BMC", logo: "bmc.png", category: "IT Management" },
+  { name: "BMC", logo: "bmc.jpg", category: "IT Management" },
   { name: "QNU", logo: "qnu.png", category: "Technology" },
-  { name: "Adopt", logo: "adopt.png", category: "Technology" },
-  { name: "Sandvine", logo: "sandvine.png", category: "Network Solutions" },
-  { name: "Supermicro", logo: "supermicro.png", category: "Infrastructure" },
+  { name: "Adopt", logo: "adopt.jpg", category: "Technology" },
+  { name: "Sandvine", logo: "sandvine.jpg", category: "Network Solutions" },
+  { name: "Supermicro", logo: "supermicro.jpg", category: "Infrastructure" },
   { name: "Commvault", logo: "commvault.png", category: "Data Protection" },
-  { name: "Seraphic", logo: "seraphic.png", category: "Browser Security" },
+  { name: "Seraphic", logo: "seraphic.jpg", category: "Browser Security" },
 
   { name: "Saviynt", logo: "saviynt.png", category: "Identity Security" },
-  { name: "Cambium Networks", logo: "cambium-networks.png", category: "Networking" },
-  { name: "SOCRadar", logo: "socradar.png", category: "Threat Intelligence" },
-  { name: "Perpetuum", logo: "perpetuum.png", category: "Technology" },
+  { name: "Cambium Networks", logo: "cambium-networks.jpg", category: "Networking" },
+  { name: "SOCRadar", logo: "socradar.jpg", category: "Threat Intelligence" },
+  { name: "Perpetuuiti", logo: "perpetuuiti.png", category: "Technology" },
   { name: "Videonetics", logo: "videonetics.png", category: "Video Analytics" },
   { name: "VIVOTEK", logo: "vivotek.png", category: "Physical Security" },
-  { name: "Checkmarx", logo: "checkmarx.png", category: "Application Security" },
+  { name: "Checkmarx", logo: "checkmarx.jpg", category: "Application Security" },
   { name: "Semperis", logo: "semperis.png", category: "Identity Security" },
-  { name: "RAD", logo: "rad.png", category: "Networking" },
-  { name: "Allot", logo: "allot.png", category: "Network Security" },
+  { name: "RAD", logo: "rad.jpg", category: "Networking" },
+  { name: "Allot", logo: "allot.jpg", category: "Network Security" },
   { name: "EverestIMS", logo: "everest-ims.png", category: "IT Management" },
-  { name: "Lookout", logo: "lookout.png", category: "Mobile Security" },
+  { name: "Lookout", logo: "lookout.jpg", category: "Mobile Security" },
   { name: "Acronis", logo: "acronis.png", category: "Data Protection" },
   { name: "Vantageo", logo: "vantageo.png", category: "Infrastructure" },
   { name: "Alcatel-Lucent Enterprise", logo: "alcatel-lucent-enterprise.png", category: "Networking" },
@@ -59,7 +59,7 @@ const partners = [
   { name: "Sectona", logo: "sectona.png", category: "Privileged Access" },
   { name: "Delinea", logo: "delinea.png", category: "Identity Security" },
   { name: "Rapid7", logo: "rapid7.png", category: "Cyber Security" },
-  { name: "Xevere", logo: "xevere.png", category: "Network Security" },
+  { name: "vehere", logo: "xevere.png", category: "Network Security" },
   { name: "AttackFence", logo: "attackfence.png", category: "Cyber Security" },
 ];
 
@@ -163,39 +163,49 @@ const BrandPartnersMenu = ({
             </span>
           </div>
 
-          {/* LOGO GRID */}
-          <div className="grid grid-cols-2 gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-3 md:grid-cols-4">
-            {partners.map((partner) => (
-              <Link
-                key={partner.name}
-                to="/technology/partners"
-                onClick={closeMenu}
-                title={`${partner.name} — ${partner.category}`}
-                className="group relative flex min-h-[92px] min-w-0 flex-col items-center justify-center overflow-hidden bg-white px-2 py-3 transition-colors duration-300 hover:bg-[#F7F9FB] sm:min-h-[100px] sm:px-3"
-              >
-                {/* HOVER ACCENT */}
-                <span className="absolute left-0 top-0 h-[2px] w-0 bg-[#9B5B35] transition-all duration-300 group-hover:w-full" />
+          
+{/* LOGO GRID */}
+<div className="grid grid-cols-2 gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+  {partners.map((partner) => (
+    <Link
+      key={partner.name}
+      to="/technology/partners"
+      onClick={closeMenu}
+      title={`${partner.name} — ${partner.category}`}
+      className="group relative isolate flex min-h-[150px] min-w-0 items-center justify-center overflow-hidden bg-white p-4 transition-colors duration-300 hover:bg-[#F7F9FB] sm:min-h-[170px]"
+    >
+      {/* LOGO IMAGE */}
+      <img
+        src={`/partners/${partner.logo.replace(/^\/?partners\//, "")}`}
+        alt={partner.name}
+        loading="lazy"
+        onError={(event) => {
+          console.error(
+            `Failed to load ${partner.name} logo:`,
+            event.currentTarget.src
+          );
+        }}
+        className="absolute inset-0 m-auto h-auto max-h-[75%] w-auto max-w-[80%] object-contain opacity-100 transition-all duration-300 group-hover:scale-110 group-hover:opacity-20"
+      />
 
-                {/* LOGO IMAGE */}
-                <div className="flex h-10 w-full items-center justify-center sm:h-11">
-                  <img
-                    src={`/assets/partners/${partner.logo}`}
-                    alt={partner.name}
-                    loading="lazy"
-                    onError={(event) => {
-                      event.currentTarget.style.display = "none";
-                    }}
-                    className="max-h-8 max-w-[115px] object-contain opacity-80 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100 sm:max-h-9 sm:max-w-[135px]"
-                  />
-                </div>
+      {/* HOVER OVERLAY — CONFINED TO THE BOX */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#062B49]/0 px-2 text-center opacity-0 transition-all duration-300 group-hover:bg-[#062B49]/50 group-hover:opacity-100">
+        <span className="max-w-full break-words text-sm font-bold text-white sm:text-base">
+          {partner.name}
+        </span>
 
-                {/* BRAND NAME */}
-                <span className="mt-2 max-w-full text-center text-[10px] font-semibold leading-4 text-slate-600 transition-colors duration-300 group-hover:text-[#062B49] sm:text-[11px]">
-                  {partner.name}
-                </span>
-              </Link>
-            ))}
-          </div>
+        <span className="mt-2 h-[2px] w-8 bg-[#9B5B35] transition-all duration-300 group-hover:w-14" />
+
+        <span className="mt-2 max-w-full break-words text-[10px] leading-4 text-white/80 sm:text-xs">
+          {partner.category}
+        </span>
+      </div>
+
+      {/* HOVER BORDER */}
+      <span className="pointer-events-none absolute inset-0 border-2 border-transparent transition-colors duration-300 group-hover:border-[#9B5B35]" />
+    </Link>
+  ))}
+</div>
 
           {/* FOOTER */}
           <div className="mt-5 flex flex-col gap-4 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
