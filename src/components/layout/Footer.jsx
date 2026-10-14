@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FiMapPin,
   FiPhone,
@@ -7,7 +9,6 @@ import {
   FiArrowUp,
   FiExternalLink,
 } from "react-icons/fi";
-
 import {
   FaLinkedinIn,
   FaFacebookF,
@@ -18,7 +19,6 @@ import {
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  // Back to top
   const goToTop = () => {
     window.scrollTo({
       top: 0,
@@ -26,286 +26,197 @@ const Footer = () => {
     });
   };
 
-  // Company Links
   const quickLinks = [
-    ["Home", "/"],
-    ["Services", "/technology/services"],
-    ["Contact Us", "/contact"],
-    ["Brand Partners", "/technology/partners"],
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/technology/services" },
+    { name: "Solutions", path: "/technology/solutions" },
+    { name: "Hardware", path: "/technology/hardware" },
+    { name: "Technology Alliance", path: "/technology/partners" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
-  // Hardware Links
+  // All hardware links point to sections on one page.
   const hardwareLinks = [
-    ["Data Storage", "/technology/hardware/datastorage"],
-    ["PC & Server", "/technology/hardware/pc-server"],
-    [
-      "Server & Server Management",
-      "/technology/hardware/server-server-management",
-    ],
+    {
+      name: "Data Center",
+      path: "/technology/hardware#data-center",
+    },
+    {
+      name: "Servers & Devices",
+      path: "/technology/hardware#servers-devices",
+    },
+    {
+      name: "Firewall Solutions",
+      path: "/technology/hardware#firewall",
+    },
+    {
+      name: "Cybersecurity",
+      path: "/technology/hardware#cybersecurity",
+    },
   ];
 
-  // Solutions Links
   const solutionLinks = [
-    ["Cloud Solutions", "/technology/solutions/cloud"],
-    ["Data Center Solutions", "/technology/solutions/datacenter"],
-    ["Emerging Technology", "/technology/solutions/emerging"],
-    [
-      "Information & Cyber Security",
-      "/technology/solutions/information-cyber",
-    ],
+    {
+      name: "Cloud Solutions",
+      path: "/technology/solutions/cloud",
+    },
+    {
+      name: "Data Center Solutions",
+      path: "/technology/solutions/datacenter",
+    },
+    {
+      name: "Emerging Technology",
+      path: "/technology/solutions/emerging",
+    },
+    {
+      name: "Information & Cybersecurity",
+      path: "/technology/solutions/information-cyber",
+    },
   ];
 
-  // Social Links
+  // Replace # with your actual social media profile URLs.
   const socialLinks = [
     {
-      icon: <FaLinkedinIn />,
       name: "LinkedIn",
+      icon: <FaLinkedinIn />,
       href: "#",
     },
     {
-      icon: <FaFacebookF />,
       name: "Facebook",
+      icon: <FaFacebookF />,
       href: "#",
     },
     {
-      icon: <FaInstagram />,
       name: "Instagram",
+      icon: <FaInstagram />,
       href: "#",
     },
     {
-      icon: <FaYoutube />,
       name: "YouTube",
+      icon: <FaYoutube />,
       href: "#",
     },
   ];
 
-  // Reusable Footer Link
   const FooterLink = ({ name, path }) => (
-    <a
-      href={path}
-      className="
-        group
-        inline-flex
-        items-center
-        gap-2
-        text-[13px]
-        text-white/50
-        hover:text-[#C18A61]
-        transition-all
-        duration-300
-      "
-    >
-      <span
-        className="
-          w-0
-          h-px
-          bg-[#9B5B35]
-          group-hover:w-3
-          transition-all
-          duration-300
-        "
-      />
+    <li>
+      <Link
+        to={path}
+        className="group inline-flex items-center gap-2 text-[13px] leading-6 text-white/60 transition-colors duration-300 hover:text-[#C18A61]"
+      >
+        <span className="h-px w-0 shrink-0 bg-[#C18A61] transition-all duration-300 group-hover:w-3" />
+        <span>{name}</span>
+      </Link>
+    </li>
+  );
 
-      {name}
-    </a>
+  const FooterColumn = ({ title, links }) => (
+    <div className="min-w-0">
+      <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em] text-[#C18A61]">
+        {title}
+      </h3>
+
+      <ul className="space-y-2">
+        {links.map((link) => (
+          <FooterLink
+            key={link.name}
+            name={link.name}
+            path={link.path}
+          />
+        ))}
+      </ul>
+    </div>
   );
 
   return (
     <footer className="relative overflow-hidden bg-[#062B49] text-white">
-
-      {/* ================= BACKGROUND GLOW ================= */}
+      {/* Background decoration */}
       <div
-        className="
-          absolute
-          -top-40
-          -right-40
-          w-80
-          h-80
-          rounded-full
-          bg-[#9B5B35]/10
-          blur-3xl
-          pointer-events-none
-        "
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 -top-40 h-80 w-80 rounded-full bg-[#9B5B35]/10 blur-3xl"
       />
 
-      {/* ================= CTA ================= */}
-      <section className="relative border-b border-white/10">
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-            py-9
-            sm:py-10
-          "
-        >
-          <div
-            className="
-              flex
-              flex-col
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              gap-5
-            "
-          >
-            {/* CTA CONTENT */}
-            <div>
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  text-[10px]
-                  uppercase
-                  tracking-[0.2em]
-                  font-bold
-                  text-[#C18A61]
-                "
-              >
-                <span className="w-6 h-px bg-[#9B5B35]" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 -left-32 h-80 w-80 rounded-full bg-[#C18A61]/5 blur-3xl"
+      />
 
-                Let's Build Together
+      {/* Call to action */}
+      <section className="relative border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-5 py-9 sm:px-8 sm:py-11 lg:px-12">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#C18A61] sm:text-xs">
+                <span className="h-px w-6 bg-[#9B5B35]" />
+                Let&apos;s Build Together
               </div>
 
-              <h2
-                className="
-                  mt-2
-                  text-2xl
-                  sm:text-3xl
-                  font-bold
-                  leading-tight
-                "
-              >
-                Build a smarter
+              <h2 className="mt-3 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
+                Build a smarter{" "}
                 <span className="text-[#C18A61]">
-                  {" "}
                   technology future.
                 </span>
               </h2>
 
-              <p className="mt-2 text-xs sm:text-sm text-white/45">
+              <p className="mt-3 text-sm leading-6 text-white/60">
                 Reliable technology solutions for modern businesses.
               </p>
             </div>
 
-            {/* CTA BUTTON */}
-            <a
-              href="/contact"
-              className="
-                group
-                shrink-0
-                inline-flex
-                items-center
-                justify-center
-                gap-2
-                px-5
-                py-3
-                bg-[#9B5B35]
-                hover:bg-[#C18A61]
-                text-white
-                text-xs
-                font-semibold
-                transition-all
-                duration-300
-              "
+            <Link
+              to="/contact"
+              className="group inline-flex w-full shrink-0 items-center justify-center gap-2 border border-[#9B5B35] bg-[#9B5B35] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-[#C18A61] hover:bg-[#C18A61] sm:w-auto"
             >
               Contact Us
-
               <FiArrowRight
-                size={15}
-                className="
-                  group-hover:translate-x-1
-                  transition-transform
-                "
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ================= MAIN FOOTER ================= */}
+      {/* Main footer */}
       <section className="relative">
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-            py-9
-            sm:py-11
-          "
-        >
-          <div
-            className="
-              flex
-              flex-col
-              lg:flex-row
-              gap-9
-              lg:gap-14
-            "
-          >
-
-            {/* ================= COMPANY INFO ================= */}
-            <div className="lg:w-[32%] shrink-0">
-
-              {/* LOGO */}
-              <a href="/" className="inline-block">
+        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr] lg:gap-10">
+            {/* Company information */}
+            <div>
+              <Link
+                to="/"
+                aria-label="EPSILORA home"
+                className="inline-flex rounded-sm"
+              >
                 <img
                   src="/logo.jpeg"
                   alt="EPSILORA Technology Private Limited"
-                  className="
-                    w-[155px]
-                    sm:w-[170px]
-                    h-auto
-                    max-h-[55px]
-                    object-contain
-                    object-left
-                  "
+                  className="h-auto max-h-[65px] w-[165px] object-contain object-left sm:w-[180px]"
                 />
-              </a>
+              </Link>
 
-              {/* DESCRIPTION */}
-              <p
-                className="
-                  mt-4
-                  max-w-md
-                  text-xs
-                  sm:text-sm
-                  leading-6
-                  text-white/45
-                "
-              >
+              <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">
                 EPSILORA Technology Private Limited provides hardware,
                 infrastructure, cloud, cybersecurity and professional
-                technology solutions.
+                technology solutions for modern businesses.
               </p>
 
-              {/* SOCIAL */}
-              <div className="flex gap-2 mt-5">
+              <div className="mt-6 flex flex-wrap gap-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.name}
                     href={social.href}
                     aria-label={social.name}
-                    className="
-                      w-8
-                      h-8
-                      flex
-                      items-center
-                      justify-center
-                      border
-                      border-white/10
-                      text-white/45
-                      hover:bg-[#9B5B35]
-                      hover:border-[#9B5B35]
-                      hover:text-white
-                      transition-all
-                      duration-300
-                    "
+                    title={social.name}
+                    target={
+                      social.href !== "#" ? "_blank" : undefined
+                    }
+                    rel={
+                      social.href !== "#"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="flex h-10 w-10 items-center justify-center border border-white/15 text-white/70 transition-all duration-300 hover:border-[#9B5B35] hover:bg-[#9B5B35] hover:text-white"
                   >
                     {social.icon}
                   </a>
@@ -313,392 +224,162 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* ================= FOOTER LINKS ================= */}
-            <div
-              className="
-                flex-1
-                flex
-                flex-wrap
-                gap-x-10
-                sm:gap-x-14
-                gap-y-7
-              "
-            >
+            {/* Company navigation */}
+            <FooterColumn
+              title="Company"
+              links={quickLinks}
+            />
 
-              {/* ================= COMPANY ================= */}
-              <div className="min-w-[120px]">
+            {/* Hardware navigation */}
+            <FooterColumn
+              title="Hardware"
+              links={hardwareLinks}
+            />
 
-                <p
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.18em]
-                    font-bold
-                    text-[#C18A61]
-                  "
-                >
-                  Company
-                </p>
-
-                <ul className="mt-3 space-y-2.5">
-                  {quickLinks.map(([name, path]) => (
-                    <li key={name}>
-                      <FooterLink
-                        name={name}
-                        path={path}
-                      />
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
-
-              {/* ================= HARDWARE ================= */}
-              <div className="min-w-[145px]">
-
-                <p
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.18em]
-                    font-bold
-                    text-[#C18A61]
-                  "
-                >
-                  Hardware
-                </p>
-
-                <ul className="mt-3 space-y-2.5">
-                  {hardwareLinks.map(([name, path]) => (
-                    <li key={name}>
-                      <FooterLink
-                        name={name}
-                        path={path}
-                      />
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
-
-              {/* ================= SOLUTIONS ================= */}
-              <div className="min-w-[175px]">
-
-                <p
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.18em]
-                    font-bold
-                    text-[#C18A61]
-                  "
-                >
-                  Solutions
-                </p>
-
-                <ul className="mt-3 space-y-2.5">
-                  {solutionLinks.map(([name, path]) => (
-                    <li key={name}>
-                      <FooterLink
-                        name={name}
-                        path={path}
-                      />
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
-
-            </div>
+            {/* Solutions navigation */}
+            <FooterColumn
+              title="Solutions"
+              links={solutionLinks}
+            />
           </div>
 
-          {/* ================= CONTACT ================= */}
-          <div
-            className="
-              mt-8
-              pt-7
-              border-t
-              border-white/10
-              flex
-              flex-col
-              md:flex-row
-              md:items-center
-              md:justify-between
-              gap-6
-            "
-          >
+          {/* Contact information */}
+          <div className="mt-10 grid grid-cols-1 gap-8 border-t border-white/10 pt-8 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr] lg:gap-12">
+            {/* Office address */}
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#9B5B35]/50 bg-[#9B5B35]/10 text-[#C18A61]">
+                <FiMapPin size={19} />
+              </div>
 
-            {/* ================= LOCATION ================= */}
-            <div className="flex items-start gap-3">
-
-              <FiMapPin
-                size={17}
-                className="shrink-0 mt-0.5 text-[#C18A61]"
-              />
-
-              <div>
-
-                <p
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-wider
-                    text-[#C18A61]
-                    font-bold
-                  "
-                >
+              <div className="min-w-0">
+                <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#C18A61]">
                   Chennai Office
-                </p>
+                </h3>
 
-                <p
-                  className="
-                    mt-1
-                    text-xs
-                    leading-5
-                    text-white/45
-                  "
-                >
+                <address className="mt-3 text-sm not-italic leading-6 text-white/60">
                   No. 378, Sudhiksha Apartment,
+                  <br />
                   Second Floor, S1,
+                  <br />
                   Sivaprakasam Nagar 2nd Main Road,
-                  Surapet,
-                  Chennai - 600066
-                </p>
+                  <br />
+                  Surapet, Chennai - 600066
+                </address>
 
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=No.+378,+Sudhiksha+Apartment,+Second+Floor,+S1,+Sivaprakasam+Nagar+2nd+Main+Road,+Surapet,+Chennai+-+600066"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
-                    mt-1
-                    inline-flex
-                    items-center
-                    gap-1.5
-                    text-[11px]
-                    font-semibold
-                    text-[#C18A61]
-                    hover:text-white
-                    transition
-                  "
+                  className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-[#C18A61] transition-colors hover:text-white"
                 >
                   View Location
-
-                  <FiExternalLink size={11} />
+                  <FiExternalLink size={13} />
                 </a>
-
               </div>
             </div>
 
-            {/* ================= PHONE + EMAIL ================= */}
-            <div
-              className="
-                flex
-                flex-col
-                sm:flex-row
-                gap-4
-                sm:gap-7
-              "
-            >
-
-              {/* PHONE */}
+            {/* Phone and email */}
+            <div className="flex flex-col gap-5">
               <a
                 href="tel:+910000000000"
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  text-xs
-                  text-white/55
-                  hover:text-[#C18A61]
-                  transition
-                "
+                className="group flex items-start gap-4"
               >
-                <FiPhone
-                  size={15}
-                  className="text-[#C18A61]"
-                />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#9B5B35]/50 bg-[#9B5B35]/10 text-[#C18A61]">
+                  <FiPhone size={18} />
+                </span>
 
-                +91 00000 00000
+                <span className="min-w-0">
+                  <span className="block text-xs font-bold uppercase tracking-[0.15em] text-[#C18A61]">
+                    Phone
+                  </span>
+                  <span className="mt-2 block break-words text-sm text-white/60 transition-colors group-hover:text-white">
+                    +91 00000 00000
+                  </span>
+                </span>
               </a>
 
-              {/* EMAIL */}
               <a
-                href="mailto:info@epsilora.in"
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  text-xs
-                  text-white/55
-                  hover:text-[#C18A61]
-                  transition
-                "
+                href="mailto:info@epsilora.com"
+                className="group flex items-start gap-4"
               >
-                <FiMail
-                  size={15}
-                  className="text-[#C18A61]"
-                />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#9B5B35]/50 bg-[#9B5B35]/10 text-[#C18A61]">
+                  <FiMail size={18} />
+                </span>
 
-                info@epsilora.com
+                <span className="min-w-0">
+                  <span className="block text-xs font-bold uppercase tracking-[0.15em] text-[#C18A61]">
+                    Email
+                  </span>
+                  <span className="mt-2 block break-words text-sm text-white/60 transition-colors group-hover:text-white">
+                    info@epsilora.com
+                  </span>
+                </span>
               </a>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= BOTTOM BAR ================= */}
-      <section className="border-t border-white/10">
-
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-5
-            sm:px-8
-            lg:px-12
-            py-4
-          "
-        >
-
-          {/* COPYRIGHT + LEGAL */}
-          <div
-            className="
-              flex
-              flex-col
-              lg:flex-row
-              lg:items-center
-              lg:justify-between
-              gap-3
-            "
-          >
-
-            {/* COPYRIGHT */}
-            <p
-              className="
-                text-[11px]
-                sm:text-xs
-                text-white/40
-                leading-relaxed
-              "
-            >
+      {/* Copyright and legal links */}
+      <section className="relative border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-5 py-5 sm:px-8 lg:px-12">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <p className="text-xs leading-6 text-white/50">
               © {currentYear} EPSILORA Technology Private Limited.
               All Rights Reserved.
             </p>
 
-            {/* CIN + LEGAL LINKS */}
-            <div
-              className="
-                flex
-                flex-wrap
-                items-center
-                gap-x-3
-                gap-y-1.5
-                text-[10px]
-                sm:text-[12px]
-                text-white/35
-              "
-            >
-
-              <span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/50">
+              <span className="break-words">
                 CIN: U62099TN2026PTC191846
               </span>
 
-              <span className="text-white/15">
+              <span className="hidden text-white/20 sm:inline">
                 |
               </span>
 
-              <a
-                href="/privacy-policy"
-                className="
-                  hover:text-[#C18A61]
-                  transition-colors
-                  duration-300
-                "
+              <Link
+                to="/privacy-policy"
+                className="transition-colors hover:text-[#C18A61]"
               >
-                Privacy
-              </a>
+                Privacy Policy
+              </Link>
 
-              <span className="text-white/15">
+              <span className="hidden text-white/20 sm:inline">
                 |
               </span>
 
-              <a
-                href="/terms"
-                className="
-                  hover:text-[#C18A61]
-                  transition-colors
-                  duration-300
-                "
+              <Link
+                to="/terms"
+                className="transition-colors hover:text-[#C18A61]"
               >
-                Terms
-              </a>
-
+                Terms & Conditions
+              </Link>
             </div>
           </div>
 
-          {/* POWERED BY */}
-          <div
-            className="
-              mt-3
-              pt-3
-              border-t
-              border-white/5
-              text-center
-            "
-          >
-            <p
-              className="
-                text-xs
-                sm:text-sm
-                text-white/40
-                tracking-wide
-              "
-            >
-              Powered By{" "}
-              <span
-                className="
-                  font-semibold
-                  text-[#C18A61]
-                  hover:text-white
-                  transition-colors
-                  duration-300
-                "
-              >
+          {/* Developer credit */}
+          <div className="mt-5 border-t border-white/10 pt-4 text-center">
+            <p className="text-xs tracking-wide text-white/50 sm:text-sm">
+              Powered by{" "}
+              <span className="font-semibold text-[#C18A61]">
                 MK Dynamic Technology
               </span>
             </p>
           </div>
-
         </div>
       </section>
 
-      {/* ================= BACK TO TOP ================= */}
+      {/* Back to top */}
       <button
         type="button"
         onClick={goToTop}
         aria-label="Back to top"
-        className="
-          fixed
-          right-4
-          bottom-4
-          z-40
-          w-9
-          h-9
-          flex
-          items-center
-          justify-center
-          bg-[#9B5B35]
-          hover:bg-[#C18A61]
-          text-white
-          shadow-lg
-          transition-all
-          duration-300
-        "
+        title="Back to top"
+        className="fixed bottom-5 right-4 z-40 flex h-11 w-11 items-center justify-center border border-[#C18A61] bg-[#9B5B35] text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#C18A61] sm:bottom-6 sm:right-6"
       >
-        <FiArrowUp size={15} />
+        <FiArrowUp size={19} />
       </button>
-
     </footer>
   );
 };

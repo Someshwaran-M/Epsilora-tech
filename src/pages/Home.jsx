@@ -104,7 +104,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-7 sm:mt-9">
 
               <a
-                href="/solutions"
+                href="/technology/solutions"
                 className="inline-flex items-center justify-center gap-3 bg-[#062B49] hover:bg-[#0A3A5C] text-white px-6 sm:px-7 py-3.5 sm:py-4 font-semibold transition-all duration-300"
               >
                 Explore Solutions

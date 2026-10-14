@@ -30,6 +30,8 @@ import InformationCyber from "./technology/solutions/InformationCyber";
 
 // Partners Page
 import Partners from "./technology/partners/Partners";
+import Solutions from "./pages/Solutions";
+import Hardware from "./technology/hardware/Hardware";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -131,6 +133,21 @@ function App() {
         <Route
           path="/technology/partners"
           element={<Partners />}
+        />
+
+        <Route
+          path="/pages/solutions"
+          element={<Solutions />}
+        />
+
+        <Route
+          path="/technology/solutions"
+          element={<Solutions />}
+        />
+
+        <Route 
+        path="/technology/hardware"
+        element={<Hardware />}
         />
       </Routes>
 

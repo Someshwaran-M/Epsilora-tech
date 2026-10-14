@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   FiServer,
@@ -6,6 +7,7 @@ import {
   FiHardDrive,
   FiDatabase,
   FiCpu,
+  FiArrowRight,
 } from "react-icons/fi";
 
 const DataCenter = () => {
@@ -16,19 +18,19 @@ const DataCenter = () => {
       number: "01",
       title: "Infrastructure",
       description:
-        "Build dependable data center infrastructure designed to support modern applications, business workloads and critical technology operations with reliable performance.",
+        "Build dependable data center infrastructure designed to support modern applications, business workloads, and critical technology operations with reliable performance.",
     },
     {
       number: "02",
       title: "Networking",
       description:
-        "Connect systems, applications and workloads through structured data center networking designed for performance, availability and efficient communication.",
+        "Connect systems, applications, and workloads through structured data center networking designed for performance, availability, and efficient communication.",
     },
     {
       number: "03",
       title: "Security",
       description:
-        "Protect critical infrastructure, workloads and business information through security-focused architecture, controls and operational practices.",
+        "Protect critical infrastructure, workloads, and business information through security-focused architecture, controls, and operational practices.",
     },
   ];
 
@@ -64,39 +66,62 @@ const DataCenter = () => {
     "Operational continuity",
   ];
 
+  const architectureNodes = [
+    {
+      icon: <FiCpu />,
+      layer: "Layer 01",
+      title: "Compute",
+    },
+    {
+      icon: <FiWifi />,
+      layer: "Layer 02",
+      title: "Network",
+    },
+    {
+      icon: <FiHardDrive />,
+      layer: "Layer 03",
+      title: "Storage",
+    },
+    {
+      icon: <FiShield />,
+      layer: "Layer 04",
+      title: "Security",
+    },
+  ];
+
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#F7F8FA] text-[#062B49]">
+    <main className="w-full overflow-x-hidden bg-[#F7F8FA] text-[#062B49]">
+      {/* LIGHT HERO - BACKGROUND IMAGE REMOVED */}
+      <section className="border-b border-[#E5E9ED] bg-[#F1F4F6] px-5 py-7 sm:px-8 sm:py-8 lg:px-12">
+        <div className="mx-auto max-w-7xl">
+          <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9B5B35]">
+            EPSILORA TECHNOLOGY
+          </span>
 
-      {/* =========================================================
-          HERO
-      ========================================================= */}
+          <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
+            Data Center Solutions
+          </h1>
 
-      <section className="relative h-[220px] w-full overflow-hidden sm:h-[270px] md:h-[310px] lg:h-[340px]">
-        <div className="datacenter-hero-background absolute inset-0 bg-[url('/datacenter.png')] bg-cover bg-center bg-no-repeat" />
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#667586]">
+            Reliable infrastructure, connected systems, and
+            secure data center environments for your business.
+          </p>
+        </div>
       </section>
 
-
-      {/* =========================================================
-          DATA CENTER FOUNDATION
-      ========================================================= */}
-
-      <section className="bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
+      {/* DATA CENTER FOUNDATION */}
+      <section className="bg-white px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-14">
         <div className="mx-auto max-w-7xl">
-
-          {/* HEADER */}
-
-          <div className="mb-12 flex flex-col gap-8 sm:mb-16 md:mb-20 md:flex-row md:items-end md:justify-between lg:ml-8">
-
+          <div className="mb-7 flex flex-col gap-4 sm:mb-9 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <div className="flex items-center gap-3 sm:gap-4">
-                <span className="h-[2px] w-7 bg-[#9B5B35] sm:w-10" />
-
-                <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.35em]">
+              <div className="flex items-center gap-3">
+                <span className="h-[2px] w-8 bg-[#9B5B35]" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9B5B35]">
                   Data Center Foundation
                 </span>
               </div>
 
-              <h2 className="mt-6 max-w-3xl text-[40px] font-bold leading-[0.98] tracking-[-0.05em] text-[#062B49] sm:mt-7 sm:text-[46px] md:text-[54px] lg:text-[60px]">
+              <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
                 Infrastructure built
                 <span className="block text-[#9B5B35]">
                   for continuity.
@@ -104,547 +129,357 @@ const DataCenter = () => {
               </h2>
             </div>
 
-            <div className="hidden pb-2 text-right sm:block">
-              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+            <div className="hidden text-right sm:block">
+              <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-400">
                 EPS / DATA CENTER
               </span>
-
-              <div className="mt-3 ml-auto h-px w-16 bg-[#9B5B35]" />
+              <div className="mt-2 ml-auto h-px w-12 bg-[#9B5B35]" />
             </div>
-
           </div>
 
-
-          {/* FOUNDATION CONTENT */}
-
-          <div className="grid grid-cols-1 gap-10 lg:ml-8 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
-
-            {/* LEFT NAVIGATION */}
-
-            <div className="border-b border-[#062B49]/10 pb-8 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-14">
-
-              <p className="mb-5 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400 sm:mb-8">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-10">
+            {/* INTERACTIVE FOUNDATION NAVIGATION */}
+            <div className="border-b border-[#062B49]/10 pb-4 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
+              <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.25em] text-gray-400">
                 Explore the foundation
               </p>
 
-              <div>
-                {foundations.map((item, index) => {
-                  const isActive = activeFoundation === index;
+              {foundations.map((item, index) => {
+                const isActive = activeFoundation === index;
 
-                  return (
-                    <button
-                      key={item.number}
-                      type="button"
-                      onClick={() => setActiveFoundation(index)}
-                      className="group block w-full text-left"
+                return (
+                  <button
+                    key={item.number}
+                    type="button"
+                    onClick={() => setActiveFoundation(index)}
+                    aria-pressed={isActive}
+                    className="group block w-full text-left"
+                  >
+                    <div
+                      className={`relative flex items-center gap-4 border-b py-4 transition-colors duration-300 sm:py-5 ${
+                        isActive
+                          ? "border-[#9B5B35]"
+                          : "border-[#062B49]/10"
+                      }`}
                     >
-                      <div
-                        className={`
-                          relative flex items-center gap-4 border-b py-5
-                          transition-all duration-500
-                          sm:gap-6 sm:py-6
-                          lg:gap-7 lg:py-7
-                          ${
-                            isActive
-                              ? "border-[#9B5B35]"
-                              : "border-[#062B49]/10"
-                          }
-                        `}
+                      <span
+                        className={`text-2xl font-light tracking-tight transition-colors sm:text-3xl ${
+                          isActive
+                            ? "text-[#9B5B35]"
+                            : "text-gray-300 group-hover:text-[#062B49]"
+                        }`}
                       >
+                        {item.number}
+                      </span>
 
-                        <span
-                          className={`
-                            absolute left-[-12px] top-0 h-full w-[3px]
-                            bg-[#9B5B35] transition-all duration-500
-                            lg:left-[-57px]
-                            ${isActive ? "opacity-100" : "opacity-0"}
-                          `}
-                        />
+                      <span
+                        className={`min-w-0 flex-1 text-xs font-bold uppercase tracking-[0.12em] sm:text-sm ${
+                          isActive
+                            ? "text-[#062B49]"
+                            : "text-gray-400 group-hover:text-[#062B49]"
+                        }`}
+                      >
+                        {item.title}
+                      </span>
 
-                        <span
-                          className={`
-                            text-[27px] font-light tracking-[-0.05em]
-                            transition-all duration-500
-                            sm:text-[31px]
-                            lg:text-[34px]
-                            ${
-                              isActive
-                                ? "text-[#9B5B35]"
-                                : "text-gray-300 group-hover:text-[#062B49]"
-                            }
-                          `}
-                        >
-                          {item.number}
-                        </span>
-
-                        <div className="flex-1">
-                          <span
-                            className={`
-                              text-[10px] font-bold uppercase tracking-[0.15em]
-                              transition-colors duration-300
-                              sm:text-[11px] sm:tracking-[0.2em]
-                              ${
-                                isActive
-                                  ? "text-[#062B49]"
-                                  : "text-gray-400 group-hover:text-[#062B49]"
-                              }
-                            `}
-                          >
-                            {item.title}
-                          </span>
-                        </div>
-
-                        <span
-                          className={`
-                            text-base transition-all duration-500 sm:text-lg
-                            ${
-                              isActive
-                                ? "translate-x-1 text-[#9B5B35]"
-                                : "text-gray-300"
-                            }
-                          `}
-                        >
-                          →
-                        </span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
+                      <FiArrowRight
+                        className={`shrink-0 transition-all duration-300 ${
+                          isActive
+                            ? "translate-x-1 text-[#9B5B35]"
+                            : "text-gray-300 group-hover:translate-x-1 group-hover:text-[#9B5B35]"
+                        }`}
+                      />
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
+            {/* FOUNDATION DETAILS */}
+            <div className="relative min-h-[300px] overflow-hidden rounded-xl bg-[#F1F4F6] sm:min-h-[320px]">
+              <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full border border-[#9B5B35]/20 sm:h-52 sm:w-52" />
+              <div className="pointer-events-none absolute -bottom-16 -right-10 h-48 w-48 rounded-full border border-[#062B49]/10 sm:h-64 sm:w-64" />
 
-            {/* RIGHT CONTENT */}
-
-            <div className="relative min-h-[420px] overflow-hidden bg-[#062B49] sm:min-h-[440px] lg:min-h-[430px]">
-
-              <div className="absolute right-0 top-0 h-48 w-48 translate-x-20 -translate-y-20 rounded-full border border-white/10 sm:h-64 sm:w-64" />
-
-              <div className="absolute bottom-0 right-0 h-64 w-64 translate-x-24 translate-y-24 rounded-full border border-[#9B5B35]/20 sm:h-80 sm:w-80 sm:translate-x-32 sm:translate-y-32" />
-
-              <div className="relative z-10 flex h-full min-h-[420px] flex-col justify-between p-7 sm:min-h-[440px] sm:p-10 md:p-12 lg:p-14">
-
-                <div className="flex items-start justify-between gap-5">
-
-                  <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/40 sm:text-[10px] sm:tracking-[0.3em]">
+              <div className="relative z-10 flex min-h-[300px] flex-col justify-between p-5 sm:min-h-[320px] sm:p-8 lg:p-9">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#9B5B35]">
                     Data Center Architecture
                   </span>
 
-                  <span className="text-[52px] font-light leading-none tracking-[-0.06em] text-white/10 sm:text-[64px] md:text-[72px]">
+                  <span className="text-5xl font-light leading-none tracking-tight text-[#062B49]/10 sm:text-6xl">
                     {foundations[activeFoundation].number}
                   </span>
-
                 </div>
 
-
-                <div className="max-w-2xl">
-
-                  <div className="mb-6 h-[2px] w-12 bg-[#9B5B35] sm:mb-8 sm:w-14" />
+                <div className="my-7 max-w-2xl">
+                  <div className="mb-4 h-[2px] w-10 bg-[#9B5B35]" />
 
                   <h3
                     key={foundations[activeFoundation].title}
-                    className="text-[32px] font-bold leading-tight tracking-[-0.04em] text-white sm:text-[38px] md:text-[42px]"
+                    className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl"
                   >
                     {foundations[activeFoundation].title}
                   </h3>
 
                   <p
                     key={foundations[activeFoundation].description}
-                    className="mt-5 max-w-xl text-[13px] leading-7 text-white/60 sm:mt-7 sm:text-[15px] sm:leading-8"
+                    className="mt-4 text-sm leading-7 text-[#667586]"
                   >
                     {foundations[activeFoundation].description}
                   </p>
-
                 </div>
 
-
-                <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-5 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:pt-6">
-
-                  <span className="text-[8px] font-bold uppercase tracking-[0.24em] text-white/30 sm:text-[9px] sm:tracking-[0.28em]">
+                <div className="flex flex-col gap-2 border-t border-[#062B49]/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-gray-400">
                     EPSILORA TECHNOLOGY
                   </span>
 
-                  <span className="text-[8px] font-bold uppercase tracking-[0.24em] text-[#9B5B35] sm:text-[9px] sm:tracking-[0.28em]">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#9B5B35]">
                     {foundations[activeFoundation].title}
                   </span>
-
                 </div>
-
               </div>
             </div>
-
           </div>
-
         </div>
       </section>
 
-
-      {/* =========================================================
-          INFRASTRUCTURE CAPABILITIES
-      ========================================================= */}
-
-      <section className="bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
+      {/* INFRASTRUCTURE CAPABILITIES */}
+      <section className="bg-[#F7F8FA] px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-14">
         <div className="mx-auto max-w-7xl">
-
-          <div className="grid grid-cols-1 gap-12 lg:ml-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
-
-            {/* LEFT */}
-
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[0.5fr_1.5fr] lg:gap-12">
             <div>
-              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400">
                 Infrastructure Capabilities
               </span>
 
-              <div className="mt-6 hidden h-[180px] w-px bg-gradient-to-b from-[#9B5B35] to-transparent sm:block lg:mt-8" />
-
-              <span className="mt-6 block text-[9px] font-bold uppercase tracking-[0.3em] text-[#9B5B35]">
-                Built around critical workloads
-              </span>
+              <div className="mt-4 flex items-center gap-3">
+                <span className="h-px w-6 bg-[#9B5B35]" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#9B5B35]">
+                  Built around critical workloads
+                </span>
+              </div>
             </div>
 
-
-            {/* RIGHT */}
-
             <div>
-
-              <h2 className="max-w-4xl text-[38px] font-bold leading-[0.98] tracking-[-0.05em] text-[#062B49] sm:text-[46px] md:text-[52px] lg:text-[58px]">
+              <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
                 Built around
                 <span className="text-[#9B5B35]">
                   {" "}critical workloads.
                 </span>
               </h2>
 
-              <p className="mt-7 max-w-2xl text-base leading-7 text-gray-500 sm:mt-10 sm:text-lg sm:leading-8">
-                Connect your core infrastructure through a structured
-                approach to servers, storage, networking and security.
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#667586] sm:text-base">
+                Connect your core infrastructure through a
+                structured approach to servers, storage,
+                networking, and security.
               </p>
 
-
-              <div className="mt-12 border-t border-[#062B49]/10 sm:mt-16">
-
+              <div className="mt-6 border-t border-[#062B49]/10 sm:mt-8">
                 {capabilities.map((item, index) => (
                   <div
                     key={item.title}
-                    className="group grid grid-cols-[38px_1fr] gap-4 border-b border-[#062B49]/10 py-6 sm:grid-cols-[55px_1fr] sm:gap-5 sm:py-7 md:grid-cols-[70px_1fr] md:gap-6 md:py-8"
+                    className="group grid grid-cols-[34px_1fr] gap-3 border-b border-[#062B49]/10 py-4 sm:grid-cols-[42px_1fr] sm:gap-4 sm:py-5"
                   >
-
-                    <span className="pt-2 text-[9px] font-bold tracking-[0.2em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.25em]">
+                    <span className="pt-2 text-[10px] font-bold tracking-widest text-[#9B5B35]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
-
                     <div>
-
-                      <div className="flex items-center gap-4 sm:gap-5">
-
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#062B49]/10 text-[#062B49] transition-all duration-300 group-hover:border-[#9B5B35] group-hover:bg-[#9B5B35] group-hover:text-white sm:h-11 sm:w-11">
+                      <div className="flex items-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#062B49]/10 text-[#062B49] transition-colors group-hover:border-[#9B5B35] group-hover:bg-[#9B5B35] group-hover:text-white">
                           {item.icon}
-                        </div>
+                        </span>
 
-                        <h3 className="text-base font-bold text-[#062B49] transition-colors group-hover:text-[#9B5B35] sm:text-lg">
+                        <h3 className="text-sm font-bold text-[#062B49] transition-colors group-hover:text-[#9B5B35] sm:text-base">
                           {item.title}
                         </h3>
-
                       </div>
 
-                      <p className="mt-3 max-w-xl text-[13px] leading-6 text-gray-500 sm:mt-4 sm:text-sm sm:leading-7">
+                      <p className="mt-2 text-sm leading-6 text-[#667586]">
                         {item.text}
                       </p>
-
                     </div>
-
                   </div>
                 ))}
-
               </div>
-
             </div>
-
           </div>
-
         </div>
       </section>
 
-
-      {/* =========================================================
-          WHY DATA CENTER
-      ========================================================= */}
-
-      <section className="bg-[#F7F8FA] px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
+      {/* WHY DATA CENTER */}
+      <section className="bg-white px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-14">
         <div className="mx-auto max-w-7xl">
-
-          <div className="grid grid-cols-1 gap-12 lg:ml-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
-
-            {/* LEFT */}
-
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[0.5fr_1.5fr] lg:gap-12">
             <div>
-
-              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400">
                 Why Data Center
               </span>
 
-              <div className="mt-6 hidden h-[180px] w-px bg-gradient-to-b from-[#9B5B35] to-transparent sm:block lg:mt-8" />
-
-              <span className="mt-6 block text-[9px] font-bold uppercase tracking-[0.3em] text-[#9B5B35]">
-                Built for continuity
-              </span>
-
+              <div className="mt-4 flex items-center gap-3">
+                <span className="h-px w-6 bg-[#9B5B35]" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#9B5B35]">
+                  Built for continuity
+                </span>
+              </div>
             </div>
 
-
-            {/* RIGHT */}
-
             <div>
-
-              <h2 className="max-w-4xl text-[38px] font-bold leading-[0.98] tracking-[-0.05em] text-[#062B49] sm:text-[46px] md:text-[52px] lg:text-[58px]">
+              <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
                 Keep your critical
                 <span className="text-[#9B5B35]">
                   {" "}systems connected.
                 </span>
               </h2>
 
-              <p className="mt-7 max-w-2xl text-base leading-7 text-gray-500 sm:mt-10 sm:text-lg sm:leading-8">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#667586] sm:text-base">
                 A structured data center environment helps
                 organizations maintain dependable technology
                 operations while supporting changing workloads
                 and infrastructure requirements.
               </p>
 
-
-              <div className="mt-12 border-t border-[#062B49]/10 sm:mt-16">
-
+              <div className="mt-6 border-t border-[#062B49]/10 sm:mt-8">
                 {benefits.map((benefit, index) => (
                   <div
                     key={benefit}
-                    className="group flex items-start gap-4 border-b border-[#062B49]/10 py-5 sm:items-center sm:gap-6 sm:py-6 md:gap-7 md:py-7"
+                    className="group flex items-start gap-4 border-b border-[#062B49]/10 py-4 sm:items-center sm:py-5"
                   >
-
-                    <span className="pt-1 text-[9px] font-bold tracking-[0.2em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.25em]">
+                    <span className="text-[10px] font-bold tracking-widest text-[#9B5B35]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
-                    <span className="text-[13px] font-semibold leading-6 text-[#062B49] transition-colors duration-300 group-hover:text-[#9B5B35] sm:text-sm">
+                    <span className="text-sm font-semibold leading-6 text-[#062B49] transition-colors group-hover:text-[#9B5B35]">
                       {benefit}
                     </span>
-
                   </div>
                 ))}
-
               </div>
-
             </div>
-
           </div>
-
         </div>
       </section>
 
-
-      {/* =========================================================
-          DATA CENTER ARCHITECTURE
-      ========================================================= */}
-
-      <section className="bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-28 lg:px-12 lg:py-32">
+      {/* DATA CENTER ARCHITECTURE — ORIGINAL DARK CORE STYLE */}
+      <section className="bg-[#F7F8FA] px-5 py-9 sm:px-8 sm:py-11 lg:px-12 lg:py-14">
         <div className="mx-auto max-w-7xl">
-
-          {/* HEADER */}
-
-          <div className="flex flex-col gap-10 lg:ml-8 lg:flex-row lg:items-end lg:justify-between">
-
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-
-              <div className="flex items-center gap-3 sm:gap-4">
-
-                <span className="h-[2px] w-7 bg-[#9B5B35] sm:w-10" />
-
-                <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#9B5B35] sm:text-[10px] sm:tracking-[0.35em]">
+              <div className="flex items-center gap-3">
+                <span className="h-[2px] w-8 bg-[#9B5B35]" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#9B5B35]">
                   Connected Infrastructure
                 </span>
-
               </div>
 
-              <h2 className="mt-6 max-w-3xl text-[38px] font-bold leading-[0.96] tracking-[-0.05em] text-[#062B49] sm:mt-7 sm:text-[46px] md:text-[52px] lg:text-[58px]">
+              <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
                 One connected
                 <span className="block text-[#9B5B35]">
                   technology ecosystem.
                 </span>
               </h2>
-
             </div>
 
-
-            <div className="max-w-sm border-l border-[#062B49]/10 pl-5 sm:pl-8">
-
-              <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
-                Data Center Architecture
-              </span>
-
-              <p className="mt-3 text-[13px] leading-6 text-gray-500 sm:mt-4 sm:text-sm sm:leading-7">
-                Connect compute, networking, storage and security
-                through a unified infrastructure foundation.
-              </p>
-
-            </div>
-
+            <p className="max-w-sm text-sm leading-6 text-[#667586]">
+              Connect compute, networking, storage, and security
+              through a unified infrastructure foundation.
+            </p>
           </div>
 
+          <div className="datacenter-architecture relative mt-7 h-[440px] overflow-hidden rounded-xl bg-[#062B49] sm:mt-9 sm:h-[500px] lg:h-[520px]">
+            {/* SUBTLE CENTER GLOW */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#9B5B35]/10 blur-3xl sm:h-80 sm:w-80" />
 
-          {/* ARCHITECTURE VISUAL */}
+            {/* ARCHITECTURE RINGS */}
+            <div className="datacenter-ring-outer absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08] sm:h-[380px] sm:w-[380px] lg:h-[440px] lg:w-[440px]" />
 
-          <div className="datacenter-architecture relative mt-14 h-[560px] overflow-hidden bg-[#062B49] sm:mt-20 md:h-[620px] lg:mt-24 lg:h-[560px]">
+            <div className="datacenter-ring-middle absolute left-1/2 top-1/2 h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#9B5B35]/30 sm:h-[280px] sm:w-[280px] lg:h-[330px] lg:w-[330px]" />
 
-            {/* BACKGROUND GLOW */}
-
-            <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#9B5B35]/10 blur-[70px] sm:h-[380px] sm:w-[380px]" />
-
-
-            {/* ROTATING RINGS */}
-
-            <div className="datacenter-ring-outer absolute left-1/2 top-1/2 h-[310px] w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] sm:h-[420px] sm:w-[420px] lg:h-[500px] lg:w-[500px]" />
-
-            <div className="datacenter-ring-middle absolute left-1/2 top-1/2 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#9B5B35]/20 sm:h-[310px] sm:w-[310px] lg:h-[370px] lg:w-[370px]" />
-
-            <div className="datacenter-ring-inner absolute left-1/2 top-1/2 h-[155px] w-[155px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.07] sm:h-[205px] sm:w-[205px] lg:h-[240px] lg:w-[240px]" />
-
+            <div className="datacenter-ring-inner absolute left-1/2 top-1/2 h-[145px] w-[145px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.1] sm:h-[190px] sm:w-[190px] lg:h-[220px] lg:w-[220px]" />
 
             {/* CONNECTION LINES */}
-
-            <div className="datacenter-connection-horizontal absolute left-[12%] right-[12%] top-1/2 h-px bg-gradient-to-r from-transparent via-[#9B5B35]/30 to-transparent sm:left-[16%] sm:right-[16%] lg:left-[20%] lg:right-[20%]" />
-
-            <div className="datacenter-connection-vertical absolute bottom-[15%] left-1/2 top-[15%] w-px bg-gradient-to-b from-transparent via-[#9B5B35]/30 to-transparent" />
-
+            <div className="absolute left-[12%] right-[12%] top-1/2 h-px bg-[#9B5B35]/25 sm:left-[16%] sm:right-[16%]" />
+            <div className="absolute bottom-[14%] left-1/2 top-[14%] w-px bg-[#9B5B35]/25" />
 
             {/* TOP LABEL */}
-
-            <div className="absolute left-1/2 top-6 -translate-x-1/2 text-center sm:top-8">
-              <span className="whitespace-nowrap text-[7px] font-bold uppercase tracking-[0.25em] text-white/25 sm:text-[8px] sm:tracking-[0.35em]">
+            <div className="absolute left-1/2 top-5 -translate-x-1/2 text-center sm:top-7">
+              <span className="whitespace-nowrap text-[7px] font-bold uppercase tracking-[0.2em] text-white/40 sm:text-[9px] sm:tracking-[0.3em]">
                 EPSILORA DATA CENTER ARCHITECTURE
               </span>
             </div>
 
+            {/* FOUR NODES */}
+            {architectureNodes.map((node, index) => {
+              const positions = [
+                "left-3 top-16 sm:left-7 sm:top-20 lg:left-12 lg:top-16",
+                "right-3 top-16 sm:right-7 sm:top-20 lg:right-12 lg:top-16",
+                "bottom-16 left-3 sm:bottom-20 sm:left-7 lg:bottom-16 lg:left-12",
+                "bottom-16 right-3 sm:bottom-20 sm:right-7 lg:bottom-16 lg:right-12",
+              ];
 
-            {/* COMPUTE */}
+              const reverse = index === 1 || index === 3;
 
-            <div className="datacenter-node datacenter-node-1 absolute left-5 top-20 flex items-center gap-3 sm:left-8 sm:top-20 sm:gap-4 lg:left-16 lg:top-16 lg:gap-5">
+              return (
+                <div
+                  key={node.title}
+                  className={`absolute ${positions[index]} flex items-center gap-2 sm:gap-3 ${
+                    reverse ? "text-right" : ""
+                  }`}
+                >
+                  {reverse && (
+                    <div>
+                      <span className="block text-[7px] font-bold uppercase tracking-widest text-white/40 sm:text-[9px]">
+                        {node.layer}
+                      </span>
+                      <span className="mt-1 block text-[10px] font-bold text-white sm:text-sm">
+                        {node.title}
+                      </span>
+                    </div>
+                  )}
 
-              <div className="datacenter-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
-                <FiCpu />
-              </div>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/60 text-base text-[#C9875D] sm:h-12 sm:w-12 sm:text-xl">
+                    {node.icon}
+                  </span>
 
-              <div>
-                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
-                  Layer 01
-                </span>
-
-                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
-                  Compute
-                </span>
-              </div>
-
-            </div>
-
-
-            {/* NETWORK */}
-
-            <div className="datacenter-node datacenter-node-2 absolute right-5 top-20 flex items-center gap-3 text-right sm:right-8 sm:top-20 sm:gap-4 lg:right-16 lg:top-16 lg:gap-5">
-
-              <div>
-                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
-                  Layer 02
-                </span>
-
-                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
-                  Network
-                </span>
-              </div>
-
-              <div className="datacenter-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
-                <FiWifi />
-              </div>
-
-            </div>
-
-
-            {/* STORAGE */}
-
-            <div className="datacenter-node datacenter-node-3 absolute bottom-20 left-5 flex items-center gap-3 sm:bottom-20 sm:left-8 sm:gap-4 lg:bottom-16 lg:left-16 lg:gap-5">
-
-              <div className="datacenter-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
-                <FiHardDrive />
-              </div>
-
-              <div>
-                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
-                  Layer 03
-                </span>
-
-                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
-                  Storage
-                </span>
-              </div>
-
-            </div>
-
-
-            {/* SECURITY */}
-
-            <div className="datacenter-node datacenter-node-4 absolute bottom-20 right-5 flex items-center gap-3 text-right sm:bottom-20 sm:right-8 sm:gap-4 lg:bottom-16 lg:right-16 lg:gap-5">
-
-              <div>
-                <span className="block text-[7px] font-bold uppercase tracking-[0.2em] text-white/30 sm:text-[9px] sm:tracking-[0.3em]">
-                  Layer 04
-                </span>
-
-                <span className="mt-1 block text-[11px] font-bold text-white sm:mt-2 sm:text-sm">
-                  Security
-                </span>
-              </div>
-
-              <div className="datacenter-node-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#9B5B35]/50 text-base text-[#C9875D] sm:h-14 sm:w-14 sm:text-xl">
-                <FiShield />
-              </div>
-
-            </div>
-
+                  {!reverse && (
+                    <div>
+                      <span className="block text-[7px] font-bold uppercase tracking-widest text-white/40 sm:text-[9px]">
+                        {node.layer}
+                      </span>
+                      <span className="mt-1 block text-[10px] font-bold text-white sm:text-sm">
+                        {node.title}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
             {/* CENTRAL DATA CENTER CORE */}
-
-            <div className="datacenter-core absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#9B5B35] sm:h-40 sm:w-40 lg:h-44 lg:w-44">
-
-              <div className="flex h-[92px] w-[92px] flex-col items-center justify-center rounded-full border border-white/20 text-center sm:h-28 sm:w-28 lg:h-32 lg:w-32">
-
+            <div className="datacenter-core absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#9B5B35] sm:h-36 sm:w-36 lg:h-40 lg:w-40">
+              <div className="flex h-[82px] w-[82px] flex-col items-center justify-center rounded-full border border-white/25 text-center sm:h-28 sm:w-28">
                 <FiServer className="text-xl text-white sm:text-2xl" />
 
-                <span className="mt-2 text-[7px] font-bold uppercase tracking-[0.25em] text-white/60 sm:mt-3 sm:text-[9px] sm:tracking-[0.3em]">
+                <span className="mt-2 text-[7px] font-bold uppercase tracking-widest text-white/70 sm:text-[9px]">
                   Connected
                 </span>
 
-                <span className="mt-1 text-[12px] font-bold text-white sm:text-lg lg:text-xl">
+                <span className="mt-1 text-[10px] font-bold text-white sm:text-sm">
                   DATA CENTER
                 </span>
-
               </div>
-
             </div>
 
-
             {/* BOTTOM LABEL */}
-
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center sm:bottom-8">
-              <span className="whitespace-nowrap text-[7px] font-bold uppercase tracking-[0.2em] text-[#C9875D] sm:text-[8px] sm:tracking-[0.3em]">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center sm:bottom-6">
+              <span className="whitespace-nowrap text-[6px] font-bold uppercase tracking-[0.12em] text-[#C9875D] sm:text-[8px] sm:tracking-[0.25em]">
                 Compute • Network • Storage • Security
               </span>
             </div>
-
           </div>
-
         </div>
       </section>
-
-
-     
-
     </main>
   );
 };

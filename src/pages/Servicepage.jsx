@@ -60,7 +60,7 @@ const Servicespage = () => {
             </p>
 
             <a
-              href="/services"
+              href="/technology/services"
               className="inline-flex items-center gap-2 mt-6 sm:mt-7 bg-[#9b5b35] hover:bg-[#7e4729] px-6 py-3 font-semibold transition-all"
             >
               Explore Services
