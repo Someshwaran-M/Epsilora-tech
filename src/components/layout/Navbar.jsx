@@ -63,27 +63,27 @@ const Navbar = () => {
 
     {
       title: "Data Storage",
-      category: "Hardware",
+      category: "Products",
       description: "Storage devices and enterprise storage solutions",
-      path: "/technology/hardware/datastorage",
+      path: "/products/datastorage",
       keywords:
         "data storage storage hard disk hdd ssd nas flash drive tape",
     },
 
     {
       title: "PC & Server",
-      category: "Hardware",
+      category: "Products",
       description: "Computer and server hardware components",
-      path: "/technology/hardware/pc-server",
+      path: "/products/pc-server",
       keywords:
         "pc server processor cpu ram motherboard gpu sound card video card",
     },
 
     {
       title: "Server & Server Management",
-      category: "Hardware",
+      category: "Products",
       description: "Server infrastructure and management solutions",
-      path: "/technology/hardware/server-server-management",
+      path: "/products/server-server-management",
       keywords:
         "server server management rack cabinet kvm processors ram",
     },

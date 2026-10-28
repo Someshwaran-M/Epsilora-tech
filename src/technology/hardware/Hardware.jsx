@@ -205,7 +205,7 @@ export default function Hardware() {
       <section className="relative h-[220px] w-full overflow-hidden bg-[#EAF4FC] sm:h-[300px] md:h-[360px] lg:h-[425px]">
         <img
           src="/hardware.png"
-          alt="EPSILORA Technology Hardware Solutions"
+          alt="EPSILORA Technology Product Solutions"
           className="absolute inset-0 h-full w-full object-cover object-center"
           onError={(event) => {
             event.currentTarget.style.display = "none";
@@ -228,7 +228,7 @@ export default function Hardware() {
               </p>
 
               <h1 className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
-                Hardware & Technology
+                Products & Technology
               </h1>
 
               <p className="mt-3 max-w-sm text-sm leading-6 text-[#667586]">
@@ -238,7 +238,7 @@ export default function Hardware() {
 
             {/* DESKTOP NAVIGATION */}
             <nav
-              aria-label="Hardware navigation"
+              aria-label="Product navigation"
               className="hidden min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-4 pb-6 md:flex lg:px-5"
             >
               {hardware.map((item) => {
@@ -354,7 +354,7 @@ export default function Hardware() {
                 </p>
 
                 <h2 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-                  Hardware & Technology
+                  Products & Technology
                   <span className="block text-[#9B5B35]">
                     Built Around Your Business
                   </span>
@@ -398,7 +398,7 @@ export default function Hardware() {
 
                         <div className="min-w-0 flex-1">
                           <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#9B5B35]">
-                            Hardware {item.number}
+                            Product {item.number}
                           </p>
 
                           <h2 className="text-2xl font-bold leading-tight sm:text-3xl">

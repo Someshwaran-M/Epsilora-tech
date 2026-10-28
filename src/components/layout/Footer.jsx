@@ -28,7 +28,7 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Home", path: "/" },
-    { name: "Hardware", path: "/technology/hardware" },
+    { name: "Products", path: "/products" },
     { name: "Solutions", path: "/technology/solutions" },
     { name: "Services", path: "/technology/services" },
     { name: "Technology Alliance", path: "/technology/partners" },
@@ -39,19 +39,19 @@ const Footer = () => {
   const hardwareLinks = [
     {
       name: "Data Center",
-      path: "/technology/hardware#data-center",
+      path: "/products#data-center",
     },
     {
       name: "Servers & Devices",
-      path: "/technology/hardware#servers-devices",
+      path: "/products#servers-devices",
     },
     {
       name: "Firewall Solutions",
-      path: "/technology/hardware#firewall",
+      path: "/products#firewall",
     },
     {
       name: "Cybersecurity",
-      path: "/technology/hardware#cybersecurity",
+      path: "/products#cybersecurity",
     },
   ];
 
@@ -230,9 +230,9 @@ const Footer = () => {
               links={quickLinks}
             />
 
-            {/* Hardware navigation */}
+            {/* Products navigation */}
             <FooterColumn
-              title="Hardware"
+              title="Products"
               links={hardwareLinks}
             />
 

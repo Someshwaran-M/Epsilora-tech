@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Layout Components
 import Navbar from "./components/layout/Navbar";
@@ -62,21 +62,15 @@ function App() {
         {/* Contact */}
         <Route path="/contact" element={<Contact />} />
 
-        {/* Hardware Pages */}
-        <Route
-          path="/technology/hardware/datastorage"
-          element={<Datastorage />}
-        />
+        {/* Product Pages */}
+        <Route path="/products/datastorage" element={<Datastorage />} />
+        <Route path="/products/pc-server" element={<PcServer />} />
+        <Route path="/products/server-server-management" element={<ServerServer />} />
 
-        <Route
-          path="/technology/hardware/pc-server"
-          element={<PcServer />}
-        />
-
-        <Route
-          path="/technology/hardware/server-server-management"
-          element={<ServerServer />}
-        />
+        {/* Legacy product routes */}
+        <Route path="/technology/hardware/datastorage" element={<Navigate to="/products/datastorage" replace />} />
+        <Route path="/technology/hardware/pc-server" element={<Navigate to="/products/pc-server" replace />} />
+        <Route path="/technology/hardware/server-server-management" element={<Navigate to="/products/server-server-management" replace />} />
 
         {/* Main Services Page */}
         <Route
@@ -145,9 +139,12 @@ function App() {
           element={<Solutions />}
         />
 
-        <Route 
-        path="/technology/hardware"
-        element={<Hardware />}
+        <Route path="/products" element={<Hardware />} />
+
+        {/* Legacy routes */}
+        <Route
+          path="/technology/hardware"
+          element={<Navigate to="/products" replace />}
         />
       </Routes>
 

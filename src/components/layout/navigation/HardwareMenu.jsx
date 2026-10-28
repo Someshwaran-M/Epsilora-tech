@@ -9,28 +9,28 @@ const HardwareMenu = ({
   setOpenMenu,
   closeMobileNavigation,
 }) => {
-  const hardwarePath = "/technology/hardware";
+  const productsPath = "/products";
 
   const categories = [
     {
       title: "Data Center",
       description: "Data center infrastructure and storage",
-      link: `${hardwarePath}#data-center`,
+      link: `${productsPath}#data-center`,
     },
     {
       title: "Servers, Desktops & Laptops",
       description: "Enterprise computers and server systems",
-      link: `${hardwarePath}#servers-devices`,
+      link: `${productsPath}#servers-devices`,
     },
     {
       title: "Firewall",
       description: "Network protection and access control",
-      link: `${hardwarePath}#firewall`,
+      link: `${productsPath}#firewall`,
     },
     {
       title: "Cybersecurity",
       description: "Protect your business and digital assets",
-      link: `${hardwarePath}#cybersecurity`,
+      link: `${productsPath}#cybersecurity`,
     },
   ];
 
@@ -80,22 +80,22 @@ const HardwareMenu = ({
       }`}
     >
       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#9B5B35] sm:text-[11px]">
-        Hardware
+        Products
       </p>
 
       <h3 className="mt-1 text-lg font-bold text-[#062B49] sm:text-xl">
-        Hardware & Technology
+        Products & Technology
       </h3>
 
       <p className="mt-2 text-xs leading-5 text-gray-500 sm:text-sm">
-        Explore our complete hardware solutions.
+        Explore our complete product solutions.
       </p>
     </div>
   );
 
   return (
     <div className="relative w-full lg:w-auto">
-      {/* Hardware Button */}
+      {/* Products Button */}
       <button
         type="button"
         onClick={handleHardwareClick}
@@ -109,7 +109,7 @@ const HardwareMenu = ({
           lg:w-auto lg:px-6 lg:py-4
         "
       >
-        <span>Hardware</span>
+        <span>Products</span>
 
         <FiChevronDown
           size={14}
@@ -140,11 +140,11 @@ const HardwareMenu = ({
 
           <div className="border-t border-gray-100 px-5 py-3">
             <Link
-              to={hardwarePath}
+              to={productsPath}
               onClick={handleClose}
               className="flex items-center justify-center gap-2 rounded-md bg-[#062B49] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#9B5B35]"
             >
-              Explore All Hardware
+              Explore All Products
               <FiArrowRight size={16} />
             </Link>
           </div>
@@ -169,11 +169,11 @@ const HardwareMenu = ({
 
           <div className="border-t border-gray-100 p-3">
             <Link
-              to={hardwarePath}
+              to={productsPath}
               onClick={handleClose}
               className="flex items-center justify-center gap-2 rounded-md bg-[#062B49] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#9B5B35]"
             >
-              Explore All Hardware
+              Explore All Products
               <FiArrowRight size={16} />
             </Link>
           </div>
