@@ -1,4 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap');
 @import "tailwindcss";
+
+:root {
+  --font-primary: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-primary);
+}
+
+body,
+button,
+input,
+textarea,
+select,
+option,
+a,
+p,
+span,
+div,
+label,
+li,
+small,
+strong,
+em,
+b,
+i {
+  font-family: var(--font-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-primary);
+}
 
 html {
   scroll-behavior: smooth;

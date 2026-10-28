@@ -90,7 +90,7 @@ const SectionLabel = ({ children }) => (
 
 const CyberSecurity = () => {
   return (
-    <main className="w-full overflow-x-hidden bg-white font-sans text-[#062B49]">
+    <main className="w-full overflow-x-hidden bg-white text-[#062B49]">
       {/* INTRODUCTION */}
       <section className="px-5 py-7 sm:px-8 sm:py-8 lg:px-12 lg:py-10">
         <div className="mx-auto max-w-7xl">

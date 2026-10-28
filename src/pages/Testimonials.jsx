@@ -498,8 +498,7 @@ const Testimonials = ({ onFaqClick, faqOpen }) => {
                     >
                       <span
                         className="
-                          font-serif
-                          text-6xl
+                                                    text-6xl
                           font-bold
                           leading-none
                           text-white

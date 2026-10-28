@@ -102,7 +102,7 @@ function SectionLabel({ children }) {
 
 function AccountingFinancial() {
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-[#062B49]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-white text-[#062B49]">
       {/* INTRODUCTION */}
       <section className="bg-white px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-9">
         <div className="mx-auto max-w-7xl">

@@ -431,8 +431,7 @@ const Products = () => {
                     <span
                       className={`
                         text-sm
-                        font-mono
-                        font-bold
+                                                font-bold
                         ${
                           isActive
                             ? "text-[#c18a61]"

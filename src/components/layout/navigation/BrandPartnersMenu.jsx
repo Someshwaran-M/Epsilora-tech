@@ -89,7 +89,7 @@ const BrandPartnersMenu = ({
   };
 
   return (
-    <div className="relative w-full font-['Roboto',sans-serif] lg:w-auto">
+    <div className="relative w-full lg:w-auto">
       {/* MENU TRIGGER */}
       <button
         type="button"

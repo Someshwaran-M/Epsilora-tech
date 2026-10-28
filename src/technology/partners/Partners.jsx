@@ -262,7 +262,7 @@ const Partners = () => {
   ];
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white font-['Roboto',sans-serif] text-gray-900">
+    <main className="min-h-screen overflow-x-hidden bg-white text-gray-900">
       <style>{`
         .partner-left {
           animation: partnerLeft 38s linear infinite;

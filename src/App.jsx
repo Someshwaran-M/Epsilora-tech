@@ -146,6 +146,8 @@ function App() {
           path="/technology/hardware"
           element={<Navigate to="/products" replace />}
         />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
       {/* Footer */}
