@@ -28,7 +28,7 @@ const hardwareItems = [
     icon: FiDatabase,
     eyebrow: "IT INFRASTRUCTURE",
     image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85",
+      "/product/datacenter.jpg",
     imageAlt: "Enterprise data center server infrastructure",
     features: [
       "Data center infrastructure",
@@ -46,7 +46,7 @@ const hardwareItems = [
     icon: FiMonitor,
     eyebrow: "BUSINESS COMPUTING",
     image:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=85",
+      "/product/laptop.jpg",
     imageAlt: "Laptop and professional computing equipment",
     features: [
       "Enterprise server systems",
@@ -64,7 +64,7 @@ const hardwareItems = [
     icon: FiShield,
     eyebrow: "NETWORK DEFENCE",
     image:
-      "https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&w=1200&q=85",
+      "/product/firewall.jpg",
     imageAlt: "Enterprise network infrastructure",
     features: [
       "Firewall deployment",
@@ -82,7 +82,7 @@ const hardwareItems = [
     icon: FiShield,
     eyebrow: "DIGITAL PROTECTION",
     image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=85",
+      "/product/cybersecurity.jpg",
     imageAlt: "Digital security technology",
     features: [
       "Endpoint protection",

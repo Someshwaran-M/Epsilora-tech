@@ -15,6 +15,21 @@ import {
 } from "react-icons/fi";
 
 const Contact = () => {
+  const handleEnquirySubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+    const subject = encodeURIComponent("Website enquiry from " + formData.get("name"));
+    const body = encodeURIComponent(
+      `Name: ${formData.get("name")}\nEmail: ${formData.get("email")}\nPhone: ${formData.get("phone") || "Not provided"}\nCompany: ${formData.get("company") || "Not provided"}\nRequirement: ${formData.get("requirement") || "Not provided"}\n\nMessage:\n${formData.get("message") || "Not provided"}`
+    );
+
+    window.location.href = `mailto:info@epsilora.com?subject=${subject}&body=${body}`;
+  };
+
   const contactDetails = [
     {
       icon: <FiPhone />,
@@ -530,7 +545,7 @@ const Contact = () => {
             </div>
 
 
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleEnquirySubmit}>
 
               {/* NAME */}
 
@@ -552,6 +567,8 @@ const Contact = () => {
 
                 <input
                   type="text"
+                  name="name"
+                  required
                   placeholder="Enter your name"
                   className="
                     w-full
@@ -593,6 +610,8 @@ const Contact = () => {
 
                   <input
                     type="email"
+                    name="email"
+                    required
                     placeholder="name@company.com"
                     className="
                       w-full
@@ -628,6 +647,7 @@ const Contact = () => {
 
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="+91"
                     className="
                       w-full
@@ -668,6 +688,7 @@ const Contact = () => {
 
                 <input
                   type="text"
+                  name="company"
                   placeholder="Company name"
                   className="
                     w-full
@@ -718,6 +739,8 @@ const Contact = () => {
                     bg-white
                     transition
                   "
+                  name="requirement"
+                  required
                   defaultValue=""
                 >
 
@@ -758,6 +781,8 @@ const Contact = () => {
 
                 <textarea
                   rows="5"
+                  name="message"
+                  required
                   placeholder="Tell us about your requirement..."
                   className="
                     w-full

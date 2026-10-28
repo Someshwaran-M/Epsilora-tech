@@ -58,19 +58,19 @@ const Footer = () => {
   const solutionLinks = [
     {
       name: "Cloud Solutions",
-      path: "/technology/solutions/cloud",
+      path: "/technology/solutions#cloud-solutions",
     },
     {
       name: "Data Center Solutions",
-      path: "/technology/solutions/datacenter",
+      path: "/technology/solutions#data-center-solutions",
     },
     {
       name: "Emerging Technology",
-      path: "/technology/solutions/emerging",
+      path: "/technology/solutions#emerging-technology",
     },
     {
       name: "Information & Cybersecurity",
-      path: "/technology/solutions/information-cyber",
+      path: "/technology/solutions#information-cyber-security",
     },
   ];
 

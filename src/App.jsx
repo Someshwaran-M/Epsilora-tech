@@ -1,5 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      const resetTimers = [0, 50, 150].map((delay) =>
+        window.setTimeout(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        }, delay)
+      );
+      return () => resetTimers.forEach((timer) => window.clearTimeout(timer));
+    }
+
+    const targetId = decodeURIComponent(hash.slice(1));
+    const scrollTimers = [0, 50, 150, 500].map((delay) =>
+      window.setTimeout(() => {
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: "auto", block: "start" });
+        }
+      }, delay)
+    );
+
+    return () => scrollTimers.forEach((timer) => window.clearTimeout(timer));
+  }, [pathname, hash]);
+
+  return null;
+};
 
 // Layout Components
 import Navbar from "./components/layout/Navbar";
@@ -51,6 +81,8 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
+
       {/* Navbar */}
       <Navbar />
 

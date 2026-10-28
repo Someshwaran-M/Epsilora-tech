@@ -105,7 +105,7 @@ const Datastorage = () => {
             cyber-hero-background
             absolute
             inset-0
-            bg-[url('/datastorage.png')]
+            bg-[url('/product/datacenter.jpg')]
             bg-cover
             bg-center
             bg-no-repeat
