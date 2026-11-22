@@ -9,7 +9,7 @@ const partners = [
   { name: "Radware", logo: "radware.jpg", category: "Network Security" },
   { name: "Hitachi Vantara", logo: "hitachi-vantara.jpg", category: "Infrastructure" },
   { name: "Securonix", logo: "securonix.jpg", category: "Cyber Security" },
-  { name: "Nutanix", logo: "nutanix.jpg", category: "Cloud & Infrastructure" },
+  { name: "Rediffmail", logo: "rediffmail.png", category: "Email & Communication" },
   { name: "Netskope", logo: "netskope.png", category: "Cloud Security" },
   { name: "Forescout", logo: "forescout.jpg", category: "Network Security" },
   { name: "Keysight", logo: "keysight.jpg", category: "Network Testing" },
