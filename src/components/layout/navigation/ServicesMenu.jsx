@@ -1,4 +1,3 @@
-
 import React from "react";
 import { FiChevronDown, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -33,6 +32,12 @@ const ServicesMenu = ({
       description:
         "Cybersecurity solutions, threat monitoring and business data protection.",
       link: "/technology/services#cyber-security",
+    },
+    {
+      title: "Solar Panel Consulting",
+      description:
+        "Solar energy consulting, system planning, energy assessments and sustainable power solutions.",
+      link: "/technology/services#solar-panel-consulting",
     },
   ];
 
